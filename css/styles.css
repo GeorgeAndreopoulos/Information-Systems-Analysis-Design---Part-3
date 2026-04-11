@@ -271,3 +271,111 @@ body {
 .text-orange {
     color: #da6d13 !important; /* Αυτό είναι ένα πολύ έντονο και καθαρό πορτοκαλί */
 }
+/* =========================================
+   Οθόνες Κωλυμάτων & Διαθεσιμότητας
+   ========================================= */
+
+/* Προσομοιωτής Ρόλων (Tabs) */
+.role-simulator-tabs .nav-link {
+    color: var(--brand-grey);
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.role-simulator-tabs .nav-link.active {
+    background-color: var(--brand-green);
+    color: white;
+    box-shadow: 0 4px 10px rgba(142, 181, 44, 0.3);
+}
+
+/* Διαδραστικό Ημερολόγιο */
+.timetable-grid th {
+    background-color: #f8f9fa;
+    color: var(--brand-grey);
+    text-align: center;
+}
+.timetable-grid td.time-cell {
+    font-weight: bold;
+    background-color: #f8f9fa;
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+}
+.timetable-grid td.clickable-cell {
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    height: 50px;
+    border: 1px solid #dee2e6;
+}
+.timetable-grid td.clickable-cell:hover {
+    background-color: #f0f4e6;
+}
+.timetable-grid td.clickable-cell:active {
+    transform: scale(0.95);
+}
+
+/* Κατάσταση Κελιών */
+/* Καθηγητής: Διαθέσιμος (Πράσινο) */
+.timetable-grid td.cell-available {
+    background-color: var(--brand-green) !important;
+    border-color: #7a9c25 !important;
+}
+.timetable-grid td.time-cell {
+    font-weight: bold;
+    background-color: #f8f9fa;
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+    /* Μείωση μεγέθους εδώ: */
+    font-size: 0.85rem; 
+    padding: 5px;
+}
+/* Μαθητής: Μη Διαθέσιμος (Κόκκινο) */
+.timetable-grid td.cell-unavailable {
+    background-color: #dc3545 !important;
+    border-color: #b02a37 !important;
+}
+/* Ανενεργή Στήλη (π.χ. Σάββατο) */
+.timetable-grid td.cell-disabled {
+    background-color: #e9ecef !important;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Διακόπτες (Switches) */
+.form-switch .form-check-input:checked {
+    background-color: var(--brand-green);
+    border-color: var(--brand-green);
+}
+/* --- Εστίαση (Focus) σε όλα τα πεδία φόρμας (Inputs & Dropdowns) --- */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--brand-green);
+    box-shadow: 0 0 0 0.25rem rgba(142, 181, 44, 0.25); /* Απαλή πράσινη λάμψη */
+}
+/* --- Πράσινο Φόντο στις επιλογές του Dropdown --- */
+
+/* Αλλαγή χρώματος στο hover και στην επιλογή (για υποστηριζόμενους browsers) */
+.form-select option:hover,
+.form-select option:focus,
+.form-select option:active,
+.form-select option:checked {
+    background-color: var(--brand-green) !important;
+    color: white !important;
+}
+
+/* Ειδικό "κόλπο" για να επιβάλλουμε το πράσινο χρώμα στην επιλεγμένη επιλογή */
+select.form-select option:checked {
+    box-shadow: 0 0 10px 100px var(--brand-green) inset !important;
+    color: white !important;
+}
+/* Όταν το κελί είναι clickable, να δείχνει το χεράκι */
+.clickable-cell {
+    cursor: pointer !important;
+}
+
+/* Όταν είναι disabled, να δείχνει απαγόρευση */
+.cell-disabled {
+    cursor: not-allowed !important;
+}

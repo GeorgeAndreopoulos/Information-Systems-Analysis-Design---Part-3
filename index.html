@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Διατριβή Φροντιστήριο - Αρχική Οθόνη</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+            <img src="images/diatrivi-logo.png" alt="Λογότυπο Φροντιστηρίου Διατριβή" height="50">
+            </a>
+            <div class="d-flex align-items-center">
+                <span class="me-3 text-muted">Έχετε συνδεθεί ως: <strong>Διαχειριστής</strong></span>
+                <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-box-arrow-right"></i> Αποσύνδεση</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container hero-section">
+        
+        <div class="row mb-5 text-center">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-6 fw-bold mb-3" style="color: var(--brand-grey);">Κεντρικό Σύστημα Διαχείρισης</h1>
+                <p class="lead text-muted">Καλωσορίσατε στο ψηφιακό περιβάλλον του φροντιστηρίου. Επιλέξτε μία από τις παρακάτω βασικές λειτουργίες για να ξεκινήσετε.</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            
+            <div class="col-md-6">
+                <div class="card feature-card p-4 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-person-plus card-icon"></i>
+                        <h4 class="card-title fw-bold">Νέα Καρτέλα Χρήστη</h4>
+                        <p class="card-text text-muted mb-4">Δημιουργία νέας καρτέλας μαθητή ή καθηγητή στο σύστημα με τα απαραίτητα προσωπικά και ακαδημαϊκά στοιχεία.</p>
+                        <a href="pages/CreateUserProfile/createUser.html" class="btn btn-brand w-100">Μετάβαση <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card feature-card p-4 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-clock-history card-icon"></i>
+                        <h4 class="card-title fw-bold">Δήλωση Περιορισμών</h4>
+                        <p class="card-text text-muted mb-4">Ψηφιακή καταχώρηση περιορισμών και διαθεσιμότητας για την τροφοδότηση του αλγορίθμου.</p>
+                        <a href="pages/RegisterAvailabilityAndConstraints/studentConstraints.html" class="btn btn-brand w-100">Μετάβαση <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card feature-card p-4 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-clipboard2-data card-icon"></i>
+                        <h4 class="card-title fw-bold">Αξιολόγηση Μαθητών</h4>
+                        <p class="card-text text-muted mb-4">Καταγραφή και ενημέρωση του μαθησιακού και συμπεριφορικού προφίλ των μαθητών από τους αξιολογητές.</p>
+                        <a href="pages/RecordAcademicProfile/academicProfile.html" class="btn btn-brand w-100">Μετάβαση <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card feature-card p-4 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-calendar-week card-icon"></i>
+                        <h4 class="card-title fw-bold">Παραγωγή Προγράμματος</h4>
+                        <p class="card-text text-muted mb-4">Εκκίνηση του αλγορίθμου βελτιστοποίησης, επισκόπηση στατιστικών και οριστικοποίηση ωρολογίου προγράμματος.</p>
+                        <a href="pages/GenerateSchedule/schedulingDashboard.html" class="btn btn-brand w-100">Μετάβαση <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

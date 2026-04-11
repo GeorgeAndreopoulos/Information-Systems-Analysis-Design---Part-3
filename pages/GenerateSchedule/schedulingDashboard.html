@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Πίνακας Ελέγχου Αλγορίθμου - Διατριβή</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="../../css/styles.css">
+
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../../index.html">
+                <i class="bi bi-box-arrow-in-left"></i> Επιστροφή στην Αρχική
+            </a>
+        </div>
+    </nav>
+
+    <div class="container pb-5">
+        
+        <div class="mb-5">
+            <h2 class="fw-bold" style="color: var(--brand-grey);">Πίνακας Ελέγχου Αλγορίθμου</h2>
+            <p class="text-muted">Επισκόπηση δεδομένων και εκκίνηση μηχανισμού αυτόματης παραγωγής προγράμματος.</p>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-3">
+                <div class="card text-center p-3 h-100">
+                    <div class="text-muted small fw-bold">ΕΝΕΡΓΟΙ ΜΑΘΗΤΕΣ</div>
+                    <div class="stat-number">450</div>
+                    <i class="bi bi-people text-muted"></i>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center p-3 h-100">
+                    <div class="text-muted small fw-bold">ΔΙΑΘΕΣΙΜΟΙ ΚΑΘΗΓΗΤΕΣ</div>
+                    <div class="stat-number">65</div>
+                    <i class="bi bi-person-video3 text-muted"></i>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center p-3 h-100">
+                    <div class="text-muted small fw-bold">HARD CONSTRAINTS</div>
+                    <div class="stat-number text-danger">1.200</div>
+                    <i class="bi bi-shield-lock text-muted"></i>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center p-3 h-100">
+                    <div class="text-muted small fw-bold">SOFT CONSTRAINTS</div>
+                    <div class="stat-number text-warning">800</div>
+                    <i class="bi bi-sliders text-muted"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-5" id="actionButtonArea">
+            <button class="btn big-action-btn w-100 shadow-sm" id="startAlgoBtn">
+                <i class="bi bi-lightning-charge-fill"></i>
+                Εκκίνηση Αλγορίθμου Βελτιστοποίησης
+            </button>
+            
+            <div id="loadingArea" class="d-none mt-4">
+                <h4 class="mb-3">Επίλυση περιορισμών σε εξέλιξη...</h4>
+                <div class="progress" style="height: 30px; border-radius: 15px;">
+                    <div id="mainProgressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
+                         role="progressbar" style="width: 0%">0%</div>
+                </div>
+                <p class="mt-2 text-muted italic">Ο αλγόριθμος αναζητά την βέλτιστη κατανομή τμημάτων...</p>
+            </div>
+        </div>
+
+        <div id="resultsArea" class="d-none">
+            <hr class="my-5">
+            <h3 class="fw-bold mb-4">Αναφορά Αποτελεσμάτων</h3>
+            
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="card p-4 h-100">
+                        <h5 class="fw-bold text-center mb-4">Δείκτες Επιτυχίας</h5>
+                        <div class="d-flex justify-content-around">
+                            <div class="text-center">
+                                <div class="stat-number text-success">100%</div>
+                                <div class="small fw-bold">Hard Constraints</div>
+                            </div>
+                            <div class="text-center border-start ps-4">
+                                <div class="stat-number" style="color: #fd7e14;">82%</div>
+                                <div class="small fw-bold">Soft Constraints</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="report-box h-100">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-clipboard-check me-2"></i>Διαγνωστική Αναφορά</h5>
+                        <p class="mb-0 text-muted">
+                            Ο αλγόριθμος ολοκληρώθηκε με επιτυχία. <strong>18 ελαστικοί περιορισμοί</strong> αγνοήθηκαν για να επιτευχθεί η μέγιστη δυνατή ομοιογένεια στα τμήματα.
+                        </p>
+                        <ul class="mt-2 small text-muted">
+                            <li>Βελτιστοποίηση αιθουσών: 94%</li>
+                            <li>Κενά καθηγητών: Ελαχιστοποιήθηκαν</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end gap-3 border-top pt-4">
+                <button class="btn btn-outline-danger px-5 py-2 fw-bold" onclick="location.reload()">
+                    <i class="bi bi-trash me-2"></i>Απόρριψη Προσχεδίου
+                </button>
+                <button class="btn btn-brand px-5 py-2 fw-bold shadow">
+                    <i class="bi bi-check2-circle me-2"></i>Αποθήκευση Προσχεδίου
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const startBtn = document.getElementById('startAlgoBtn');
+        const loadingArea = document.getElementById('loadingArea');
+        const progressBar = document.getElementById('mainProgressBar');
+        const resultsArea = document.getElementById('resultsArea');
+
+        startBtn.addEventListener('click', function() {
+            // 1. Εμφάνιση Loading State
+            startBtn.classList.add('d-none');
+            loadingArea.classList.remove('d-none');
+
+            // 2. Προσομοίωση φόρτωσης (Progress Bar)
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.floor(Math.random() * 15) + 5;
+                if (progress > 100) progress = 100;
+                
+                progressBar.style.width = progress + '%';
+                progressBar.innerText = progress + '%';
+
+                if (progress === 100) {
+                    clearInterval(interval);
+                    setTimeout(showResults, 800);
+                }
+            }, 400);
+        });
+
+        function showResults() {
+            loadingArea.classList.add('d-none');
+            resultsArea.classList.remove('d-none');
+            // Αυτόματο scroll στα αποτελέσματα
+            resultsArea.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

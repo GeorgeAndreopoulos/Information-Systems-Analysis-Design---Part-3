@@ -150,3 +150,62 @@ body {
     border-color: var(--brand-green);
     box-shadow: 0 0 0 0.25rem rgba(142, 181, 44, 0.25);
 }
+
+/* =========================================
+   Ειδικά Styles για το Dashboard Αλγορίθμου
+   ========================================= */
+
+/* Στατιστικά και Δακτύλιοι */
+.stat-number { 
+    font-size: 2.5rem; 
+    font-weight: 800; 
+    color: var(--brand-green); 
+}
+
+.progress-ring-container { 
+    width: 150px; 
+    height: 150px; 
+    margin: 0 auto; 
+}
+
+/* Μεγάλο Κουμπί Εκκίνησης (Action Area) */
+#actionButtonArea { 
+    transition: all 0.5s ease; 
+}
+
+.big-action-btn {
+    padding: 3rem;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 3px dashed var(--brand-green);
+    background: white;
+    color: var(--brand-grey);
+    transition: 0.3s;
+}
+
+.big-action-btn:hover {
+    background: #f0f4e6;
+    transform: scale(1.02);
+    border-style: solid;
+}
+
+.big-action-btn i { 
+    font-size: 3rem; 
+    color: var(--brand-green); 
+    display: block; 
+    margin-bottom: 1rem; 
+}
+
+/* Κουτί Αναφοράς (Report Box) */
+.report-box {
+    background-color: #fff;
+    border-left: 5px solid var(--brand-green);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.report-box.error { 
+    border-left-color: #dc3545; 
+    background-color: #fff5f5; 
+}

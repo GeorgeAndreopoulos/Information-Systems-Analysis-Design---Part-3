@@ -514,10 +514,17 @@
             });
         });
 
-        function clearTable() {
-            document.querySelectorAll('.teacher-cell').forEach(c => c.classList.remove('cell-available'));
+        function clearTable(cls) {
+            document.querySelectorAll('.'+cls).forEach(c => {
+                c.classList.remove('cell-available', 'cell-unavailable');
+                c.innerText = ""; 
+            });
+            if(cls === 'student-cell') {
+                document.getElementById('justificationList').innerHTML = "";
+                document.getElementById('justificationCard').classList.add('d-none');
+                document.getElementById('studentComments').value = ""; 
+            }
         }
-
         renderTables();
     </script>
 

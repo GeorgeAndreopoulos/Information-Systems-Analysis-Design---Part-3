@@ -211,7 +211,11 @@
                     <div class="card-body bg-light">
                         <div id="roomsContainer" class="row g-2">
                             
-                            <div class="col-md-6 col-xl-4 room-row"><div class="d-flex gap-1 bg-white p-2 border rounded shadow-sm"><input type="text" class="form-control form-control-sm" value="Αίθουσα Υ1" placeholder="Όνομα..."><select class="form-select form-select-sm" style="width: 140px;"><option selected>Υπόγειο</option><option>Ισόγειο</option><option>1ος Όροφος</option><option>2ος Όροφος</option></select><input type="number" class="form-control form-control-sm text-center" value="5" style="width: 60px;" title="Χωρητικότητα"><button class="btn btn-outline-danger btn-sm delete-room"><i class="bi bi-trash"></i></button></div></div>
+                            <div class="col-md-6 col-xl-4 room-row">
+                            <div class="d-flex gap-1 bg-white p-2 border rounded shadow-sm">
+                            <input type="text" class="form-control form-control-sm" value="Αίθουσα Υ1" placeholder="Όνομα...">
+                            <select class="form-select form-select-sm" style="width: 140px;">
+                            <option selected>Υπόγειο</option><option>Ισόγειο</option><option>1ος Όροφος</option><option>2ος Όροφος</option></select><input type="number" class="form-control form-control-sm text-center" value="5" style="width: 60px;" title="Χωρητικότητα"><button class="btn btn-outline-danger btn-sm delete-room"><i class="bi bi-trash"></i></button></div></div>
                             <div class="col-md-6 col-xl-4 room-row"><div class="d-flex gap-1 bg-white p-2 border rounded shadow-sm"><input type="text" class="form-control form-control-sm" value="Αίθουσα Υ2" placeholder="Όνομα..."><select class="form-select form-select-sm" style="width: 140px;"><option selected>Υπόγειο</option><option>Ισόγειο</option><option>1ος Όροφος</option><option>2ος Όροφος</option></select><input type="number" class="form-control form-control-sm text-center" value="5" style="width: 60px;" title="Χωρητικότητα"><button class="btn btn-outline-danger btn-sm delete-room"><i class="bi bi-trash"></i></button></div></div>
                             <div class="col-md-6 col-xl-4 room-row"><div class="d-flex gap-1 bg-white p-2 border rounded shadow-sm"><input type="text" class="form-control form-control-sm" value="Αίθουσα Υ3" placeholder="Όνομα..."><select class="form-select form-select-sm" style="width: 140px;"><option selected>Υπόγειο</option><option>Ισόγειο</option><option>1ος Όροφος</option><option>2ος Όροφος</option></select><input type="number" class="form-control form-control-sm text-center" value="5" style="width: 60px;" title="Χωρητικότητα"><button class="btn btn-outline-danger btn-sm delete-room"><i class="bi bi-trash"></i></button></div></div>
                             <div class="col-md-6 col-xl-4 room-row"><div class="d-flex gap-1 bg-white p-2 border rounded shadow-sm"><input type="text" class="form-control form-control-sm" value="Αίθουσα Υ4" placeholder="Όνομα..."><select class="form-select form-select-sm" style="width: 140px;"><option selected>Υπόγειο</option><option>Ισόγειο</option><option>1ος Όροφος</option><option>2ος Όροφος</option></select><input type="number" class="form-control form-control-sm text-center" value="5" style="width: 60px;" title="Χωρητικότητα"><button class="btn btn-outline-danger btn-sm delete-room"><i class="bi bi-trash"></i></button></div></div>
@@ -248,7 +252,7 @@
             <div class="tab-pane fade" id="teacher-tab" role="tabpanel">
                 <div class="mb-4">
                     <h2 class="fw-bold" style="color: var(--brand-grey);">Το Πρόγραμμά μου & Διαθεσιμότητα</h2>
-                    <p class="text-muted">Επιλέξτε με κλικ τις ώρες που είστε <strong>διαθέσιμοι</strong> (πράσινο).</p>
+                    <p class="text-muted">Επιλέξτε με κλικ τις ώρες που είστε <strong>διαθέσιμοι</strong> να διδάξετε μαθήματα.</p>
                 </div>
 
                 <div class="card shadow-sm border-0 mb-4">
@@ -263,7 +267,13 @@
                         <table class="table table-bordered mb-0 timetable-grid" id="teacherTable">
                             <thead>
                                 <tr>
-                                    <th>Ώρα</th><th>Δευτέρα</th><th>Τρίτη</th><th>Τετάρτη</th><th>Πέμπτη</th><th>Παρασκευή</th><th class="sat-col">Σάββατο</th>
+                                    <th>Ώρα</th>
+                                    <th>Δευτέρα</th>
+                                    <th>Τρίτη</th>
+                                    <th>Τετάρτη</th>
+                                    <th>Πέμπτη</th>
+                                    <th>Παρασκευή</th>
+                                    <th class="sat-col">Σάββατο</th>
                                 </tr>
                             </thead>
                             <tbody id="teacherBody">
@@ -311,7 +321,7 @@
             <div class="tab-pane fade" id="student-tab" role="tabpanel">
                 <div class="mb-4">
                     <h2 class="fw-bold" style="color: var(--brand-grey);">Δήλωση Περιορισμών</h2>
-                    <p class="text-muted">Επιλέξτε τις ώρες που <strong>ΔΕΝ</strong> μπορείτε (κόκκινο).</p>
+                    <p class="text-muted">Επιλέξτε τις ώρες που <strong>ΔΕΝ</strong> μπορείτε να έχετε μαθήματα.</p>
                 </div>
 
                 <div class="card shadow-sm border-0 mb-4">
@@ -319,7 +329,13 @@
                         <table class="table table-bordered mb-0 timetable-grid" id="studentTable">
                             <thead>
                                 <tr>
-                                    <th>Ώρα</th><th>Δευτέρα</th><th>Τρίτη</th><th>Τετάρτη</th><th>Πέμπτη</th><th>Παρασκευή</th><th>Σάββατο</th>
+                                    <th>Ώρα</th>
+                                    <th>Δευτέρα</th>
+                                    <th>Τρίτη</th>
+                                    <th>Τετάρτη</th>
+                                    <th>Πέμπτη</th>
+                                    <th>Παρασκευή</th>
+                                    <th>Σάββατο</th>
                                 </tr>
                             </thead>
                             <tbody id="studentBody">
@@ -329,7 +345,7 @@
                 </div>
 
                 <div id="justificationCard" class="card shadow-sm border-0 mb-4 d-none">
-                    <div class="card-header py-2 bg-white small fw-bold">Αιτιολόγηση Κωλυμάτων</div>
+                    <div class="card-header py-2 bg-white small fw-bold">Αιτιολόγηση Περιορισμού</div>
                     <div class="card-body py-2" id="justificationList"></div>
                 </div>
 
@@ -345,14 +361,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // 1. ΟΡΙΣΜΟΣ ΤΩΝ ΩΡΩΝ (Πρέπει να είναι στην αρχή)
         const times = [
             "09:30-10:30", "10:30-11:30", "11:30-12:30", "12:30-13:30", 
             "13:30-14:30", "14:30-15:30", "15:30-16:30", "16:30-17:30", 
             "17:30-18:30", "18:30-19:30", "19:30-20:30", "20:30-21:30", "21:30-22:30"
         ];
 
-        // 2. ΣΥΝΑΡΤΗΣΗ ΠΟΥ "ΧΤΙΖΕΙ" ΤΟΥΣ ΠΙΝΑΚΕΣ
         function renderTables() {
             const tBody = document.getElementById('teacherBody');
             const sBody = document.getElementById('studentBody');
@@ -399,17 +413,74 @@
             return ["Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο"][i];
         }
 
-        // 3. ΕΝΕΡΓΟΠΟΙΗΣΗ ΚΛΙΚ
+        // 3. ΕΝΕΡΓΟΠΟΙΗΣΗ ΚΛΙΚ & ΑΛΛΗΛΕΠΙΔΡΑΣΗΣ
         function initInteractions() {
+            // --- ΛΟΓΙΚΗ ΚΑΘΗΓΗΤΗ ---
             document.querySelectorAll('.teacher-cell').forEach(cell => {
                 cell.addEventListener('click', function() {
                     if(this.classList.contains('cell-disabled')) return;
                     this.classList.toggle('cell-available');
                 });
             });
-            // (Εδώ μπορείς να προσθέσεις αντίστοιχα για student-cell αν το χρειαστείς)
-        }
 
+            // --- ΛΟΓΙΚΗ ΜΑΘΗΤΗ ---
+            const jCard = document.getElementById('justificationCard');
+            const jList = document.getElementById('justificationList');
+
+            document.querySelectorAll('.student-cell').forEach(cell => {
+                cell.addEventListener('click', function() {
+                    // Αν το κελί είναι μόνιμα κλειστό (γκρι), μην κάνεις τίποτα
+                    if(this.classList.contains('cell-disabled')) return;
+
+                    this.classList.toggle('cell-unavailable');
+                    const info = this.getAttribute('data-info');
+                    // Δημιουργούμε ένα μοναδικό ID για τη γραμμή αιτιολόγησης βασισμένο στην ώρα/μέρα
+                    const safeId = "j-" + info.replace(/[:\s-]/g, "");
+
+                    if (this.classList.contains('cell-unavailable')) {
+                        // Προσθήκη γραμμής στην κάρτα αιτιολόγησης
+                        const div = document.createElement('div');
+                        div.id = safeId;
+                        div.className = "row mb-2 align-items-center animate-fadeIn";
+                        div.innerHTML = `
+                            <div class="col-5 small fw-bold text-danger" style="font-size:0.75rem;">
+                                <i class="bi bi-exclamation-circle me-1"></i>${info}
+                            </div>
+                            <div class="col-7">
+                                <select class="form-select form-select-sm select-justification" style="font-size:0.7rem;" data-target-info="${info}">
+                                    <option value="" disabled selected>Επιλέξτε λόγο...</option>
+                                    <option value="Σχολείο">Σχολικό Ωράριο </option>
+                                    <option value="Σχέδιο">Γραμμικό & Ελεύθερο Σχέδιο </option>
+                                    <option value="Ξένες Γλώσσες">Φροντιστήριο Ξένων Γλωσσών </option>
+                                    <option value="Αθλητισμός">Αθλητικές Δραστηριότητες </option>
+                                    <option value="Ωδείο">Ωδείο / Τέχνες </option>
+                                    <option value="Άλλο">Άλλη Δραστηριότητα</option>
+                                </select>
+                            </div>`;
+                        jList.appendChild(div);
+
+                        // Λειτουργία: Όταν αλλάζει το Dropdown, ενημέρωσε το κείμενο μέσα στο κελί
+                        const select = div.querySelector('select');
+                        select.addEventListener('change', function() {
+                            cell.innerText = this.value; // Γράφει π.χ. "Σχολείο" μέσα στο κόκκινο κουτάκι
+                            cell.style.color = "white";
+                            cell.style.fontWeight = "bold";
+                            cell.style.fontSize = "0.9rem";
+                            cell.style.textAlign = "center";
+                        });
+
+                    } else {
+                        // Αν ο μαθητής ξε-κλικάρει το κελί (γίνει πάλι λευκό)
+                        const el = document.getElementById(safeId);
+                        if(el) el.remove();
+                        cell.innerText = ""; // Σβήνει το κείμενο από το κελί
+                    }
+
+                    // Εμφάνιση/Απόκρυψη της κάρτας αν υπάρχουν αιτιολογίες
+                    if(jCard) jCard.classList.toggle('d-none', jList.children.length === 0);
+                });
+            });
+        }
         // 4. ΔΙΑΚΟΠΤΗΣ ΣΑΒΒΑΤΟΥ (Διορθωμένος)
         document.getElementById('saturdayToggle').addEventListener('change', function() {
             const isEnabled = this.checked;

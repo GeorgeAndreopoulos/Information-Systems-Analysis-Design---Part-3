@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Αξιολόγηση Μαθητή - Διατριβή</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../../index.html" style="color: var(--brand-grey);">
+                <i class="bi bi-box-arrow-in-left"></i> Επιστροφή στην Αρχική
+            </a>
+        </div>
+    </nav>
+
+    <div class="container pb-5">
+        
+        <div class="mb-4">
+            <h2 class="fw-bold" style="color: var(--brand-grey);">Καταγραφή Ακαδημαϊκού Προφίλ</h2>
+            <p class="text-muted">Αξιολόγηση γνωστικού και ψυχομετρικού υποβάθρου μαθητή.</p>
+        </div>
+
+        <div class="search-area">
+            <label class="form-label fw-bold">Αναζήτηση Μαθητή</label>
+            <div class="input-group search-input-group">
+                <input type="text" class="form-control shadow-none" id="searchInput" placeholder="Πληκτρολογήστε Επώνυμο ή Ονοματεπώνυμο...">
+                <button class="btn btn-brand" type="button" id="searchBtn">
+                    <i class="bi bi-search me-2"></i>Εύρεση
+                </button>
+            </div>
+            <div class="text-muted small mt-2 ms-3">
+                <i class="bi bi-info-circle me-1"></i>Πληκτρολογήστε π.χ. "Παπαδόπουλος" και πατήστε Εύρεση.
+            </div>
+        </div>
+
+        <div id="evaluationFormArea" class="d-none">
+            
+            <div id="successAlert" class="alert alert-success d-none shadow-sm mb-4" role="alert">
+                <i class="bi bi-check-circle-fill me-2"></i> Η αξιολόγηση καταχωρήθηκε επιτυχώς!
+            </div>
+
+            <form id="evaluationForm">
+                
+                <div class="student-profile-card p-3 mb-4 d-flex align-items-center">
+                    <div class="me-4 text-center">
+                        <i class="bi bi-person-circle text-muted" style="font-size: 3rem;"></i>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold mb-1" style="color: var(--brand-grey);" id="studentNameDisplay">Παπαδόπουλος Γιώργος</h4>
+                        <span class="badge bg-secondary me-2">Γ' Λυκείου</span>
+                        <span class="badge" style="background-color: var(--brand-green);">Κατεύθυνση Θετικών Σπουδών</span>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header py-3"><i class="bi bi-bar-chart me-2"></i> Ακαδημαϊκοί Δείκτες</div>
+                    <div class="card-body">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <label class="form-label">Βαθμός Σχολείου </label>
+                                <input type="number" class="form-control" min="0" max="20">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Βαθμός Διαγνωστικού Test <span class="required-asterisk">*</span></label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" placeholder="0-100" min="0" max="100" required>
+                                    <span class="input-group-text">%</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Στόχος Πανελλαδικών <span class="required-asterisk">*</span></label>
+                                <input type="number" class="form-control" min="0" max="20" required>
+                            </div>
+                        </div>
+                        <div class="row g-4 mt-1">
+                            <div class="col-md-6">
+                                <label class="form-label">Συνέπεια Μελέτης & Εργασιών <span class="required-asterisk">*</span></label>
+                                <select class="form-select" required>
+                                    <option value="" disabled selected>Επιλέξτε...</option>
+                                    <option>Ανεπαρκής (Αμελής)</option>
+                                    <option>Μέτρια (Ασταθής)</option>
+                                    <option>Καλή (Προσπαθεί)</option>
+                                    <option>Άριστη (Εργατικός)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Γνωστικό Υπόβαθρο / Κενά <span class="required-asterisk">*</span></label>
+                                <select class="form-select" required>
+                                    <option value="" disabled selected>Επιλέξτε...</option>
+                                    <option>Σημαντικά Κενά</option>
+                                    <option>Βασικές Ελλείψεις</option>
+                                    <option>Ικανοποιητικό</option>
+                                    <option>Ισχυρό Υπόβαθρο</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header py-3"><i class="bi bi-sliders me-2"></i> Συμπεριφορικό / Ψυχομετρικό Προφίλ</div>
+                    <div class="card-body">
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label class="form-label fw-bold mb-0">Ταχύτητα Αφομοίωσης</label>
+                                    <span class="badge rounded-pill" style="background-color: var(--brand-green); font-size: 0.9rem;" id="valPace">3</span>
+                                </div>
+                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3" oninput="document.getElementById('valPace').innerText = this.value">
+                                <div class="slider-labels">
+                                    <span>Χρειάζεται επαναλήψεις</span>
+                                    <span>Αφομοιώνει ταχύτατα</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label class="form-label fw-bold mb-0">Συμμετοχικότητα</label>
+                                    <span class="badge rounded-pill" style="background-color: var(--brand-green); font-size: 0.9rem;" id="valExtro">3</span>
+                                </div>
+                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3" oninput="document.getElementById('valExtro').innerText = this.value">
+                                <div class="slider-labels">
+                                    <span>Διστακτικός</span>
+                                    <span>Πολύ Ενεργός</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label class="form-label fw-bold mb-0">Διαχείριση Άγχους</label>
+                                    <span class="badge rounded-pill" style="background-color: var(--brand-green); font-size: 0.9rem;" id="valStress">3</span>
+                                </div>
+                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3" oninput="document.getElementById('valStress').innerText = this.value">
+                                <div class="slider-labels">
+                                    <span>Πανικοβάλλεται εύκολα</span>
+                                    <span>Απόλυτα ψύχραιμος</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label class="form-label fw-bold mb-0">Ομαδικότητα</label>
+                                    <span class="badge rounded-pill" style="background-color: var(--brand-green); font-size: 0.9rem;" id="valTeam">3</span>
+                                </div>
+                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3" oninput="document.getElementById('valTeam').innerText = this.value">
+                                <div class="slider-labels">
+                                    <span>Προτιμά ατομική δουλειά</span>
+                                    <span>Συνεργάζεται άψογα</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label class="form-label fw-bold mb-0">Διάρκεια Συγκέντρωσης</label>
+                                    <span class="badge rounded-pill" style="background-color: var(--brand-green); font-size: 0.9rem;" id="valFocus">3</span>
+                                </div>
+                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3" oninput="document.getElementById('valFocus').innerText = this.value">
+                                <div class="slider-labels">
+                                    <span>Διασπάται εύκολα</span>
+                                    <span>Απόλυτα προσηλωμένος</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label class="form-label fw-bold mb-0">Μεθοδικότητα / Οργάνωση Γραπτού</label>
+                                    <span class="badge rounded-pill" style="background-color: var(--brand-green); font-size: 0.9rem;" id="valMethod">3</span>
+                                </div>
+                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3" oninput="document.getElementById('valMethod').innerText = this.value">
+                                <div class="slider-labels">
+                                    <span>Ανοργάνωτος / Πρόχειρος</span>
+                                    <span>Απόλυτα Μεθοδικός</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header py-3"><i class="bi bi-chat-left-text me-2"></i> Γενικές Παρατηρήσεις</div>
+                    <div class="card-body">
+                        <textarea class="form-control mb-3" rows="3" placeholder="Σημειώστε οτιδήποτε άλλο κρίνετε σημαντικό για τον μαθητή..."></textarea>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="changeClassCheck">
+                            <label class="form-check-label text-orange fw-bold" for="changeClassCheck">
+                                <i class="bi bi-exclamation-triangle-fill me-1"></i> Εισήγηση για αλλαγή τμήματος
+                            </label>
+                            <div class="small text-muted ms-4">Επιλέξτε το αν θεωρείτε ότι ο μαθητής δεν ταιριάζει με τη δυναμική του τρέχοντος τμήματος.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end gap-2 border-top pt-4">
+                    <button type="button" class="btn btn-light border px-4" onclick="location.reload()">Ακύρωση</button>
+                    <button type="submit" class="btn btn-brand px-4 shadow-sm" id="saveEvalBtn">
+                        <i class="bi bi-save me-2"></i>Καταχώρηση Αξιολόγησης
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const formArea = document.getElementById('evaluationFormArea');
+        const nameDisplay = document.getElementById('studentNameDisplay');
+
+        // Προσομοίωση Αναζήτησης
+        function performSearch() {
+            const query = searchInput.value.trim();
+            if (query.length > 0) {
+                // Εμφανίζουμε τη φόρμα
+                formArea.classList.remove('d-none');
+                // Βάζουμε το όνομα που πληκτρολόγησε στην Κάρτα (για ρεαλισμό)
+                nameDisplay.innerText = query;
+                // Απενεργοποιούμε το search bar για να "κλειδώσει" ο χρήστης
+                searchInput.setAttribute('disabled', 'true');
+                searchBtn.setAttribute('disabled', 'true');
+            } else {
+                alert('Παρακαλώ πληκτρολογήστε όνομα ή επώνυμο.');
+            }
+        }
+
+        // Αναζήτηση με κλικ στο κουμπί ή με Enter
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Υποβολή της φόρμας
+        const evalForm = document.getElementById('evaluationForm');
+        const successAlert = document.getElementById('successAlert');
+
+        evalForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            // Κρύβουμε τη φόρμα και δείχνουμε το Alert
+            evalForm.classList.add('d-none');
+            successAlert.classList.remove('d-none');
+            
+            // Σκρολάρουμε πάνω για να δει το μήνυμα
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Επαναφορά της σελίδας μετά από 3 δευτερόλεπτα (σαν να τελείωσε και πάει στον επόμενο μαθητή)
+            setTimeout(() => {
+                location.reload();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

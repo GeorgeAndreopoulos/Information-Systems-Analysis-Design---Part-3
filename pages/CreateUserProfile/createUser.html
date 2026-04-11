@@ -271,9 +271,7 @@
                 document.getElementById('t-phone').setAttribute('required', 'true');
             }
         });
-        // ==========================================
         // ΔΥΝΑΜΙΚΑ ΜΑΘΗΜΑΤΑ ΚΑΘΗΓΗΤΗ ΒΑΣΕΙ ΕΙΔΙΚΟΤΗΤΑΣ
-        // ==========================================
         const specialtySelect = document.getElementById('specialtySelect');
         const teacherSubjectsContainer = document.getElementById('dynamicTeacherSubjectsContainer');
 
@@ -339,9 +337,8 @@
                 window.scrollTo(0, 0); 
             }, 3000);
         });
-        // ==========================================
+
         // ΕΞΥΠΝΑ ΜΑΘΗΜΑΤΑ ΒΑΣΕΙ ΤΑΞΗΣ & ΚΑΤΕΥΘΥΝΣΗΣ
-        // ==========================================
         const classSelect = document.getElementById('classSelect');
         const directionSelect = document.getElementById('directionSelect');
         const subjectsContainer = document.getElementById('dynamicSubjectsContainer');
@@ -409,7 +406,6 @@
         classSelect.addEventListener('change', updateSubjects);
         directionSelect.addEventListener('change', updateSubjects);
 
-        // Τρέχουμε μία φορά στην αρχή
         updateSubjects();
     </script>
 </body>

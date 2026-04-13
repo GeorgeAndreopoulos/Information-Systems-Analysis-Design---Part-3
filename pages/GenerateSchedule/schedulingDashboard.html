@@ -194,162 +194,82 @@
             'Α201','Α202','Α203','Α204','Α205','Α206'
         ];
 
-        const scheduleData = {
-            'Δευτέρα': [
-                {time:'15:30', room:'I1',  group:'ΓΥ2'},
-                {time:'15:30', room:'Α101',group:'ΓΟ1'},
-                {time:'15:30', room:'Α104',group:'ΓΟ2'},
-                {time:'15:30', room:'Α201',group:'ΓΟ3'},
-                {time:'16:30', room:'I2',  group:'ΓΟ4'},
-                {time:'16:30', room:'Α102',group:'ΓΟ5'},
-                {time:'16:30', room:'Υ3',  group:'γ1'},
-                {time:'17:30', room:'I3',  group:'Α1'},
-                {time:'17:30', room:'Α103',group:'Βθ1'},
-                {time:'17:30', room:'Α202',group:'ΓΘ1'},
-                {time:'18:30', room:'I4',  group:'Α2'},
-                {time:'18:30', room:'Α104',group:'Βθ2'},
-                {time:'18:30', room:'Α203',group:'ΓΘ2'},
-                {time:'19:30', room:'Υ1',  group:'Α3'},
-                {time:'19:30', room:'Υ2',  group:'ΒΥ1'},
-                {time:'19:30', room:'Α204',group:'ΓΘ3'},
-                {time:'20:30', room:'I1',  group:'Α4'},
-                {time:'20:30', room:'Υ3',  group:'ΒΥ2'},
-                {time:'20:30', room:'Α205',group:'ΓΟ1'},
-                {time:'21:30', room:'I2',  group:'Β3'},
-                {time:'21:30', room:'Α101',group:'ΒΟ1'},
-                {time:'21:30', room:'Α206',group:'ΓΟ2'},
-                {time:'22:30', room:'I3',  group:'ΒΟ2'},
-                {time:'22:30', room:'Α102',group:'ΓΥ1'}
-            ],
-            'Τρίτη': [
-                {time:'15:30', room:'I3',  group:'ΒΟ3'},
-                {time:'15:30', room:'I4',  group:'ΒΟ4'},
-                {time:'15:30', room:'Α205',group:'ΓΘ5'},
-                {time:'15:30', room:'Α202',group:'ΓΥ1'},
-                {time:'16:30', room:'Υ1',  group:'ΒΥ2'},
-                {time:'16:30', room:'Α101',group:'γ1'},
-                {time:'16:30', room:'Α206',group:'ΓΟ1'},
-                {time:'17:30', room:'I1',  group:'γ2'},
-                {time:'17:30', room:'Α102',group:'Α1'},
-                {time:'17:30', room:'Α203',group:'ΓΘ1'},
-                {time:'18:30', room:'I2',  group:'Α2'},
-                {time:'18:30', room:'Υ2',  group:'Βθ1'},
-                {time:'18:30', room:'Α204',group:'ΓΘ2'},
-                {time:'19:30', room:'I3',  group:'Α3'},
-                {time:'19:30', room:'Υ3',  group:'Βθ2'},
-                {time:'19:30', room:'Α205',group:'ΓΘ3'},
-                {time:'20:30', room:'I4',  group:'Α4'},
-                {time:'20:30', room:'Α103',group:'Β3'},
-                {time:'20:30', room:'Α206',group:'ΓΟ2'},
-                {time:'21:30', room:'Υ1',  group:'Βθ4'},
-                {time:'21:30', room:'Α104',group:'ΒΥ1'},
-                {time:'21:30', room:'Α201',group:'ΓΟ3'}
-            ],
-            'Τετάρτη': [
-                {time:'15:30', room:'I1',  group:'ΒΟ1'},
-                {time:'15:30', room:'I2',  group:'ΒΟ2'},
-                {time:'15:30', room:'Α202',group:'ΓΥ1'},
-                {time:'15:30', room:'Α101',group:'ΓΟ1'},
-                {time:'16:30', room:'I3',  group:'ΒΟ3'},
-                {time:'16:30', room:'I4',  group:'ΒΟ4'},
-                {time:'16:30', room:'Α203',group:'ΓΟ2'},
-                {time:'17:30', room:'I1',  group:'γ1'},
-                {time:'17:30', room:'Υ1',  group:'Α1'},
-                {time:'17:30', room:'Α204',group:'ΓΘ1'},
-                {time:'18:30', room:'I2',  group:'γ2'},
-                {time:'18:30', room:'Υ2',  group:'Α2'},
-                {time:'18:30', room:'Α205',group:'ΓΘ2'},
-                {time:'19:30', room:'I3',  group:'Βθ1'},
-                {time:'19:30', room:'Υ3',  group:'Α3'},
-                {time:'19:30', room:'Α206',group:'ΓΟ3'},
-                {time:'20:30', room:'I4',  group:'Βθ2'},
-                {time:'20:30', room:'Α101',group:'Α4'},
-                {time:'20:30', room:'Α102',group:'ΓΟ4'},
-                {time:'21:30', room:'Υ1',  group:'ΒΥ1'},
-                {time:'21:30', room:'Α103',group:'Β3'},
-                {time:'21:30', room:'Α104',group:'ΓΟ5'},
-                {time:'22:30', room:'I1',  group:'ΒΥ2'},
-                {time:'22:30', room:'Α201',group:'Βθ4'}
-            ],
-            'Πέμπτη': [
-                {time:'15:30', room:'I1',  group:'ΒΟ1'},
-                {time:'15:30', room:'I2',  group:'ΒΟ2'},
-                {time:'15:30', room:'Υ3',  group:'ΒΟ3'},
-                {time:'15:30', room:'Α101',group:'ΓΘ1'},
-                {time:'16:30', room:'I3',  group:'ΒΟ4'},
-                {time:'16:30', room:'Α102',group:'γ1'},
-                {time:'16:30', room:'Α201',group:'ΓΘ2'},
-                {time:'17:30', room:'I4',  group:'γ2'},
-                {time:'17:30', room:'Α103',group:'Α1'},
-                {time:'17:30', room:'Α202',group:'ΓΘ3'},
-                {time:'18:30', room:'Υ1',  group:'Α2'},
-                {time:'18:30', room:'Α104',group:'Βθ1'},
-                {time:'18:30', room:'Α203',group:'ΓΘ4'},
-                {time:'19:30', room:'Υ2',  group:'Α3'},
-                {time:'19:30', room:'Α101',group:'Βθ2'},
-                {time:'19:30', room:'Α204',group:'ΓΘ5'},
-                {time:'20:30', room:'I1',  group:'Α4'},
-                {time:'20:30', room:'Α102',group:'Β3'},
-                {time:'20:30', room:'Α205',group:'ΓΥ1'},
-                {time:'21:30', room:'I2',  group:'Βθ4'},
-                {time:'21:30', room:'Υ3',  group:'ΒΥ1'},
-                {time:'21:30', room:'Α206',group:'ΓΟ1'}
-            ],
-            'Παρασκευή': [
-                {time:'15:30', room:'I1',  group:'ΒΟ4'},
-                {time:'15:30', room:'Α201',group:'ΓΘ5'},
-                {time:'15:30', room:'Α202',group:'ΓΥ1'},
-                {time:'15:30', room:'Α203',group:'ΓΥ2'},
-                {time:'16:30', room:'I2',  group:'γ1'},
-                {time:'16:30', room:'Α101',group:'Α1'},
-                {time:'16:30', room:'Α204',group:'ΓΟ1'},
-                {time:'17:30', room:'I3',  group:'γ2'},
-                {time:'17:30', room:'Α102',group:'Α2'},
-                {time:'17:30', room:'Α205',group:'ΓΟ2'},
-                {time:'18:30', room:'I4',  group:'Βθ1'},
-                {time:'18:30', room:'Υ1',  group:'Α3'},
-                {time:'18:30', room:'Α206',group:'ΓΟ3'},
-                {time:'19:30', room:'Υ2',  group:'Βθ2'},
-                {time:'19:30', room:'Α103',group:'Α4'},
-                {time:'19:30', room:'Α201',group:'ΓΘ1'},
-                {time:'20:30', room:'I1',  group:'Β3'},
-                {time:'20:30', room:'Α104',group:'Βθ4'},
-                {time:'20:30', room:'Α202',group:'ΓΘ2'},
-                {time:'21:30', room:'Υ3',  group:'ΒΥ1'},
-                {time:'21:30', room:'Α203',group:'ΓΘ3'},
-                {time:'21:30', room:'I2',  group:'ΒΟ1'}
-            ],
-            'Σάββατο': [
-                {time:'9:30',  room:'I1',  group:'γ1'},
-                {time:'9:30',  room:'I2',  group:'γ2'},
-                {time:'9:30',  room:'Α101',group:'ΓΘ1'},
-                {time:'9:30',  room:'Α201',group:'ΓΟ1'},
-                {time:'10:30', room:'I3',  group:'Α1'},
-                {time:'10:30', room:'I4',  group:'Α2'},
-                {time:'10:30', room:'Α102',group:'ΓΘ2'},
-                {time:'10:30', room:'Α202',group:'ΓΟ2'},
-                {time:'11:30', room:'Υ1',  group:'Α3'},
-                {time:'11:30', room:'Υ2',  group:'Α4'},
-                {time:'11:30', room:'Α103',group:'ΓΘ3'},
-                {time:'11:30', room:'Α203',group:'ΓΟ3'},
-                {time:'12:30', room:'I1',  group:'Βθ1'},
-                {time:'12:30', room:'I2',  group:'Βθ2'},
-                {time:'12:30', room:'Α104',group:'ΓΘ4'},
-                {time:'12:30', room:'Α204',group:'ΓΟ4'},
-                {time:'13:30', room:'I3',  group:'Β3'},
-                {time:'13:30', room:'I4',  group:'Βθ4'},
-                {time:'13:30', room:'Α205',group:'ΓΘ5'},
-                {time:'13:30', room:'Α206',group:'ΓΟ5'},
-                {time:'14:30', room:'Υ1',  group:'ΒΥ1'},
-                {time:'14:30', room:'Υ2',  group:'ΒΥ2'},
-                {time:'14:30', room:'Υ3',  group:'ΒΟ1'},
-                {time:'14:30', room:'Α201',group:'ΓΥ1'},
-                {time:'15:30', room:'I1',  group:'ΒΟ2'},
-                {time:'15:30', room:'I2',  group:'ΒΟ3'},
-                {time:'15:30', room:'I3',  group:'ΒΟ4'},
-                {time:'15:30', room:'Α202',group:'ΓΥ2'}
-            ]
+        const GROUPS = [
+            'γ1','γ2','Α1','Α2','Α3','Α4',
+            'Βθ1','Βθ2','ΒΘ3','Βθ4','ΒΥ1','ΒΥ2','ΒΟ1','ΒΟ2','ΒΟ3','ΒΟ4',
+            'ΓΘ1','ΓΘ2','ΓΘ3','ΓΘ4','ΓΘ5','ΓΥ1','ΓΥ2','ΓΟ1','ΓΟ2','ΓΟ3','ΓΟ4','ΓΟ5'
+        ];
+
+        const DAY_HOURS = {
+            'Δευτέρα':  ['15:30','16:30','17:30','18:30','19:30','20:30','21:30','22:30'],
+            'Τρίτη':    ['15:30','16:30','17:30','18:30','19:30','20:30','21:30','22:30'],
+            'Τετάρτη':  ['15:30','16:30','17:30','18:30','19:30','20:30','21:30','22:30'],
+            'Πέμπτη':   ['15:30','16:30','17:30','18:30','19:30','20:30','21:30','22:30'],
+            'Παρασκευή':['15:30','16:30','17:30','18:30','19:30','20:30','21:30','22:30'],
+            'Σάββατο':  ['9:30','10:30','11:30','12:30','13:30','14:30']
         };
+
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        function generateSchedule() {
+            const result = {};
+            const DAYS = ['Δευτέρα','Τρίτη','Τετάρτη','Πέμπτη','Παρασκευή','Σάββατο'];
+
+            for (const day of DAYS) {
+                const hours = DAY_HOURS[day];
+                const n = hours.length;
+                const entries = [];
+
+                // groupBusy[timeIdx] = Set of groups already placed at that slot
+                const groupBusy = Array.from({length: n}, () => new Set());
+
+                for (const room of shuffle([...ROOMS])) {
+                    const roomFilled = new Array(n).fill(false);
+                    let i = 0;
+
+                    while (i < n) {
+                        if (roomFilled[i]) { i++; continue; }
+
+                        // ~6% chance to leave a small gap (drives occupancy towards 94%)
+                        if (Math.random() < 0.06) { i++; continue; }
+
+                        // Pick a random free group at slot i
+                        const free = GROUPS.filter(g => !groupBusy[i].has(g));
+                        if (free.length === 0) { i++; continue; }
+                        const group = free[Math.floor(Math.random() * free.length)];
+
+                        // Find max consecutive slots where both room and group are free (cap 6)
+                        let maxLen = 0;
+                        for (let j = i; j < n && maxLen < 6; j++) {
+                            if (!roomFilled[j] && !groupBusy[j].has(group)) maxLen++;
+                            else break;
+                        }
+                        if (maxLen < 2) { i++; continue; }
+
+                        // Pick block size: min 2, max min(6, maxLen)
+                        const blockSize = 2 + Math.floor(Math.random() * (Math.min(6, maxLen) - 1));
+
+                        for (let k = 0; k < blockSize; k++) {
+                            roomFilled[i + k] = true;
+                            groupBusy[i + k].add(group);
+                            entries.push({ time: hours[i + k], room, group });
+                        }
+                        i += blockSize;
+                    }
+                }
+                result[day] = entries;
+            }
+            return result;
+        }
+
+        const scheduleData = generateSchedule();
 
         function getCellClass(group) {
             if (group.startsWith('γ')) return 'sched-cell-gamma';

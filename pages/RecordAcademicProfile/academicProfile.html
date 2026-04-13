@@ -120,7 +120,7 @@
                                     <label class="form-label fw-bold mb-0">Ταχύτητα Αφομοίωσης</label>
                                     <span class="badge rounded-pill" style="background-color: var(--brand-green); font-size: 0.9rem;" id="valPace">3</span>
                                 </div>
-                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3" oninput="document.getElementById('valPace').innerText = this.value">
+                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3">
                                 <div class="slider-labels">
                                     <span>Χρειάζεται επαναλήψεις</span>
                                     <span>Αφομοιώνει ταχύτατα</span>
@@ -131,7 +131,7 @@
                                     <label class="form-label fw-bold mb-0">Συμμετοχή στο Μάθημα</label>
                                     <span class="badge rounded-pill" style="background-color: var(--brand-green); font-size: 0.9rem;" id="valExtro">3</span>
                                 </div>
-                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3" oninput="document.getElementById('valExtro').innerText = this.value">
+                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3">
                                 <div class="slider-labels">
                                     <span>Διστακτικός</span>
                                     <span>Πολύ Ενεργός</span>
@@ -145,7 +145,7 @@
                                     <label class="form-label fw-bold mb-0">Διαχείριση Άγχους</label>
                                     <span class="badge rounded-pill" style="background-color: var(--brand-green); font-size: 0.9rem;" id="valStress">3</span>
                                 </div>
-                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3" oninput="document.getElementById('valStress').innerText = this.value">
+                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3">
                                 <div class="slider-labels">
                                     <span>Πανικοβάλλεται εύκολα</span>
                                     <span>Απόλυτα ψύχραιμος</span>
@@ -156,7 +156,7 @@
                                     <label class="form-label fw-bold mb-0">Ομαδικότητα</label>
                                     <span class="badge rounded-pill" style="background-color: var(--brand-green); font-size: 0.9rem;" id="valTeam">3</span>
                                 </div>
-                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3" oninput="document.getElementById('valTeam').innerText = this.value">
+                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3">
                                 <div class="slider-labels">
                                     <span>Προτιμά ατομική δουλειά</span>
                                     <span>Συνεργάζεται άψογα</span>
@@ -170,7 +170,7 @@
                                     <label class="form-label fw-bold mb-0">Διάρκεια Συγκέντρωσης</label>
                                     <span class="badge rounded-pill" style="background-color: var(--brand-green); font-size: 0.9rem;" id="valFocus">3</span>
                                 </div>
-                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3" oninput="document.getElementById('valFocus').innerText = this.value">
+                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3">
                                 <div class="slider-labels">
                                     <span>Διασπάται εύκολα</span>
                                     <span>Απόλυτα προσηλωμένος</span>
@@ -181,7 +181,7 @@
                                     <label class="form-label fw-bold mb-0">Μεθοδικότητα / Οργάνωση Γραπτού</label>
                                     <span class="badge rounded-pill" style="background-color: var(--brand-green); font-size: 0.9rem;" id="valMethod">3</span>
                                 </div>
-                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3" oninput="document.getElementById('valMethod').innerText = this.value">
+                                <input type="range" class="custom-range" min="1" max="5" step="1" value="3">
                                 <div class="slider-labels">
                                     <span>Ανοργάνωτος / Πρόχειρος</span>
                                     <span>Απόλυτα Μεθοδικός</span>
@@ -293,56 +293,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        const searchInput = document.getElementById('searchInput');
-        const searchBtn = document.getElementById('searchBtn');
-        const formArea = document.getElementById('evaluationFormArea');
-        const nameDisplay = document.getElementById('studentNameDisplay');
-
-        // Προσομοίωση Αναζήτησης
-        function performSearch() {
-            const query = searchInput.value.trim();
-            if (query.length > 0) {
-                // Εμφανίζουμε τη φόρμα
-                formArea.classList.remove('d-none');
-                // Βάζουμε το όνομα που πληκτρολόγησε στην Κάρτα (για ρεαλισμό)
-                nameDisplay.innerText = query;
-                // Απενεργοποιούμε το search bar για να "κλειδώσει" ο χρήστης
-                searchInput.setAttribute('disabled', 'true');
-                searchBtn.setAttribute('disabled', 'true');
-            } else {
-                alert('Παρακαλώ πληκτρολογήστε όνομα ή επώνυμο.');
-            }
-        }
-
-        // Αναζήτηση με κλικ στο κουμπί ή με Enter
-        searchBtn.addEventListener('click', performSearch);
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-
-        // Υποβολή της φόρμας
-        const evalForm = document.getElementById('evaluationForm');
-        const successAlert = document.getElementById('successAlert');
-
-        evalForm.addEventListener('submit', function(e) {
-            e.preventDefault(); 
-            
-            // Κρύβουμε τη φόρμα και δείχνουμε το Alert
-            evalForm.classList.add('d-none');
-            successAlert.classList.remove('d-none');
-            
-            // Σκρολάρουμε πάνω για να δει το μήνυμα
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            // Επαναφορά της σελίδας μετά από 3 δευτερόλεπτα (σαν να τελείωσε και πάει στον επόμενο μαθητή)
-            setTimeout(() => {
-                location.reload();
-            }, 3000);
-        });
-    </script>
+    <script src="academicProfile.js"></script>
 </body>
 </html>

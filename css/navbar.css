@@ -1,0 +1,13 @@
+/* Κεντρικό Μενού (Navbar) */
+
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 3px solid var(--brand-green);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.navbar-brand {
+    color: var(--brand-grey) !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+}

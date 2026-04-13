@@ -1,0 +1,15 @@
+/* Base: design tokens and global body */
+
+:root {
+    /* Τα χρώματα από το λογότυπο */
+    --brand-green: #7da41b;
+    --brand-green-hover: #648610;
+    --brand-grey: #58595b;
+    --light-bg: #f8f9fa;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--brand-grey);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

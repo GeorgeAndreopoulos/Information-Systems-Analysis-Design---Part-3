@@ -289,12 +289,13 @@
 
         function renderSchedule(day) {
             const entries = scheduleData[day] || [];
+            const dayHours = DAY_HOURS[day] || HOURS;
             const lookup = {};
             entries.forEach(e => { lookup[e.time + '|' + e.room] = e.group; });
 
             const tbody = document.getElementById('scheduleBody');
             let html = '';
-            HOURS.forEach(h => {
+            dayHours.forEach(h => {
                 html += '<tr><td>' + h + '</td>';
                 ROOMS.forEach(r => {
                     const group = lookup[h + '|' + r];

@@ -58,7 +58,12 @@
             
             <div id="studentSections">
                 <div class="card mb-4">
-                    <div class="card-header py-3"><i class="bi bi-person me-2"></i> Προσωπικά Στοιχεία</div>
+                    <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
+                        <div><i class="bi bi-person me-2"></i> Προσωπικά Στοιχεία</div>
+                    <small class="text-muted" style="font-size: 0.75rem;">
+                        Τα πεδία με <span class="text-danger fw-bold">*</span> είναι υποχρεωτικά
+                    </small>
+                    </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -78,7 +83,12 @@
                 </div>
 
                 <div class="card mb-4">
-                    <div class="card-header py-3"><i class="bi bi-telephone me-2"></i> Στοιχεία Επικοινωνίας</div>
+                    <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
+                        <div><i class="bi bi-telephone me-2"></i> Στοιχεία Επικοινωνίας</div>
+                    <small class="text-muted" style="font-size: 0.75rem;">
+                        Τα πεδία με <span class="text-danger fw-bold">*</span> είναι υποχρεωτικά
+                    </small>
+                    </div>
                     <div class="card-body">
                         <div class="mb-3">
                             <label class="form-label">Τηλέφωνο Μαθητή</label>
@@ -97,46 +107,56 @@
                     </div>
                 </div>
 
-                <div class="card mb-4">
-                    <div class="card-header py-3"><i class="bi bi-mortarboard me-2"></i> Ακαδημαϊκά Στοιχεία</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label">Τάξη <span class="required-asterisk">*</span></label>
-                                    <select class="form-select" id="classSelect" required>
-                                        <option value="" disabled selected>Επιλέξτε Τάξη...</option>
-                                        <option value="gymnasio">Γ' Γυμνασίου</option>
-                                        <option value="alyk">Α' Λυκείου</option>
-                                        <option value="blyk">Β' Λυκείου</option>
-                                        <option value="glyk">Γ' Λυκείου</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label">Κατεύθυνση / Ομάδα Προσανατολισμού</label>
-                                    <select class="form-select" id="directionSelect">
-                                        <option value="geniki" selected>Γενικής Παιδείας</option>
-                                        <option value="thetiki">Θετικών Σπουδών</option>
-                                        <option value="ygeias">Σπουδών Υγείας</option>
-                                        <option value="oikonomia">Σπουδών Οικονομίας & Πληροφορικής</option>
-                                    </select>
-                                </div>
+                <div class="card mb-4 shadow-sm border-0">
+                    <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
+                        <div><i class="bi bi-mortarboard me-2"></i> Ακαδημαϊκά Στοιχεία</div>
+                        <small class="text-muted" style="font-size: 0.75rem;">
+                            Τα πεδία με <span class="text-danger fw-bold">*</span> είναι υποχρεωτικά
+                        </small>
+                    </div>
+                
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Τάξη <span class="required-asterisk">*</span></label>
+                                <select class="form-select" id="classSelect" required>
+                                    <option value="" disabled selected>Επιλέξτε Τάξη...</option>
+                                    <option value="gymnasio">Γ' Γυμνασίου</option>
+                                    <option value="alyk">Α' Λυκείου</option>
+                                    <option value="blyk">Β' Λυκείου</option>
+                                    <option value="glyk">Γ' Λυκείου</option>
+                                </select>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Σχολείο Φοίτησης</label>
-                                <input type="text" class="form-control" placeholder="π.χ. 1ο ΓΕΛ Βριλησσίων">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Κατεύθυνση / Ομάδα Προσανατολισμού</label>
+                                <select class="form-select" id="directionSelect">
+                                    <option value="geniki" selected>Γενικής Παιδείας</option>
+                                    <option value="thetiki">Θετικών Σπουδών</option>
+                                    <option value="ygeias">Σπουδών Υγείας</option>
+                                    <option value="oikonomia">Σπουδών Οικονομίας & Πληροφορικής</option>
+                                </select>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label d-block">Μαθήματα Παρακολούθησης <span class="required-asterisk">*</span></label>
-                                <div id="dynamicSubjectsContainer">
-                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Σχολείο Φοίτησης</label>
+                            <input type="text" class="form-control" placeholder="π.χ. 1ο ΓΕΛ Βριλησσίων">
+                        </div>
+                        <div class="mb-0">
+                            <label class="form-label d-block text-dark fw-bold">Μαθήματα Παρακολούθησης <span class="required-asterisk">*</span></label>
+                            <div id="dynamicSubjectsContainer">
                             </div>
                         </div>
                     </div>
-                </div> 
-
+                </div>
+            </div>
             <div id="teacherSections" class="d-none">
                 <div class="card mb-4">
-                    <div class="card-header py-3"><i class="bi bi-person-badge me-2"></i> Βασικά Στοιχεία & Επικοινωνία</div>
+                    <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
+                        <div><i class="bi bi-person-badge me-2"></i> Βασικά Στοιχεία & Επικοινωνία</div>
+                    <small class="text-muted" style="font-size: 0.75rem;">
+                        Τα πεδία με <span class="text-danger fw-bold">*</span> είναι υποχρεωτικά
+                    </small>
+                    </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -162,7 +182,12 @@
                 </div>
 
                 <div class="card mb-4">
-                    <div class="card-header py-3"><i class="bi bi-journal-bookmark me-2"></i> Διδακτικά Στοιχεία</div>
+                    <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
+                    <div><i class="bi bi-journal-bookmark me-2"></i> Διδακτικά Στοιχεία</div>
+                    <small class="text-muted" style="font-size: 0.75rem;">
+                        Τα πεδία με <span class="text-danger fw-bold">*</span> είναι υποχρεωτικά
+                    </small>
+                    </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-9 mb-3">
@@ -192,7 +217,12 @@
                 </div>
 
                 <div class="card mb-4">
-                    <div class="card-header py-3"><i class="bi bi-file-earmark-text me-2"></i> Στοιχεία Σύμβασης</div>
+                    <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
+                        <div><i class="bi bi-file-earmark-text me-2"></i> Στοιχεία Σύμβασης</div>
+                        <small class="text-muted" style="font-size: 0.75rem;">
+                            Τα πεδία με <span class="text-danger fw-bold">*</span> είναι υποχρεωτικά
+                        </small>
+                    </div>
                     <div class="card-body">
                         <div class="mb-3">
                             <label class="form-label d-block">Τύπος Απασχόλησης <span class="required-asterisk">*</span></label>

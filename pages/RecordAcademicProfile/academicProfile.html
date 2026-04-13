@@ -191,6 +191,81 @@
                     </div>
                 </div>
 
+                <div class="card mb-4 shadow-sm border-0">
+                    <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center flex-wrap gap-2" 
+                        style="border-bottom: 3px solid var(--brand-green) !important;">
+
+                        <div class="fw-bold">
+                            <i class="bi bi-pencil-square me-2"></i>Βαθμοί Διαγωνισμάτων
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <select class="form-select form-select-sm border-1 shadow-none" style="width: 130px; background-color: #f8f9fa;">
+                                <option value="" disabled selected>Τάξη...</option>
+                                <option>Γ' Γυμνασίου</option>
+                                <option>Α' Λυκείου</option>
+                                <option>Β' Λυκείου</option>
+                                <option>Γ' Λυκείου</option>
+                            </select>
+                            <select class="form-select form-select-sm border-1 shadow-none" style="width: 130px; background-color: #f8f9fa;">
+                                <option value="" disabled selected>Μάθημα...</option>
+                                <option>Άλγεβρα</option>
+                                <option>Φυσική</option>
+                                <option>Χημεία</option>
+                                <option>Έκθεση</option>
+                            </select>
+                        </div>
+                    </div>
+                
+                    <div class="card-body">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+
+                            <div class="col">
+                                <div class="p-3 border rounded-3 bg-light-subtle shadow-sm">
+                                    <label class="form-label small fw-bold text-muted mb-2">1ο Διαγώνισμα</label>
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" class="form-control fw-bold text-center border-success-subtle" placeholder="0.0" min="0" max="100" step="0.1">
+                                        <span class="input-group-text bg-white small text-muted">/100</span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col">
+                                <div class="p-3 border rounded-3 bg-light-subtle shadow-sm">
+                                    <label class="form-label small fw-bold text-muted mb-2">2ο Διαγώνισμα</label>
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" class="form-control fw-bold text-center border-success-subtle" placeholder="0.0" min="0" max="100" step="0.1">
+                                        <span class="input-group-text bg-white small text-muted">/100</span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col">
+                                <div class="p-3 border rounded-3 bg-light-subtle shadow-sm">
+                                    <label class="form-label small fw-bold text-muted mb-2">3ο Διαγώνισμα</label>
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" class="form-control fw-bold text-center border-success-subtle" placeholder="0.0" min="0" max="100" step="0.1">
+                                        <span class="input-group-text bg-white small text-muted">/100</span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col">
+                                <div class="p-3 border rounded-3 bg-light-subtle shadow-sm">
+                                    <label class="form-label small fw-bold text-muted mb-2">4ο Διαγώνισμα</label>
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" class="form-control fw-bold text-center border-success-subtle" placeholder="0.0" min="0" max="100" step="0.1">
+                                        <span class="input-group-text bg-white small text-muted">/100</span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                        <div class="form-text mt-3 text-muted" style="font-size: 0.75rem;">
+                            <i class="bi bi-info-circle me-1"></i>Εισάγετε βαθμολογία με δεκαδικά (π.χ. 75.5). Οι βαθμοί αποθηκεύονται ανά μάθημα και τάξη.
+                        </div>
+                    </div>
+                </div>
                 <div class="card mb-4">
                     <div class="card-header py-3"><i class="bi bi-chat-left-text me-2"></i> Γενικές Παρατηρήσεις</div>
                     <div class="card-body">

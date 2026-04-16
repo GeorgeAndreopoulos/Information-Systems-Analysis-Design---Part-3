@@ -122,6 +122,30 @@ document.getElementById('saturdayToggle').addEventListener('change', function ()
     });
 });
 
+function showSuccess(role) {
+    const mainContainer = document.getElementById('mainAppContainer');
+    const successView = document.getElementById('finalSuccessView');
+    const title = document.getElementById('finalMessageTitle');
+    const sub = document.getElementById('finalMessageSub');
+
+    if (role === 'admin') {
+        title.innerText = "Επιτυχής Καταχώρηση Ρυθμίσεων!";
+        sub.innerText = "Οι λειτουργικοί περιορισμοί του φροντιστηρίου ενημερώθηκαν επιτυχώς.";
+    } else if (role === 'teacher') {
+        title.innerText = "Επιτυχής Καταχώρηση Διαθεσιμότητας!";
+        sub.innerText = "Το εβδομαδιαίο πρόγραμμα διαθεσιμότητάς σας υποβλήθηκε επιτυχώς.";
+    } else if (role === 'student') {
+        title.innerText = "Επιτυχής Καταχώρηση Περιορισμών!";
+        sub.innerText = "Οι προσωπικοί σας περιορισμοί υποβλήθηκαν επιτυχώς.";
+    }
+
+    mainContainer.classList.add('d-none');
+    successView.classList.remove('d-none');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.showSuccess = showSuccess;
+
 function clearTable(cls) {
     document.querySelectorAll('.' + cls).forEach(c => {
         c.classList.remove('cell-available', 'cell-unavailable');

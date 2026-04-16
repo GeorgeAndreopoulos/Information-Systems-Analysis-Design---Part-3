@@ -20,22 +20,21 @@ document.querySelectorAll('.role-option').forEach(item => {
 });
 
 roleSelector.addEventListener('change', function () {
+    const studentRequiredFields = studentSections.querySelectorAll('[required]');
+    const teacherRequiredFields = teacherSections.querySelectorAll('[required]');
+
     if (this.value === 'student') {
         studentSections.classList.remove('d-none');
         teacherSections.classList.add('d-none');
 
-        document.getElementById('t-name').removeAttribute('required');
-        document.getElementById('t-surname').removeAttribute('required');
-        document.getElementById('t-email').removeAttribute('required');
-        document.getElementById('t-phone').removeAttribute('required');
+        studentRequiredFields.forEach(field => field.required = true);
+        teacherRequiredFields.forEach(field => field.required = false);
     } else {
         teacherSections.classList.remove('d-none');
         studentSections.classList.add('d-none');
 
-        document.getElementById('t-name').setAttribute('required', 'true');
-        document.getElementById('t-surname').setAttribute('required', 'true');
-        document.getElementById('t-email').setAttribute('required', 'true');
-        document.getElementById('t-phone').setAttribute('required', 'true');
+        teacherRequiredFields.forEach(field => field.required = true);
+        studentRequiredFields.forEach(field => field.required = false);
     }
 });
 

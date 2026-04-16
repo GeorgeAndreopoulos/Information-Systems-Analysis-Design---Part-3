@@ -69,17 +69,17 @@ function initInteractions() {
                 div.id = safeId;
                 div.className = "row mb-2 align-items-center animate-fadeIn";
                 div.innerHTML = `
-                            <div class="col-5 small fw-bold text-danger" style="font-size:0.75rem;">
+                            <div class="col-5 small fw-bold text-danger" style="font-size:0.85rem;">
                                 <i class="bi bi-exclamation-circle me-1"></i>${info}
                             </div>
                             <div class="col-7">
-                                <select class="form-select form-select-sm select-justification" style="font-size:0.7rem;" data-target-info="${info}">
+                                <select class="form-select select-justification" style="font-size:0.75rem;" data-target-info="${info}">
                                     <option value="" disabled selected>Επιλέξτε λόγο...</option>
                                     <option value="Σχολείο">Σχολικό Ωράριο </option>
                                     <option value="Σχέδιο">Γραμμικό & Ελεύθερο Σχέδιο </option>
                                     <option value="Ξένες Γλώσσες">Φροντιστήριο Ξένων Γλωσσών </option>
                                     <option value="Αθλητισμός">Αθλητικές Δραστηριότητες </option>
-                                    <option value="Ωδείο">Ωδείο / Τέχνες </option>
+                                    <option value="Τέχνες">Ωδείο / Τέχνες </option>
                                     <option value="Άλλο">Άλλη Δραστηριότητα</option>
                                 </select>
                             </div>`;

@@ -3,8 +3,65 @@ const searchBtn = document.getElementById('searchBtn');
 const suggestionsArea = document.getElementById('suggestionsArea');
 const formArea = document.getElementById('evaluationFormArea');
 const nameDisplay = document.getElementById('studentNameDisplay');
+const gradeBadge = document.getElementById('studentGradeBadge');
+const directionBadge = document.getElementById('studentDirectionBadge');
+const schoolGradesContainer = document.getElementById('schoolGradesContainer');
 
 let studentList = [];
+let selectedStudent = null;
+
+const subjectsByDirection = {
+    "Κατεύθυνση Θετικών Σπουδών": ["Έκθεση", "Μαθηματικά", "Φυσική", "Χημεία"],
+    "Κατεύθυνση Σπουδών Υγείας": ["Έκθεση", "Φυσική", "Χημεία", "Βιολογία"],
+    "Κατεύθυνση Οικονομίας & Πληροφορικής": ["Έκθεση", "Μαθηματικά", "Πληροφορική (ΑΕΠΠ)", "Οικονομία (ΑΟΘ)"],
+    "Γενική Παιδεία": ["Έκθεση", "Άλγεβρα", "Φυσική", "Χημεία", "Ιστορία"]
+};
+
+function getSubjectsForStudent(student) {
+    if (!student) {
+        return subjectsByDirection["Γενική Παιδεία"];
+    }
+    const subjects = subjectsByDirection[student.direction] || subjectsByDirection["Γενική Παιδεία"];
+
+    if (student.direction === "Κατεύθυνση Οικονομίας & Πληροφορικής") {
+        return subjects.filter(subject => subject !== "Οικονομία (ΑΟΘ)");
+    }
+
+    return subjects;
+}
+
+function renderSchoolGrades(student) {
+    if (!schoolGradesContainer) return;
+
+    const subjects = getSubjectsForStudent(student);
+    schoolGradesContainer.innerHTML = subjects.map((subject, index) => `
+        <div class="col-md-6 col-xl-4">
+            <label class="form-label">${subject} <span class="required-asterisk">*</span></label>
+            <div class="input-group">
+                <input
+                    type="number"
+                    class="form-control"
+                    name="schoolSubjectGrade_${index}"
+                    min="0"
+                    max="20"
+                    step="0.5"
+                    placeholder="0-20"
+                    required
+                >
+                <span class="input-group-text">/20</span>
+            </div>
+        </div>
+    `).join('');
+}
+
+function findStudentByQuery(query) {
+    const normalizedQuery = query.trim().toLowerCase();
+    if (!normalizedQuery) return null;
+
+    return studentList.find(student => student.name.toLowerCase() === normalizedQuery)
+        || studentList.find(student => student.name.toLowerCase().includes(normalizedQuery))
+        || null;
+}
 
 async function loadStudentData() {
     if (!suggestionsArea) return;
@@ -102,8 +159,17 @@ function filterSuggestions() {
 function performSearch() {
     const query = searchInput.value.trim();
     if (query.length > 0) {
+        selectedStudent = findStudentByQuery(query);
         formArea.classList.remove('d-none');
-        nameDisplay.innerText = query;
+        nameDisplay.innerText = selectedStudent ? selectedStudent.name : query;
+        if (selectedStudent) {
+            gradeBadge.innerText = selectedStudent.grade;
+            directionBadge.innerText = selectedStudent.direction;
+        } else {
+            gradeBadge.innerText = 'Τάξη μη διαθέσιμη';
+            directionBadge.innerText = 'Κατεύθυνση μη διαθέσιμη';
+        }
+        renderSchoolGrades(selectedStudent);
         searchInput.setAttribute('disabled', 'true');
         searchBtn.setAttribute('disabled', 'true');
         if (suggestionsArea) {
@@ -123,6 +189,7 @@ searchInput.addEventListener('keypress', function (e) {
 });
 
 loadStudentData();
+renderSchoolGrades(null);
 
 const sliderValueIds = ['valPace', 'valExtro', 'valStress', 'valTeam', 'valFocus', 'valMethod'];
 document.querySelectorAll('#evaluationForm .custom-range').forEach((range, i) => {

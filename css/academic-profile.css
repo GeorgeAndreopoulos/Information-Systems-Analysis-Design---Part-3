@@ -82,3 +82,9 @@
 .text-orange {
     color: #da6d13 !important; /* Έντονο πορτοκαλί */
 }
+
+/* Ακαδημαϊκοί δείκτες: ίδιο ύψος γραμμής για inputs παρά το wrap στα labels */
+.academic-indicators .form-label {
+    min-height: 3.5rem;
+    line-height: 1.25;
+}

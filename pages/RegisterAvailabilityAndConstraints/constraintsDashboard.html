@@ -326,6 +326,20 @@
                                     </select>
                                 </div>
                             </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Κατώτατο όριο ωρών διδασκαλίας (ανά εβδομάδα)</label>
+                                    <input type="number" class="form-control" id="teacherMinHours" min="0" max="60" step="0.5" value="8" placeholder="π.χ. 10 ή 10.5">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Ανώτατο όριο ωρών διδασκαλίας (ανά εβδομάδα)</label>
+                                    <input type="number" class="form-control" id="teacherMaxHours" min="0" max="60" step="0.5" value="20" placeholder="π.χ. 30 ή 30.5">
+                                </div>
+                            </div>
+                            <div class="alert alert-danger d-none mb-0 py-2" id="teacherHoursError" role="alert">
+                                Οι ώρες πρέπει να είναι σε βήμα 0.5 και το κατώτατο όριο δεν μπορεί να είναι μεγαλύτερο από το ανώτατο.
+                            </div>
                         </div>
                     </div>
 

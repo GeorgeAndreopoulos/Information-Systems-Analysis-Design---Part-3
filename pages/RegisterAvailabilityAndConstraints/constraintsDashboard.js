@@ -4,6 +4,30 @@ const times = [
     "17:30-18:30", "18:30-19:30", "19:30-20:30", "20:30-21:30", "21:30-22:30"
 ];
 
+function validateTeacherHourLimits() {
+    const minInput = document.getElementById('teacherMinHours');
+    const maxInput = document.getElementById('teacherMaxHours');
+    const errorBox = document.getElementById('teacherHoursError');
+
+    if (!minInput || !maxInput || !errorBox) {
+        return true;
+    }
+
+    const minValue = Number(minInput.value);
+    const maxValue = Number(maxInput.value);
+    const isHalfStep = (value) => Math.abs(value * 2 - Math.round(value * 2)) < 1e-9;
+    const isValid = Number.isFinite(minValue)
+        && Number.isFinite(maxValue)
+        && isHalfStep(minValue)
+        && isHalfStep(maxValue)
+        && minValue <= maxValue;
+
+    minInput.classList.toggle('is-invalid', !isValid);
+    maxInput.classList.toggle('is-invalid', !isValid);
+    errorBox.classList.toggle('d-none', isValid);
+    return isValid;
+}
+
 function renderTables() {
     const tBody = document.getElementById('teacherBody');
     const sBody = document.getElementById('studentBody');
@@ -123,6 +147,10 @@ document.getElementById('saturdayToggle').addEventListener('change', function ()
 });
 
 function showSuccess(role) {
+    if (role === 'teacher' && !validateTeacherHourLimits()) {
+        return;
+    }
+
     const mainContainer = document.getElementById('mainAppContainer');
     const successView = document.getElementById('finalSuccessView');
     const title = document.getElementById('finalMessageTitle');
@@ -159,5 +187,19 @@ function clearTable(cls) {
 }
 
 window.clearTable = clearTable;
+
+const teacherMinHoursInput = document.getElementById('teacherMinHours');
+const teacherMaxHoursInput = document.getElementById('teacherMaxHours');
+
+if (teacherMinHoursInput && teacherMaxHoursInput) {
+    const syncTeacherHourValidation = () => {
+        teacherMaxHoursInput.min = teacherMinHoursInput.value || "0";
+        validateTeacherHourLimits();
+    };
+
+    teacherMinHoursInput.addEventListener('input', syncTeacherHourValidation);
+    teacherMaxHoursInput.addEventListener('input', validateTeacherHourLimits);
+    syncTeacherHourValidation();
+}
 
 renderTables();

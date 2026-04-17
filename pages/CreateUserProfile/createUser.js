@@ -1,6 +1,42 @@
 const roleSelector = document.getElementById('roleSelector');
 const studentSections = document.getElementById('studentSections');
 const teacherSections = document.getElementById('teacherSections');
+const addEmailBtn = document.getElementById('addEmailBtn');
+const studentEmailsContainer = document.getElementById('studentEmailsContainer');
+
+const MIN_REQUIRED_STUDENT_EMAILS = 2;
+
+function createStudentEmailField(emailNumber, isRequired) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'col-md-6 mb-3';
+
+    const requiredMark = isRequired ? ' <span class="required-asterisk">*</span>' : '';
+    wrapper.innerHTML = `
+        <label class="form-label">Email ${emailNumber}${requiredMark}</label>
+        <input type="email" class="form-control" ${isRequired ? 'required' : ''}>
+    `;
+
+    return wrapper;
+}
+
+function resetStudentEmailFields() {
+    if (!studentEmailsContainer) return;
+
+    studentEmailsContainer.innerHTML = '';
+    for (let i = 1; i <= MIN_REQUIRED_STUDENT_EMAILS; i += 1) {
+        studentEmailsContainer.appendChild(createStudentEmailField(i, true));
+    }
+}
+
+if (addEmailBtn) {
+    addEmailBtn.addEventListener('click', function () {
+        if (!studentEmailsContainer) return;
+        const nextEmailNumber = studentEmailsContainer.querySelectorAll('input[type="email"]').length + 1;
+        studentEmailsContainer.appendChild(createStudentEmailField(nextEmailNumber, false));
+    });
+}
+
+resetStudentEmailFields();
 
 document.querySelectorAll('.role-option').forEach(item => {
     item.addEventListener('click', function (e) {
@@ -91,6 +127,7 @@ userForm.addEventListener('submit', function (e) {
 
     setTimeout(() => {
         userForm.reset();
+        resetStudentEmailFields();
         successAlert.classList.add('d-none');
         userForm.classList.remove('d-none');
         window.scrollTo(0, 0);

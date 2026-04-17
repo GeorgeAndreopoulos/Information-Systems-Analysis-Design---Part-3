@@ -8,6 +8,15 @@
     margin-bottom: 2rem;
 }
 
+.search-area .dropdown > .dropdown-toggle {
+    min-width: 0;
+}
+
+.search-area .dropdown > .dropdown-toggle::after {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
 .search-input-group .form-control {
     border: 2px solid var(--brand-green);
     padding: 1rem 1.5rem;
@@ -83,8 +92,16 @@
     color: #da6d13 !important; /* Έντονο πορτοκαλί */
 }
 
-/* Ακαδημαϊκοί δείκτες: ίδιο ύψος γραμμής για inputs παρά το wrap στα labels */
+/* Ακαδημαϊκοί δείκτες: ίδιο ύψος labels, πιο συμπαγές κενά */
+.academic-indicators {
+    padding-top: 0.75rem;
+    padding-bottom: 0.875rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 .academic-indicators .form-label {
-    min-height: 3.5rem;
+    min-height: 2.75rem;
     line-height: 1.25;
+    margin-bottom: 0.35rem;
 }

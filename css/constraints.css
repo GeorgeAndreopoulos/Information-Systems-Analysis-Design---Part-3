@@ -34,7 +34,7 @@
 .timetable-grid td.clickable-cell {
     cursor: pointer;
     transition: background-color 0.2s, transform 0.1s;
-    height: 50px;
+    height: 42px;
     border: 1px solid #dee2e6;
 }
 

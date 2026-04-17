@@ -105,9 +105,9 @@
     vertical-align: middle;
     font-size: 0.78rem;
     font-weight: 600;
-    padding: 8px 4px;
+    padding: 6px 4px;
     min-width: 80px;
-    height: 46px;
+    height: 38px;
     border: 1px solid #dee2e6;
     color: var(--brand-grey);
 }

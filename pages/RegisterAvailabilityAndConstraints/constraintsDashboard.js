@@ -1,8 +1,22 @@
-const times = [
-    "09:30-10:30", "10:30-11:30", "11:30-12:30", "12:30-13:30",
-    "13:30-14:30", "14:30-15:30", "15:30-16:30", "16:30-17:30",
-    "17:30-18:30", "18:30-19:30", "19:30-20:30", "20:30-21:30", "21:30-22:30"
-];
+function buildHalfHourSlots(startHour, startMinute, endHour, endMinute) {
+    const slots = [];
+    let currentMinutes = startHour * 60 + startMinute;
+    const endMinutes = endHour * 60 + endMinute;
+
+    while (currentMinutes < endMinutes) {
+        const nextMinutes = currentMinutes + 30;
+        const fromH = String(Math.floor(currentMinutes / 60)).padStart(2, '0');
+        const fromM = String(currentMinutes % 60).padStart(2, '0');
+        const toH = String(Math.floor(nextMinutes / 60)).padStart(2, '0');
+        const toM = String(nextMinutes % 60).padStart(2, '0');
+        slots.push(`${fromH}:${fromM}-${toH}:${toM}`);
+        currentMinutes = nextMinutes;
+    }
+
+    return slots;
+}
+
+const times = buildHalfHourSlots(9, 30, 22, 30);
 
 function validateTeacherHourLimits() {
     const minInput = document.getElementById('teacherMinHours');
@@ -43,11 +57,11 @@ function renderTables() {
         for (let day = 0; day < 6; day++) {
             let isPermanentlyDisabled = false;
 
-            if (day < 5 && index < 5) isPermanentlyDisabled = true;
-            if (day === 5 && index > 5) isPermanentlyDisabled = true;
+            if (day < 5 && index < 10) isPermanentlyDisabled = true;
+            if (day === 5 && index > 11) isPermanentlyDisabled = true;
 
             const satClass = (day === 5) ? "sat-col" : "";
-            const isSatAndClosed = (day === 5 && index > 5);
+            const isSatAndClosed = (day === 5 && index > 11);
 
             const cellClass = isPermanentlyDisabled ? "cell-disabled" : "clickable-cell";
             const satLimitClass = isSatAndClosed ? "sat-limited" : "";

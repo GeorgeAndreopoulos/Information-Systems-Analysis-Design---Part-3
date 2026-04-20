@@ -110,24 +110,53 @@ function applyStudentFilters(students) {
     });
 }
 
-const subjectsByDirection = {
-    "Κατεύθυνση Θετικών Σπουδών": ["Έκθεση", "Μαθηματικά", "Φυσική", "Χημεία"],
-    "Κατεύθυνση Σπουδών Υγείας": ["Έκθεση", "Φυσική", "Χημεία", "Βιολογία"],
-    "Κατεύθυνση Οικονομίας & Πληροφορικής": ["Έκθεση", "Μαθηματικά", "Πληροφορική (ΑΕΠΠ)", "Οικονομία (ΑΟΘ)"],
-    "Γενική Παιδεία": ["Έκθεση", "Άλγεβρα", "Φυσική", "Χημεία", "Ιστορία"]
-};
-
 function getSubjectsForStudent(student) {
-    if (!student) {
-        return subjectsByDirection["Γενική Παιδεία"];
-    }
-    const subjects = subjectsByDirection[student.direction] || subjectsByDirection["Γενική Παιδεία"];
-
-    if (student.direction === "Κατεύθυνση Οικονομίας & Πληροφορικής") {
-        return subjects.filter(subject => subject !== "Οικονομία (ΑΟΘ)");
+    // Αν δεν έχει επιλεγεί μαθητής, επιστρέφουμε Γενικής Παιδείας μαθήματα
+    if (!student || !student.grade) {
+        return ["Έκθεση", "Μαθηματικά", "Φυσική", "Χημεία"];
     }
 
-    return subjects;
+    const grade = student.grade || "";
+    const direction = student.direction || "";
+    let subjectsToRender = [];
+
+    // --- Γυμνάσιο ---
+    if (grade.includes("Γυμνασίου")) {
+        subjectsToRender = ["Έκθεση", "Μαθηματικά", "Φυσική"];
+
+    // --- Α' Λυκείου ---
+    } else if (grade.includes("Α' Λυκείου")) {
+        // Υποθέτουμε ότι αν κάποιος έχει δηλώσει προσανατολισμό Οικονομίας από την Α'
+        if (direction.includes("Οικονομίας")) {
+            subjectsToRender = ["Έκθεση", "Άλγεβρα"];
+        } else {
+            subjectsToRender = ["Έκθεση", "Άλγεβρα", "Φυσική", "Χημεία"];
+        }
+
+    // --- Β' Λυκείου ---
+    } else if (grade.includes("Β' Λυκείου")) {
+        if (direction.includes("Οικονομίας")) {
+            subjectsToRender = ["Έκθεση", "Άλγεβρα", "Μαθηματικά Κατεύθυνσης", "Πληροφορική (ΑΕΠΠ)", "Οικονομία (ΑΟΘ)"];
+        } else if (direction.includes("Θετικών")) {
+            subjectsToRender = ["Έκθεση", "Άλγεβρα", "Μαθηματικά Κατεύθυνσης", "Φυσική", "Χημεία"];
+        } else {
+            subjectsToRender = ["Έκθεση", "Άλγεβρα", "Φυσική", "Χημεία", "Βιολογία"];
+        }
+
+    // --- Γ' Λυκείου ---
+    } else if (grade.includes("Γ' Λυκείου")) {
+        if (direction.includes("Θετικών")) {
+            subjectsToRender = ["Έκθεση", "Μαθηματικά", "Φυσική", "Χημεία"];
+        } else if (direction.includes("Οικονομίας")) {
+            subjectsToRender = ["Έκθεση", "Μαθηματικά", "Πληροφορική (ΑΕΠΠ)", "Οικονομία (ΑΟΘ)"];
+        } else {
+            subjectsToRender = ["Έκθεση", "Φυσική", "Χημεία", "Βιολογία"];
+        }
+    } else {
+        subjectsToRender = ["Έκθεση", "Μαθηματικά"];
+    }
+
+    return subjectsToRender;
 }
 
 function renderSchoolGrades(student) {
@@ -291,6 +320,13 @@ function performSearch() {
         }
         if (suggestionsArea) {
             suggestionsArea.classList.add('d-none');
+        }
+
+        // Auto-select student's grade in exam grade select
+        const examGradeSelect = document.getElementById('examGradeSelect');
+        if (examGradeSelect && selectedStudent && selectedStudent.grade) {
+            examGradeSelect.value = selectedStudent.grade;
+            examGradeSelect.setAttribute('true');
         }
     } else {
         alert('Παρακαλώ πληκτρολογήστε όνομα ή επώνυμο.');

@@ -30,11 +30,18 @@
         </div>
 
         <div class="search-area">
-            <label class="form-label fw-bold">Αναζήτηση Μαθητή</label>
-            <div class="mb-2">
-                <button class="btn btn-outline-secondary btn-sm shadow-none d-inline-flex align-items-center gap-1" type="button" id="filterPanelToggle" data-bs-toggle="collapse" data-bs-target="#studentFiltersCollapse" aria-expanded="false" aria-controls="studentFiltersCollapse">
-                    <i class="bi bi-funnel" aria-hidden="true"></i>
-                    Φίλτρο
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <label class="form-label fw-bold mb-0">Αναζήτηση Μαθητή</label>
+
+                <button class="btn btn-light border shadow-sm rounded-pill btn-sm d-inline-flex align-items-center gap-2 px-3 text-secondary hover-shadow" 
+                        type="button" 
+                        id="filterPanelToggle" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#studentFiltersCollapse" 
+                        aria-expanded="false" 
+                        aria-controls="studentFiltersCollapse">
+                    <i class="bi bi-funnel-fill" aria-hidden="true"></i>
+                    <span class="fw-medium">Filter</span>
                 </button>
             </div>
             <div class="collapse" id="studentFiltersCollapse">
@@ -47,10 +54,6 @@
                         </button>
                         <ul class="dropdown-menu w-100 shadow-sm" id="filterDirectionMenu" aria-labelledby="filterDirectionToggle">
                             <li><button type="button" class="dropdown-item active" data-value="">Όλες οι κατευθύνσεις</button></li>
-                            <li><button type="button" class="dropdown-item" data-value="Κατεύθυνση Θετικών Σπουδών">Θετικών Σπουδών</button></li>
-                            <li><button type="button" class="dropdown-item" data-value="Κατεύθυνση Σπουδών Υγείας">Σπουδών Υγείας</button></li>
-                            <li><button type="button" class="dropdown-item" data-value="Κατεύθυνση Οικονομίας &amp; Πληροφορικής">Οικονομίας &amp; Πληροφορικής</button></li>
-                            <li><button type="button" class="dropdown-item" data-value="Γενική Παιδεία">Γενική Παιδεία</button></li>
                         </ul>
                     </div>
                     <input type="hidden" id="filterDirection" value="">

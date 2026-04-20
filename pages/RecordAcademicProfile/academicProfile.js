@@ -60,6 +60,27 @@ function populateGradeFilter() {
     }
 }
 
+function populateDirectionFilter() {
+    const menu = document.getElementById('filterDirectionMenu');
+    const labelEl = document.getElementById('filterDirectionLabel');
+    if (!filterDirection || !menu) return;
+
+    const preservedRaw = filterDirection.value;
+    const directions = [...new Set(studentList.map(s => s.direction).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'el'));
+    const preserved = directions.includes(preservedRaw) ? preservedRaw : '';
+
+    let html = `<li><button type="button" class="dropdown-item${preserved === '' ? ' active' : ''}" data-value="">Όλες οι κατευθύνσεις</button></li>`;
+    for (const d of directions) {
+        html += `<li><button type="button" class="dropdown-item${d === preserved ? ' active' : ''}" data-value="${escapeDataValue(d)}">${d}</button></li>`;
+    }
+    menu.innerHTML = html;
+
+    filterDirection.value = preserved;
+    if (labelEl) {
+        labelEl.textContent = preserved ? preserved : 'Όλες οι κατευθύνσεις';
+    }
+}
+
 function wireFilterDropdownMenu(menuId, hiddenEl, labelEl, toggleEl, onSelect) {
     const menu = document.getElementById(menuId);
     if (!menu || !hiddenEl) return;
@@ -177,6 +198,7 @@ async function loadStudentData() {
     }
 
     populateGradeFilter();
+    populateDirectionFilter();
     filterSuggestions();
 }
 

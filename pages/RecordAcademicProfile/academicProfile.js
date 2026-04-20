@@ -1,10 +1,147 @@
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
+const filterDirection = document.getElementById('filterDirection');
+const filterGrade = document.getElementById('filterGrade');
+const filterDirectionToggle = document.getElementById('filterDirectionToggle');
+const filterGradeToggle = document.getElementById('filterGradeToggle');
+const filterPanelToggle = document.getElementById('filterPanelToggle');
 const suggestionsArea = document.getElementById('suggestionsArea');
 const formArea = document.getElementById('evaluationFormArea');
 const nameDisplay = document.getElementById('studentNameDisplay');
+const gradeBadge = document.getElementById('studentGradeBadge');
+const directionBadge = document.getElementById('studentDirectionBadge');
+const schoolGradesContainer = document.getElementById('schoolGradesContainer');
 
 let studentList = [];
+let selectedStudent = null;
+
+const gradeSortOrder = [
+    "Α' Γυμνασίου", "Β' Γυμνασίου", "Γ' Γυμνασίου",
+    "Α' Λυκείου", "Β' Λυκείου", "Γ' Λυκείου"
+];
+
+function compareGrades(a, b) {
+    const ia = gradeSortOrder.indexOf(a);
+    const ib = gradeSortOrder.indexOf(b);
+    if (ia !== -1 && ib !== -1) return ia - ib;
+    if (ia !== -1) return -1;
+    if (ib !== -1) return 1;
+    return a.localeCompare(b, 'el');
+}
+
+function escapeDataValue(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+}
+
+function closeBootstrapDropdown(toggleEl) {
+    if (!toggleEl || typeof bootstrap === 'undefined') return;
+    const inst = bootstrap.Dropdown.getInstance(toggleEl);
+    if (inst) inst.hide();
+}
+
+function populateGradeFilter() {
+    const menu = document.getElementById('filterGradeMenu');
+    const labelEl = document.getElementById('filterGradeLabel');
+    if (!filterGrade || !menu) return;
+
+    const preservedRaw = filterGrade.value;
+    const grades = [...new Set(studentList.map(s => s.grade).filter(Boolean))].sort(compareGrades);
+    const preserved = grades.includes(preservedRaw) ? preservedRaw : '';
+
+    let html = `<li><button type="button" class="dropdown-item${preserved === '' ? ' active' : ''}" data-value="">Όλες οι τάξεις</button></li>`;
+    for (const g of grades) {
+        html += `<li><button type="button" class="dropdown-item${g === preserved ? ' active' : ''}" data-value="${escapeDataValue(g)}">${g}</button></li>`;
+    }
+    menu.innerHTML = html;
+
+    filterGrade.value = preserved;
+    if (labelEl) {
+        labelEl.textContent = preserved ? preserved : 'Όλες οι τάξεις';
+    }
+}
+
+function wireFilterDropdownMenu(menuId, hiddenEl, labelEl, toggleEl, onSelect) {
+    const menu = document.getElementById(menuId);
+    if (!menu || !hiddenEl) return;
+    menu.addEventListener('click', (e) => {
+        const item = e.target.closest('button.dropdown-item');
+        if (!item || !menu.contains(item)) return;
+        e.preventDefault();
+        const val = item.getAttribute('data-value') ?? '';
+        hiddenEl.value = val;
+        if (labelEl) {
+            labelEl.textContent = item.textContent.trim();
+        }
+        menu.querySelectorAll('.dropdown-item').forEach((btn) => btn.classList.remove('active'));
+        item.classList.add('active');
+        closeBootstrapDropdown(toggleEl);
+        onSelect();
+    });
+}
+
+function applyStudentFilters(students) {
+    const dir = filterDirection ? filterDirection.value : '';
+    const gr = filterGrade ? filterGrade.value : '';
+    return students.filter((student) => {
+        if (dir && student.direction !== dir) return false;
+        if (gr && student.grade !== gr) return false;
+        return true;
+    });
+}
+
+const subjectsByDirection = {
+    "Κατεύθυνση Θετικών Σπουδών": ["Έκθεση", "Μαθηματικά", "Φυσική", "Χημεία"],
+    "Κατεύθυνση Σπουδών Υγείας": ["Έκθεση", "Φυσική", "Χημεία", "Βιολογία"],
+    "Κατεύθυνση Οικονομίας & Πληροφορικής": ["Έκθεση", "Μαθηματικά", "Πληροφορική (ΑΕΠΠ)", "Οικονομία (ΑΟΘ)"],
+    "Γενική Παιδεία": ["Έκθεση", "Άλγεβρα", "Φυσική", "Χημεία", "Ιστορία"]
+};
+
+function getSubjectsForStudent(student) {
+    if (!student) {
+        return subjectsByDirection["Γενική Παιδεία"];
+    }
+    const subjects = subjectsByDirection[student.direction] || subjectsByDirection["Γενική Παιδεία"];
+
+    if (student.direction === "Κατεύθυνση Οικονομίας & Πληροφορικής") {
+        return subjects.filter(subject => subject !== "Οικονομία (ΑΟΘ)");
+    }
+
+    return subjects;
+}
+
+function renderSchoolGrades(student) {
+    if (!schoolGradesContainer) return;
+
+    const subjects = getSubjectsForStudent(student);
+    schoolGradesContainer.innerHTML = subjects.map((subject, index) => `
+        <div class="col-md-6 col-xl-4">
+            <label class="form-label">${subject} <span class="required-asterisk">*</span></label>
+            <div class="input-group">
+                <input
+                    type="number"
+                    class="form-control"
+                    name="schoolSubjectGrade_${index}"
+                    min="0"
+                    max="20"
+                    step="0.5"
+                    placeholder="0-20"
+                    required
+                >
+                <span class="input-group-text">/20</span>
+            </div>
+        </div>
+    `).join('');
+}
+
+function findStudentByQuery(query) {
+    const normalizedQuery = query.trim().toLowerCase();
+    if (!normalizedQuery) return null;
+
+    const pool = applyStudentFilters(studentList);
+    return pool.find(student => student.name.toLowerCase() === normalizedQuery)
+        || pool.find(student => student.name.toLowerCase().includes(normalizedQuery))
+        || null;
+}
 
 async function loadStudentData() {
     if (!suggestionsArea) return;
@@ -39,6 +176,7 @@ async function loadStudentData() {
         return;
     }
 
+    populateGradeFilter();
     filterSuggestions();
 }
 
@@ -48,7 +186,7 @@ function renderSuggestions(results) {
     if (results.length === 0) {
         suggestionsArea.innerHTML = `
             <div class="alert alert-light py-2 shadow-sm mb-0" role="alert">
-                Δεν βρέθηκαν μαθητές που να ταιριάζουν. Δοκιμάστε διαφορετικό όνομα.
+                Δεν βρέθηκαν μαθητές που να ταιριάζουν. Δοκιμάστε διαφορετικό όνομα ή αλλάξτε τα φίλτρα.
             </div>
         `;
         return;
@@ -86,15 +224,14 @@ function renderSuggestions(results) {
 }
 
 function filterSuggestions() {
+    const base = applyStudentFilters(studentList);
     const query = searchInput.value.trim().toLowerCase();
     if (query.length === 0) {
-        renderSuggestions(studentList);
+        renderSuggestions(base);
         return;
     }
 
-    const matches = studentList.filter(student => {
-        return student.name.toLowerCase().includes(query);
-    });
+    const matches = base.filter(student => student.name.toLowerCase().includes(query));
 
     renderSuggestions(matches);
 }
@@ -102,10 +239,32 @@ function filterSuggestions() {
 function performSearch() {
     const query = searchInput.value.trim();
     if (query.length > 0) {
+        selectedStudent = findStudentByQuery(query);
         formArea.classList.remove('d-none');
-        nameDisplay.innerText = query;
+        nameDisplay.innerText = selectedStudent ? selectedStudent.name : query;
+        if (selectedStudent) {
+            gradeBadge.innerText = selectedStudent.grade;
+            directionBadge.innerText = selectedStudent.direction;
+        } else {
+            gradeBadge.innerText = 'Τάξη μη διαθέσιμη';
+            directionBadge.innerText = 'Κατεύθυνση μη διαθέσιμη';
+        }
+        renderSchoolGrades(selectedStudent);
         searchInput.setAttribute('disabled', 'true');
         searchBtn.setAttribute('disabled', 'true');
+        if (filterDirection) filterDirection.setAttribute('disabled', 'true');
+        if (filterGrade) filterGrade.setAttribute('disabled', 'true');
+        if (filterDirectionToggle) filterDirectionToggle.setAttribute('disabled', 'true');
+        if (filterGradeToggle) filterGradeToggle.setAttribute('disabled', 'true');
+        if (filterPanelToggle) {
+            filterPanelToggle.setAttribute('disabled', 'true');
+            filterPanelToggle.setAttribute('aria-expanded', 'false');
+            const panel = document.getElementById('studentFiltersCollapse');
+            if (panel && typeof bootstrap !== 'undefined') {
+                const c = bootstrap.Collapse.getInstance(panel);
+                if (c) c.hide();
+            }
+        }
         if (suggestionsArea) {
             suggestionsArea.classList.add('d-none');
         }
@@ -116,6 +275,20 @@ function performSearch() {
 
 searchBtn.addEventListener('click', performSearch);
 searchInput.addEventListener('input', filterSuggestions);
+wireFilterDropdownMenu(
+    'filterDirectionMenu',
+    filterDirection,
+    document.getElementById('filterDirectionLabel'),
+    filterDirectionToggle,
+    filterSuggestions
+);
+wireFilterDropdownMenu(
+    'filterGradeMenu',
+    filterGrade,
+    document.getElementById('filterGradeLabel'),
+    filterGradeToggle,
+    filterSuggestions
+);
 searchInput.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         performSearch();
@@ -123,6 +296,7 @@ searchInput.addEventListener('keypress', function (e) {
 });
 
 loadStudentData();
+renderSchoolGrades(null);
 
 const sliderValueIds = ['valPace', 'valExtro', 'valStress', 'valTeam', 'valFocus', 'valMethod'];
 document.querySelectorAll('#evaluationForm .custom-range').forEach((range, i) => {

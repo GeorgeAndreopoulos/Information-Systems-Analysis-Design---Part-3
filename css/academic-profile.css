@@ -91,17 +91,3 @@
 .text-orange {
     color: #da6d13 !important; /* Έντονο πορτοκαλί */
 }
-
-/* Ακαδημαϊκοί δείκτες: ίδιο ύψος labels, πιο συμπαγές κενά */
-.academic-indicators {
-    padding-top: 0.75rem;
-    padding-bottom: 0.875rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-.academic-indicators .form-label {
-    min-height: 2.75rem;
-    line-height: 1.25;
-    margin-bottom: 0.35rem;
-}

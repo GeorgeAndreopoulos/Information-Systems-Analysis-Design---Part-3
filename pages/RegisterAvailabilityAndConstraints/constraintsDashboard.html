@@ -315,12 +315,24 @@
                         </div>
                     </div>
 
+                    <div class="card shadow-sm border-0 mb-4">
+                        <div class="card-header py-2 bg-white fw-bold">
+                            <i class="bi bi-chat-quote me-2"></i>Σχόλια / Ειδικές Προτιμήσεις
+                        </div>
+                        <div class="card-body">
+                            <textarea class="form-control shadow-none" id="teacherComments" rows="3" placeholder="π.χ. Θέλω τον μαθητή Κυριακό Λαζαρίδη που θα πάει Γ Λυκείου ή να μην έχω κενά ανάμεσα στα μαθήματα..."></textarea>
+                            <div class="small text-muted mt-2">
+                                <i class="bi bi-info-circle me-1"></i>Γράψτε αν προτιμάτε συγκεκριμένο/νους μαθητή/τές
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="d-flex justify-content-end gap-2 border-top pt-4">
                         <button class="btn btn-light border px-4" onclick="clearTable('teacher-cell')">Καθαρισμός</button>
-                            <button class="btn btn-brand px-4 shadow-sm" onclick="showSuccess('teacher')">
-                                <i class="bi bi-save me-2"></i>Οριστική Υποβολή
-                            </button>
-                        </div>
+                        <button class="btn btn-brand px-4 shadow-sm" onclick="showSuccess('teacher')">
+                            <i class="bi bi-save me-2"></i>Οριστική Υποβολή
+                        </button>
+                    </div>
                 </div>
 
                 <div class="tab-pane fade" id="student-tab" role="tabpanel">
@@ -355,7 +367,7 @@
                     </div>
 
                     <div class="card shadow-sm border-0 mb-4">
-                        <div class="card-header py-2 bg-white small fw-bold">
+                        <div class="card-header py-2 bg-white fw-bold">
                             <i class="bi bi-chat-quote me-2"></i>Σχόλια / Ειδικές Προτιμήσεις
                         </div>
                         <div class="card-body">

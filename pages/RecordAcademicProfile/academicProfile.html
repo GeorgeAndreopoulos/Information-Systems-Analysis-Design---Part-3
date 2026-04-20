@@ -112,7 +112,7 @@
                     </small>
                     </div>
                     <div class="card-body academic-indicators">
-                        <div class="row g-2">
+                        <div class="row g-3">
                             <div class="col-md-4">
                                 <label class="form-label">Μ.Ο. Περσινού Έτους</label>
                                 <input type="number" class="form-control" min="0" max="20" step="2.0" placeholder="0-20">
@@ -155,14 +155,17 @@
                 </div>
 
                 <div class="card mb-4 shadow-sm border-0">
-                    <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
-                        <div><i class="bi bi-journal-check me-2"></i> Βαθμοί Σχολείου</div>
-                        <small class="text-muted" style="font-size: 0.75rem;">
-                            Συμπληρώστε τους βαθμούς μαθημάτων της επιλεγμένης κατεύθυνσης
-                        </small>
+                    <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center flex-wrap gap-2" 
+                        style="border-bottom: 3px solid var(--brand-green) !important;">
+                        <div class="fw-bold">
+                            <i class="bi bi-journal-check me-2"></i> Βαθμοί Σχολείου
+                        </div>
                     </div>
                     <div class="card-body">
                         <div id="schoolGradesContainer" class="row g-3"></div>
+                        <div class="form-text mt-3 text-muted" style="font-size: 0.75rem;">
+                            <i class="bi bi-info-circle me-1"></i>Συμπληρώστε τους βαθμούς μαθημάτων της επιλεγμένης κατεύθυνσης (0-20).
+                        </div>
                     </div>
                 </div>
 

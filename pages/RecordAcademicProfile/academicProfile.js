@@ -135,20 +135,22 @@ function renderSchoolGrades(student) {
 
     const subjects = getSubjectsForStudent(student);
     schoolGradesContainer.innerHTML = subjects.map((subject, index) => `
-        <div class="col-md-6 col-xl-4">
-            <label class="form-label">${subject} <span class="required-asterisk">*</span></label>
-            <div class="input-group">
-                <input
-                    type="number"
-                    class="form-control"
-                    name="schoolSubjectGrade_${index}"
-                    min="0"
-                    max="20"
-                    step="0.5"
-                    placeholder="0-20"
-                    required
-                >
-                <span class="input-group-text">/20</span>
+        <div class="col-6 col-lg-3">
+            <div class="p-3 border rounded-3 bg-light-subtle shadow-sm">
+                <label class="form-label small fw-bold text-muted mb-2">${subject} <span class="required-asterisk">*</span></label>
+                <div class="input-group input-group-sm">
+                    <input
+                        type="number"
+                        class="form-control fw-bold text-center border-success-subtle"
+                        name="schoolSubjectGrade_${index}"
+                        min="0"
+                        max="20"
+                        step="2.0"
+                        placeholder="0.0"
+                        required
+                    >
+                    <span class="input-group-text bg-white small text-muted">/20</span>
+                </div>
             </div>
         </div>
     `).join('');

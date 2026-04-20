@@ -6,7 +6,7 @@ const addGuardianBtn = document.getElementById('addGuardianBtn');
 let guardianCounter = 0;
 
 function getDefaultGuardianRoleByIndex(index) {
-    const defaultRoles = ['Μπαμπάς', 'Μαμά'];
+    const defaultRoles = ['Μητέρα', 'Πατέρας'];
     return defaultRoles[index] || `Κηδεμόνας ${index + 1}`;
 }
 
@@ -16,10 +16,24 @@ function guardianTemplate(guardianId, removable = false) {
     return `
         <div class="border rounded p-3 mb-3 guardian-block" data-guardian-id="${guardianId}">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="fw-semibold guardian-title">${defaultRole}</span>
+                <span class="fw-semibold">Στοιχεία Κηδεμόνα</span>
                 ${removable ? `<button type="button" class="btn btn-sm btn-outline-danger remove-guardian-btn" data-guardian-id="${guardianId}"><i class="bi bi-trash me-1"></i>Αφαίρεση</button>` : ''}
             </div>
             <div class="row">
+                <div class="mb-3">
+                    <label class="form-label">Σχέση με μαθητή</label>
+                    <select class="form-select guardian-relation-select" name="guardianRelation_${guardianId}">
+                        <option value="Μπαμπάς" ${defaultRole === 'Μητέρα' ? 'selected' : ''}>Μητέρα</option>
+                        <option value="Μαμά" ${defaultRole === 'Πατέρας' ? 'selected' : ''}>Πατέρας</option>
+                        <option value="Παππούς">Παππούς</option>
+                        <option value="Γιαγιά">Γιαγιά</option>
+                        <option value="Αδελφός">Αδελφός</option>
+                        <option value="Αδελφή">Αδελφή</option>
+                        <option value="Θείος">Θείος</option>
+                        <option value="Θεία">Θεία</option>
+                        <option value="Άλλο">Άλλο</option>
+                    </select>
+                </div>
                 <div class="col-md-6 mb-3">
                     <label class="form-label">Όνομα <span class="required-asterisk">*</span></label>
                     <input type="text" class="form-control" name="guardianName_${guardianId}" required>
@@ -29,33 +43,21 @@ function guardianTemplate(guardianId, removable = false) {
                     <input type="text" class="form-control" name="guardianSurname_${guardianId}" required>
                 </div>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Σχέση με μαθητή</label>
-                <select class="form-select guardian-relation-select" name="guardianRelation_${guardianId}">
-                    <option value="Μπαμπάς" ${defaultRole === 'Μπαμπάς' ? 'selected' : ''}>Μπαμπάς</option>
-                    <option value="Μαμά" ${defaultRole === 'Μαμά' ? 'selected' : ''}>Μαμά</option>
-                    <option value="Παππούς">Παππούς</option>
-                    <option value="Γιαγιά">Γιαγιά</option>
-                    <option value="Αδελφός">Αδελφός</option>
-                    <option value="Αδελφή">Αδελφή</option>
-                    <option value="Θείος">Θείος</option>
-                    <option value="Θεία">Θεία</option>
-                    <option value="Άλλο">Άλλο</option>
-                </select>
-            </div>
             <div class="mb-3 d-none guardian-custom-relation-wrapper">
                 <label class="form-label">Γράψε τη σχέση <span class="required-asterisk">*</span></label>
                 <input type="text" class="form-control guardian-custom-relation-input" name="guardianCustomRelation_${guardianId}" placeholder="π.χ. Νονά">
             </div>
-            <div class="mb-3">
-                <label class="form-label">Τηλέφωνο <span class="required-asterisk">*</span></label>
-                <input type="tel" class="form-control" name="guardianPhone_${guardianId}" required>
+            <div class="row mb-3">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <label class="form-label">Τηλέφωνο <span class="required-asterisk">*</span></label>
+                    <input type="tel" class="form-control" name="guardianPhone_${guardianId}" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Email <span class="required-asterisk">*</span></label>
+                    <input type="email" class="form-control" name="guardianEmail_${guardianId}" required>
+                </div>
             </div>
-            <div class="mb-0">
-                <label class="form-label">Email <span class="required-asterisk">*</span></label>
-                <input type="email" class="form-control" name="guardianEmail_${guardianId}" required>
-            </div>
-        </div>
     `;
 }
 

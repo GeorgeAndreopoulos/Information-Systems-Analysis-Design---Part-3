@@ -86,13 +86,16 @@
                     </small>
                     </div>
                     <div class="card-body">
-                        <div class="mb-3">
-                            <label class="form-label">Email Μαθητή <span class="required-asterisk">*</span></label>
-                            <input type="email" class="form-control" id="studentContactEmail" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Τηλέφωνο Μαθητή</label>
-                            <input type="tel" class="form-control">
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label class="form-label">Email Μαθητή <span class="required-asterisk">*</span></label>
+                                <input type="email" class="form-control" id="studentContactEmail" required>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label class="form-label">Τηλέφωνο Μαθητή</label>
+                                <input type="tel" class="form-control">
+                            </div>
                         </div>
                         <div id="guardiansContainer"></div>
                         <button type="button" class="btn btn-outline-secondary btn-sm" id="addGuardianBtn">

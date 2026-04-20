@@ -18,6 +18,131 @@ function buildHalfHourSlots(startHour, startMinute, endHour, endMinute) {
 
 const times = buildHalfHourSlots(9, 30, 22, 30);
 
+const roomFloors = ["Κάτω Αίθουσες", "Ισόγειο", "1ος Όροφος", "2ος Όροφος"];
+let rooms = [];
+
+async function loadRoomsFromJson() {
+    try {
+        const response = await fetch('./rooms.json');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        if (Array.isArray(data) && data.length > 0) {
+            rooms = data.map(room => ({
+                name: String(room.name || 'Νέα Αίθουσα'),
+                floor: room.floor || roomFloors[0],
+                capacity: Number(room.capacity) || 1
+            }));
+        } else {
+            console.warn('Το rooms.json δεν περιέχει έγκυρη λίστα αιθουσών. Ο πίνακας θα παραμείνει κενός.');
+            rooms = [];
+        }
+    } catch (error) {
+        console.warn('Σφάλμα φόρτωσης rooms.json:', error);
+        rooms = [];
+    }
+}
+
+const roomsContainer = document.getElementById('roomsContainer');
+const addRoomBtn = document.getElementById('addRoomBtn');
+const roomCountBadge = document.getElementById('roomCountBadge');
+
+function escapeHtml(text) {
+    return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function createRoomMarkup(room, index) {
+    return `
+        <div class="col-md-6 col-xl-4 room-row">
+            <div class="d-flex gap-1 bg-white p-2 border rounded shadow-sm">
+                <input type="text" class="form-control form-control-sm room-name" value="${escapeHtml(room.name)}" placeholder="Όνομα...">
+                <select class="form-select form-select-sm room-floor" style="width: 150px;">
+                    ${roomFloors.map(floor => `
+                        <option value="${escapeHtml(floor)}"${floor === room.floor ? ' selected' : ''}>${escapeHtml(floor)}</option>
+                    `).join('')}
+                </select>
+                <input type="number" class="form-control form-control-sm text-center room-capacity" value="${room.capacity}" style="width: 40px;" title="Χωρητικότητα" min="1">
+                <button type="button" class="btn btn-outline-danger btn-sm delete-room" data-index="${index}"><i class="bi bi-trash"></i></button>
+            </div>
+        </div>
+    `;
+}
+
+function updateRoomCount() {
+    if (roomCountBadge) {
+        roomCountBadge.innerText = `Σύνολο: ${rooms.length} Αίθουσες`;
+    }
+}
+
+function renderRooms() {
+    if (!roomsContainer) return;
+
+    if (rooms.length === 0) {
+        roomsContainer.innerHTML = `
+            <div class="col-12">
+                <div class="p-4 bg-white border rounded shadow-sm text-center text-muted">
+                    Δεν βρέθηκαν αίθουσες. Βεβαιώσου ότι το αρχείο <code>rooms.json</code> υπάρχει και φορτώνεται σωστά.
+                </div>
+            </div>`;
+    } else {
+        roomsContainer.innerHTML = rooms.map(createRoomMarkup).join('');
+    }
+
+    updateRoomCount();
+}
+
+function deleteRoom(index) {
+    if (index >= 0 && index < rooms.length) {
+        rooms.splice(index, 1);
+        renderRooms();
+    }
+}
+
+function addRoom() {
+    rooms.push({ name: 'Νέα Αίθουσα', floor: roomFloors[0], capacity: 5 });
+    renderRooms();
+}
+
+function bindRoomEvents() {
+    if (!roomsContainer) return;
+
+    roomsContainer.addEventListener('click', (event) => {
+        const deleteButton = event.target.closest('.delete-room');
+        if (!deleteButton) return;
+        const index = Number(deleteButton.dataset.index);
+        deleteRoom(index);
+    });
+
+    roomsContainer.addEventListener('input', (event) => {
+        const input = event.target;
+        const row = input.closest('.room-row');
+        if (!row) return;
+        const rowIndex = Array.from(roomsContainer.children).indexOf(row);
+        if (rowIndex < 0) return;
+
+        const nameInput = row.querySelector('.room-name');
+        const floorSelect = row.querySelector('.room-floor');
+        const capacityInput = row.querySelector('.room-capacity');
+
+        rooms[rowIndex] = {
+            name: nameInput.value,
+            floor: floorSelect.value,
+            capacity: Number(capacityInput.value)
+        };
+    });
+}
+
+addRoomBtn?.addEventListener('click', addRoom);
+
+function initializeRooms() {
+    renderRooms();
+    bindRoomEvents();
+}
+
 function validateTeacherHourLimits() {
     const minInput = document.getElementById('teacherMinHours');
     const maxInput = document.getElementById('teacherMaxHours');
@@ -217,3 +342,4 @@ if (teacherMinHoursInput && teacherMaxHoursInput) {
 }
 
 renderTables();
+loadRoomsFromJson().then(initializeRooms);

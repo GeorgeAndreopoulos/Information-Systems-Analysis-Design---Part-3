@@ -30,7 +30,48 @@
         </div>
 
         <div class="search-area">
-            <label class="form-label fw-bold">Αναζήτηση Μαθητή</label>
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <label class="form-label fw-bold mb-0">Αναζήτηση Μαθητή</label>
+
+                <button class="btn btn-light border shadow-sm rounded-pill btn-sm d-inline-flex align-items-center gap-2 px-3 text-secondary hover-shadow" 
+                        type="button" 
+                        id="filterPanelToggle" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#studentFiltersCollapse" 
+                        aria-expanded="false" 
+                        aria-controls="studentFiltersCollapse">
+                    <i class="bi bi-funnel-fill" aria-hidden="true"></i>
+                    <span class="fw-medium">Filter</span>
+                </button>
+            </div>
+            <div class="collapse" id="studentFiltersCollapse">
+            <div class="row g-2 mb-2 mt-2 pt-3 border-top border-light-subtle">
+                <div class="col-md-6">
+                    <label class="form-label small mb-1 text-muted" for="filterDirectionToggle">Κατεύθυνση</label>
+                    <div class="dropdown">
+                        <button class="btn btn-light border shadow-none dropdown-toggle w-100 d-flex justify-content-between align-items-center py-2 text-start" type="button" id="filterDirectionToggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Φίλτρο κατεύθυνσης">
+                            <span id="filterDirectionLabel" class="text-truncate me-2 min-w-0">Όλες οι κατευθύνσεις</span>
+                        </button>
+                        <ul class="dropdown-menu w-100 shadow-sm" id="filterDirectionMenu" aria-labelledby="filterDirectionToggle">
+                            <li><button type="button" class="dropdown-item active" data-value="">Όλες οι κατευθύνσεις</button></li>
+                        </ul>
+                    </div>
+                    <input type="hidden" id="filterDirection" value="">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label small mb-1 text-muted" for="filterGradeToggle">Τάξη</label>
+                    <div class="dropdown">
+                        <button class="btn btn-light border shadow-none dropdown-toggle w-100 d-flex justify-content-between align-items-center py-2 text-start" type="button" id="filterGradeToggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Φίλτρο τάξης">
+                            <span id="filterGradeLabel" class="text-truncate me-2 min-w-0">Όλες οι τάξεις</span>
+                        </button>
+                        <ul class="dropdown-menu w-100 shadow-sm" id="filterGradeMenu" aria-labelledby="filterGradeToggle">
+                            <li><button type="button" class="dropdown-item active" data-value="">Όλες οι τάξεις</button></li>
+                        </ul>
+                    </div>
+                    <input type="hidden" id="filterGrade" value="">
+                </div>
+            </div>
+            </div>
             <div class="input-group search-input-group">
                 <input type="text" class="form-control shadow-none" id="searchInput" placeholder="Πληκτρολογήστε Επώνυμο ή Ονοματεπώνυμο...">
                 <button class="btn btn-brand" type="button" id="searchBtn">
@@ -58,8 +99,8 @@
                     </div>
                     <div>
                         <h4 class="fw-bold mb-1" style="color: var(--brand-grey);" id="studentNameDisplay">Παπαδόπουλος Γιώργος</h4>
-                        <span class="badge bg-secondary me-2">Γ' Λυκείου</span>
-                        <span class="badge" style="background-color: var(--brand-green);">Κατεύθυνση Θετικών Σπουδών</span>
+                        <span class="badge bg-secondary me-2" id="studentGradeBadge">Γ' Λυκείου</span>
+                        <span class="badge" style="background-color: var(--brand-green);" id="studentDirectionBadge">Κατεύθυνση Θετικών Σπουδών</span>
                     </div>
                 </div>
 
@@ -70,14 +111,14 @@
                         Τα πεδία με <span class="text-danger fw-bold">*</span> είναι υποχρεωτικά
                     </small>
                     </div>
-                    <div class="card-body">
-                        <div class="row g-4">
+                    <div class="card-body academic-indicators">
+                        <div class="row g-3">
                             <div class="col-md-4">
-                                <label class="form-label">Βαθμός Σχολείου </label>
+                                <label class="form-label">Μ.Ο. Περσινού Έτους</label>
                                 <input type="number" class="form-control" min="0" max="20" step="2.0" placeholder="0-20">
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Βαθμός Διαγνωστικού Test <span class="required-asterisk">*</span></label>
+                                <label class="form-label">Εικόνα Διαγνωστικού Test <span class="required-asterisk">*</span></label>
                                 <div class="input-group">
                                     <input type="number" class="form-control" placeholder="0-100" min="0" max="100" step="5" required>
                                 </div>
@@ -87,7 +128,7 @@
                                 <input type="number" class="form-control" placeholder="0-20" min="0" max="20" step="2.0">
                             </div>
                         </div>
-                        <div class="row g-4 mt-1">
+                        <div class="row g-2 mt-1">
                             <div class="col-md-6">
                                 <label class="form-label">Συνέπεια Μελέτης & Εργασιών <span class="required-asterisk">*</span></label>
                                 <select class="form-select" required>
@@ -98,16 +139,32 @@
                                     <option>Άριστη (Εργατικός)</option>
                                 </select>
                             </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Γνωστικό Υπόβαθρο / Κενά <span class="required-asterisk">*</span></label>
-                                <select class="form-select" required>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Δυναμική Μαθητή <span class="required-asterisk">*</span></label>
+                                <select class="form-select" name="studentDynamics" required>
                                     <option value="" disabled selected>Επιλέξτε...</option>
-                                    <option>Σημαντικά Κενά</option>
-                                    <option>Βασικές Ελλείψεις</option>
-                                    <option>Ικανοποιητικό</option>
-                                    <option>Ισχυρό Υπόβαθρο</option>
+                                    <option value="needs_support">Χρειάζεται Σημαντική Υποστήριξη</option>
+                                    <option value="slow_steady">Σταθερή, αλλά με Αργό Ρυθμό</option>
+                                    <option value="good_active">Καλή Δυναμική / Ενεργή Συμμετοχή</option>
+                                    <option value="high_rapid">Υψηλή Δυναμική / Ταχεία Αφομοίωση</option>
+                                    <option value="exceptional">Εξαιρετική / Προχωρημένο Επίπεδο</option>
                                 </select>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm border-0">
+                    <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center flex-wrap gap-2" 
+                        style="border-bottom: 3px solid var(--brand-green) !important;">
+                        <div class="fw-bold">
+                            <i class="bi bi-journal-check me-2"></i> Βαθμοί Σχολείου
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="schoolGradesContainer" class="row g-3"></div>
+                        <div class="form-text mt-3 text-muted" style="font-size: 0.75rem;">
+                            <i class="bi bi-info-circle me-1"></i>Συμπληρώστε τους βαθμούς μαθημάτων της επιλεγμένης κατεύθυνσης (0-20).
                         </div>
                     </div>
                 </div>
@@ -202,12 +259,12 @@
                         </div>
 
                         <div class="d-flex gap-2">
-                            <select class="form-select form-select-sm border-1 shadow-none" style="width: 130px; background-color: #f8f9fa;">
+                            <select class="form-select form-select-sm border-1 shadow-none" style="width: 130px; background-color: #f8f9fa;" id="examGradeSelect">
                                 <option>Tάξη...</option>
                                 <option>Γ' Γυμνασίου</option>
                                 <option>Α' Λυκείου</option>
                                 <option>Β' Λυκείου</option>
-                                <option value="" disabled selected>Γ' Λυκείου</option>
+                                <option>Γ' Λυκείου</option>
                             </select>
                             <select class="form-select form-select-sm border-1 shadow-none" style="width: 130px; background-color: #f8f9fa;">
                                 <option value="" disabled selected>Μάθημα...</option>

@@ -29,10 +29,25 @@ function showResults() {
     renderSchedule('Δευτέρα');
 }
 
-const HOURS = [
-    '9:30', '10:30', '11:30', '12:30', '13:30', '14:30',
-    '15:30', '16:30', '17:30', '18:30', '19:30', '20:30', '21:30', '22:30'
-];
+function buildHalfHourSlots(startHour, startMinute, endHour, endMinute) {
+    const slots = [];
+    let currentMinutes = startHour * 60 + startMinute;
+    const endMinutes = endHour * 60 + endMinute;
+
+    while (currentMinutes < endMinutes) {
+        const nextMinutes = currentMinutes + 30;
+        const fromH = String(Math.floor(currentMinutes / 60)).padStart(2, '0');
+        const fromM = String(currentMinutes % 60).padStart(2, '0');
+        const toH = String(Math.floor(nextMinutes / 60)).padStart(2, '0');
+        const toM = String(nextMinutes % 60).padStart(2, '0');
+        slots.push(`${fromH}:${fromM}-${toH}:${toM}`);
+        currentMinutes = nextMinutes;
+    }
+
+    return slots;
+}
+
+const HOURS = buildHalfHourSlots(9, 30, 22, 30);
 
 const ROOMS = [
     'I1', 'I2', 'I3', 'I4',
@@ -48,12 +63,12 @@ const GROUPS = [
 ];
 
 const DAY_HOURS = {
-    'Δευτέρα': ['15:30', '16:30', '17:30', '18:30', '19:30', '20:30', '21:30', '22:30'],
-    'Τρίτη': ['15:30', '16:30', '17:30', '18:30', '19:30', '20:30', '21:30', '22:30'],
-    'Τετάρτη': ['15:30', '16:30', '17:30', '18:30', '19:30', '20:30', '21:30', '22:30'],
-    'Πέμπτη': ['15:30', '16:30', '17:30', '18:30', '19:30', '20:30', '21:30', '22:30'],
-    'Παρασκευή': ['15:30', '16:30', '17:30', '18:30', '19:30', '20:30', '21:30', '22:30'],
-    'Σάββατο': ['9:30', '10:30', '11:30', '12:30', '13:30', '14:30']
+    'Δευτέρα': buildHalfHourSlots(14, 30, 22, 30),
+    'Τρίτη': buildHalfHourSlots(14, 30, 22, 30),
+    'Τετάρτη': buildHalfHourSlots(14, 30, 22, 30),
+    'Πέμπτη': buildHalfHourSlots(14, 30, 22, 30),
+    'Παρασκευή': buildHalfHourSlots(14, 30, 22, 30),
+    'Σάββατο': buildHalfHourSlots(9, 30, 15, 30)
 };
 
 function shuffle(arr) {

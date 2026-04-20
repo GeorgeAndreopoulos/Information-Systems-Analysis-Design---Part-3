@@ -303,8 +303,8 @@ function performSearch() {
             directionBadge.innerText = 'Κατεύθυνση μη διαθέσιμη';
         }
         renderSchoolGrades(selectedStudent);
-        searchInput.setAttribute('disabled', 'true');
-        searchBtn.setAttribute('disabled', 'true');
+        
+        // Disable filters when student is selected
         if (filterDirection) filterDirection.setAttribute('disabled', 'true');
         if (filterGrade) filterGrade.setAttribute('disabled', 'true');
         if (filterDirectionToggle) filterDirectionToggle.setAttribute('disabled', 'true');
@@ -326,7 +326,7 @@ function performSearch() {
         const examGradeSelect = document.getElementById('examGradeSelect');
         if (examGradeSelect && selectedStudent && selectedStudent.grade) {
             examGradeSelect.value = selectedStudent.grade;
-            examGradeSelect.setAttribute('true');
+            examGradeSelect.setAttribute('disabled', 'true');
         }
     } else {
         alert('Παρακαλώ πληκτρολογήστε όνομα ή επώνυμο.');
@@ -352,6 +352,34 @@ wireFilterDropdownMenu(
 searchInput.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         performSearch();
+    }
+});
+
+// Allow re-searching when input changes
+searchInput.addEventListener('input', function() {
+    const currentValue = this.value.trim();
+    
+    if (currentValue === '' || (selectedStudent && currentValue !== selectedStudent.name)) {
+        selectedStudent = null;
+        formArea.classList.add('d-none');
+        
+        if (filterDirection) filterDirection.removeAttribute('disabled');
+        if (filterGrade) filterGrade.removeAttribute('disabled');
+        if (filterDirectionToggle) filterDirectionToggle.removeAttribute('disabled');
+        if (filterGradeToggle) filterGradeToggle.removeAttribute('disabled');
+        if (filterPanelToggle) filterPanelToggle.removeAttribute('disabled');
+        
+        const examGradeSelect = document.getElementById('examGradeSelect');
+        if (examGradeSelect) {
+            examGradeSelect.value = '';
+            examGradeSelect.removeAttribute('disabled');
+        }
+        
+        if (suggestionsArea) {
+            suggestionsArea.classList.remove('d-none');
+        }
+        
+        filterSuggestions();
     }
 });
 

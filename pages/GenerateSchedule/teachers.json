@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Γ. Μπούτας",
+    "specialty": "fysikos",
+    "groups": ["Α1", "Α2", "Α3", "Α4"]
+  },
+  {
+    "name": "Β. Παπαδοπούλου",
+    "specialty": "mathimatikos",
+    "groups": ["γ1", "γ2", "Βθ1", "ΒΘ2", "ΒΘ3", "ΒΘ4"]
+  },
+  {
+    "name": "Γ. Κωνσταντίνου",
+    "specialty": "ximikos",
+    "groups": ["Α1", "Α2", "ΓΘ1", "ΓΘ2", "ΓΘ3", "ΓΘ4", "ΓΘ5"]
+  },
+  {
+    "name": "Δ. Δημητρίου",
+    "specialty": "viologos",
+    "groups": ["ΒΥ1", "ΒΥ2", "ΓΥ1", "ΓΥ2"]
+  },
+  {
+    "name": "Ε. Χριστοδούλου",
+    "specialty": "oikonomologos",
+    "groups": ["ΒΟ1", "ΒΟ2", "ΒΟ3", "ΒΟ4", "ΓΟ1", "ΓΟ2", "ΓΟ3", "ΓΟ4", "ΓΟ5"]
+  },
+  {
+    "name": "Ζ. Παπαχριστοδούλου",
+    "specialty": "filologos",
+    "groups": ["γ1", "γ2", "Α1", "Α2"]
+  },
+  {
+    "name": "Η. Αγαπίου",
+    "specialty": "pliroforikos",
+    "groups": ["Α3", "Α4", "ΒΟ1", "ΒΟ2"]
+  },
+  {
+    "name": "Θ. Τσατσαρώνη",
+    "specialty": "mathimatikos",
+    "groups": ["ΓΘ1", "ΓΘ2", "ΓΘ3", "ΓΘ4", "ΓΘ5"]
+  },
+  {
+    "name": "Ι. Μανιάτης",
+    "specialty": "fysikos",
+    "groups": ["Βθ1", "ΒΘ2", "ΒΘ3", "ΒΘ4"]
+  },
+  {
+    "name": "Κ. Βενιζέλου",
+    "specialty": "ximikos",
+    "groups": ["ΒΥ1", "ΒΥ2", "ΓΥ1", "ΓΥ2"]
+  },
+  {
+    "name": "Λ. Σταθόπουλος",
+    "specialty": "viologos",
+    "groups": ["γ1", "γ2", "Βθ1", "ΒΘ2"]
+  },
+  {
+    "name": "Μ. Λουκάκη",
+    "specialty": "oikonomologos",
+    "groups": ["Α1", "Α2", "ΒΟ3", "ΒΟ4"]
+  },
+  {
+    "name": "Ν. Παπαδημητρίου",
+    "specialty": "filologos",
+    "groups": ["Α3", "Α4", "ΓΟ1", "ΓΟ2"]
+  },
+  {
+    "name": "Ξ. Χατζηδάκη",
+    "specialty": "pliroforikos",
+    "groups": ["ΓΘ1", "ΓΘ2", "ΒΥ1", "ΒΥ2"]
+  },
+  {
+    "name": "Ο. Παντελίδης",
+    "specialty": "fysikos",
+    "groups": ["ΓΘ3", "ΓΘ4", "ΓΘ5", "ΓΥ1"]
+  }
+]

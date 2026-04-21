@@ -143,15 +143,6 @@ function initializeSchedule() {
 let TEACHERS = [];
 let studentList = [];
 
-const SPECIALTY_MAP = {
-    "fysikos": "Φυσική",
-    "mathimatikos": "Μαθηματικά",
-    "ximikos": "Χημεία",
-    "viologos": "Βιολογία",
-    "oikonomologos": "Οικονομία (ΑΟΘ)",
-    "pliroforikos": "Πληροφορική (ΑΕΠΠ)"
-};
-
 async function loadTeacherData() {
     try {
         const response = await fetch('../../data/teachers.json');
@@ -191,16 +182,21 @@ function getCellClass(group) {
 function getGroupDetails(groupName) {
     const teacher = TEACHERS.find(t => t.groups.includes(groupName));
     const teacherName = teacher ? teacher.name : "Άγνωστος";
-    const subject = teacher ? SPECIALTY_MAP[teacher.specialty] : "Άγνωστο Μάθημα";
 
-    // Αντιστοίχιση τάξης βάσει πρώτου γράμματος τμήματος
     let targetGrade = "";
     if (groupName.startsWith("γ")) targetGrade = "Γ' Γυμνασίου";
     else if (groupName.startsWith("Α")) targetGrade = "Α' Λυκείου";
     else if (groupName.startsWith("Β")) targetGrade = "Β' Λυκείου";
     else if (groupName.startsWith("Γ")) targetGrade = "Γ' Λυκείου";
 
-    // 5 μαθητές της αντίστοιχης τάξης
+    let subject = "Άγνωστο Μάθημα";
+    if (teacher && typeof SPECIALTIES !== 'undefined' && SPECIALTIES[teacher.specialty]) {
+        const specData = SPECIALTIES[teacher.specialty];
+        const specificSubject = specData.subjects.find(sub => sub.includes(targetGrade));
+
+        subject = specificSubject ? specificSubject : specData.title; 
+    }
+
     const matchedStudents = studentList
         .filter(s => s.grade === targetGrade)
         .slice(0, 5)

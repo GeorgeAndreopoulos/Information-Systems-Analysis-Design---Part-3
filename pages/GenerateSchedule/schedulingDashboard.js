@@ -89,6 +89,28 @@ function shuffle(arr) {
     return a;
 }
 
+function populateDaysDropdown() {
+    const daySelector = document.getElementById('daySelector');
+    
+    if (!daySelector || typeof DAYS === 'undefined') return;
+
+    daySelector.innerHTML = '';
+
+    DAYS.forEach((day, index) => {
+        const option = document.createElement('option');
+        option.value = day;
+        option.textContent = day;
+        
+        if (index === 0) {
+            option.selected = true;
+        }
+        
+        daySelector.appendChild(option);
+    });
+}
+
+populateDaysDropdown();
+
 function generateSchedule() {
     const result = {};
 

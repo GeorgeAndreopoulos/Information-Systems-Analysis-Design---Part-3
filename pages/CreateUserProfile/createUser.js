@@ -251,38 +251,29 @@ const classSelect = document.getElementById('classSelect');
 const directionSelect = document.getElementById('directionSelect');
 const subjectsContainer = document.getElementById('dynamicSubjectsContainer');
 
+let subjectsData = {};
+
+async function loadSubjectsData() {
+    try {
+        const response = await fetch('../../data/subjects.json');
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+        subjectsData = await response.json();
+    } catch (error) {
+        console.error('Σφάλμα φόρτωσης subjects.json:', error);
+        subjectsData = {};
+    }
+}
+
 function updateSubjects() {
     const selectedClass = classSelect.value;
     const selectedDirection = directionSelect.value;
     let subjectsToRender = [];
 
-    if (selectedClass === "gymnasio") {
-        subjectsToRender = ["Έκθεση", "Μαθηματικά", "Φυσική"];
-
-    } else if (selectedClass === "alyk") {
-        if (selectedDirection === "oikonomia") {
-            subjectsToRender = ["Έκθεση", "Άλγεβρα"];
-        } else {
-            subjectsToRender = ["Έκθεση", "Άλγεβρα", "Φυσική", "Χημεία"];
-        }
-
-    } else if (selectedClass === "blyk") {
-        if (selectedDirection === "oikonomia") {
-            subjectsToRender = ["Έκθεση", "Άλγεβρα", "Μαθηματικά Κατεύθυνσης", "Πληροφορική (ΑΕΠΠ)", "Οικονομία (ΑΟΘ)"];
-        } else if (selectedDirection === "thetiki") {
-            subjectsToRender = ["Έκθεση", "Άλγεβρα", "Μαθηματικά Κατεύθυνσης", "Φυσική", "Χημεία"];
-        } else {
-            subjectsToRender = ["Έκθεση", "Άλγεβρα", "Φυσική", "Χημεία", "Βιολογία"];
-        }
-
-    } else if (selectedClass === "glyk") {
-        if (selectedDirection === "thetiki") {
-            subjectsToRender = ["Έκθεση", "Μαθηματικά", "Φυσική", "Χημεία"];
-        } else if (selectedDirection === "oikonomia") {
-            subjectsToRender = ["Έκθεση", "Μαθηματικά", "Πληροφορική (ΑΕΠΠ)", "Οικονομία (ΑΟΘ)"];
-        } else {
-            subjectsToRender = ["Έκθεση", "Φυσική", "Χημεία", "Βιολογία"];
-        }
+    if (subjectsData && subjectsData[selectedClass]) {
+        const classData = subjectsData[selectedClass];
+        subjectsToRender = classData[selectedDirection] || classData["default"] || [];
     }
 
     subjectsContainer.innerHTML = '';
@@ -295,11 +286,11 @@ function updateSubjects() {
     subjectsToRender.forEach((subject, index) => {
         const checkboxId = `sub_${index}`;
         const html = `
-                    <div class="form-check form-check-inline mb-2">
-                        <input class="form-check-input" type="checkbox" id="${checkboxId}" value="${subject}">
-                        <label class="form-check-label" for="${checkboxId}">${subject}</label>
-                    </div>
-                `;
+            <div class="form-check form-check-inline mb-2">
+                <input class="form-check-input" type="checkbox" id="${checkboxId}" value="${subject}">
+                <label class="form-check-label" for="${checkboxId}">${subject}</label>
+            </div>
+        `;
         subjectsContainer.insertAdjacentHTML('beforeend', html);
     });
 }
@@ -307,4 +298,4 @@ function updateSubjects() {
 classSelect.addEventListener('change', updateSubjects);
 directionSelect.addEventListener('change', updateSubjects);
 
-updateSubjects();
+loadSubjectsData();

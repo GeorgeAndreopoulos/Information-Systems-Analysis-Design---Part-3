@@ -128,12 +128,102 @@ function generateSchedule() {
 
 const scheduleData = generateSchedule();
 
+let TEACHERS = [];
+let studentList = [];
+
+const SPECIALTY_MAP = {
+    "fysikos": "Φυσική",
+    "mathimatikos": "Μαθηματικά",
+    "ximikos": "Χημεία",
+    "viologos": "Βιολογία",
+    "oikonomologos": "Οικονομία (ΑΟΘ)",
+    "filologos": "Έκθεση / Αρχαία",
+    "pliroforikos": "Πληροφορική (ΑΕΠΠ)"
+};
+
+async function loadTeacherData() {
+    try {
+        const response = await fetch('./teachers.json');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        if (Array.isArray(data)) {
+            TEACHERS = data;
+        }
+    } catch (error) {
+        console.error('Σφάλμα φόρτωσης teachers.json:', error);
+        TEACHERS = [];
+    }
+}
+
+async function loadStudentData() {
+    try {
+        const response = await fetch('../RecordAcademicProfile/students.json');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        if (Array.isArray(data)) {
+            studentList = data;
+        }
+    } catch (error) {
+        console.error('Σφάλμα φόρτωσης students.json:', error);
+        studentList = [];
+    }
+}
+
+Promise.all([loadTeacherData(), loadStudentData()]);
+
 function getCellClass(group) {
     if (group.startsWith('γ')) return 'sched-cell-gamma';
     if (group.startsWith('Α')) return 'sched-cell-alpha';
     if (group.startsWith('Β')) return 'sched-cell-beta';
     if (group.startsWith('Γ')) return 'sched-cell-delta';
     return '';
+}
+
+function getGroupDetails(groupName) {
+    const teacher = TEACHERS.find(t => t.groups.includes(groupName));
+    const teacherName = teacher ? teacher.name : "Άγνωστος";
+    const subject = teacher ? SPECIALTY_MAP[teacher.specialty] : "Άγνωστο Μάθημα";
+
+    // Αντιστοίχιση τάξης βάσει πρώτου γράμματος τμήματος
+    let targetGrade = "";
+    if (groupName.startsWith("γ")) targetGrade = "Γ' Γυμνασίου";
+    else if (groupName.startsWith("Α")) targetGrade = "Α' Λυκείου";
+    else if (groupName.startsWith("Β")) targetGrade = "Β' Λυκείου";
+    else if (groupName.startsWith("Γ")) targetGrade = "Γ' Λυκείου";
+
+    // 5 μαθητές της αντίστοιχης τάξης
+    const matchedStudents = studentList
+        .filter(s => s.grade === targetGrade)
+        .slice(0, 5)
+        .map(s => `• ${s.name}`);
+
+    const studentsHtml = matchedStudents.length > 0 
+        ? matchedStudents.join('<br>') 
+        : "<span class='text-muted'>Δεν βρέθηκαν μαθητές</span>";
+
+    return `
+        <div class='mb-1'><strong>Καθηγητής:</strong> ${teacherName}</div>
+        <div class='mb-2'><strong>Μάθημα:</strong> ${subject}</div>
+        <div><strong>Μαθητές:</strong><br>${studentsHtml}</div>
+    `;
+}
+
+function createCellHtml(groupName) {
+    const cssClass = getCellClass(groupName);
+    const popoverContent = getGroupDetails(groupName);
+
+    return `<div class="${cssClass} p-2 rounded text-center" 
+             style="cursor: pointer; transition: transform 0.2s;"
+             onmouseover="this.style.transform='scale(1.05)'" 
+             onmouseout="this.style.transform='scale(1)'"
+             data-bs-toggle="popover" 
+             data-bs-trigger="hover" 
+             data-bs-placement="top"
+             data-bs-html="true" 
+             title="Τμήμα ${groupName}" 
+             data-bs-content="${popoverContent.replace(/"/g, '&quot;')}">
+            ${groupName}
+        </div>`;
 }
 
 function buildHeader() {
@@ -157,7 +247,7 @@ function renderSchedule(day) {
         ROOMS.forEach(r => {
             const group = lookup[h + '|' + r];
             if (group) {
-                html += '<td class="' + getCellClass(group) + '">' + group + '</td>';
+                html += '<td>' + createCellHtml(group) + '</td>';
             } else {
                 html += '<td></td>';
             }
@@ -165,6 +255,17 @@ function renderSchedule(day) {
         html += '</tr>';
     });
     tbody.innerHTML = html;
+    
+    initPopovers();
+}
+
+function initPopovers() {
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => {
+        return new bootstrap.Popover(popoverTriggerEl, {
+            container: 'body'
+        });
+    });
 }
 
 buildHeader();

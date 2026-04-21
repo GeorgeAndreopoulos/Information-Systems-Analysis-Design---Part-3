@@ -143,7 +143,7 @@ const SPECIALTY_MAP = {
 
 async function loadTeacherData() {
     try {
-        const response = await fetch('./teachers.json');
+        const response = await fetch('../../data/teachers.json');
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
         if (Array.isArray(data)) {
@@ -157,7 +157,7 @@ async function loadTeacherData() {
 
 async function loadStudentData() {
     try {
-        const response = await fetch('../RecordAcademicProfile/students.json');
+        const response = await fetch('../../data/students.json');
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
         if (Array.isArray(data)) {

@@ -205,7 +205,7 @@ async function loadStudentData() {
     `;
 
     try {
-        const response = await fetch('./students.json');
+        const response = await fetch('../../data/students.json');
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}`);
         }

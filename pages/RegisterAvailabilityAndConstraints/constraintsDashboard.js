@@ -116,7 +116,7 @@ function renderHours() {
 
 async function loadRoomsFromJson() {
     try {
-        const response = await fetch('./rooms.json');
+        const response = await fetch('../../data/rooms.json');
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
         if (Array.isArray(data) && data.length > 0) {

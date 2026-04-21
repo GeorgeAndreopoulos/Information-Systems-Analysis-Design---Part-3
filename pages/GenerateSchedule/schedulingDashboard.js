@@ -149,7 +149,6 @@ const SPECIALTY_MAP = {
     "ximikos": "Χημεία",
     "viologos": "Βιολογία",
     "oikonomologos": "Οικονομία (ΑΟΘ)",
-    "filologos": "Έκθεση / Αρχαία",
     "pliroforikos": "Πληροφορική (ΑΕΠΠ)"
 };
 

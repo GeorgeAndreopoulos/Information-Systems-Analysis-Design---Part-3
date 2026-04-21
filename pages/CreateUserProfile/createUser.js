@@ -190,41 +190,45 @@ roleSelector.addEventListener('change', function () {
 const specialtySelect = document.getElementById('specialtySelect');
 const teacherSubjectsContainer = document.getElementById('dynamicTeacherSubjectsContainer');
 
-const teacherSubjectsMap = {
-    "filologos": ["Έκθεση Γ' Γυμνασίου", "Έκθεση Α' Λυκείου", "Έκθεση Β' Λυκείου", "Έκθεση Γ' Λυκείου"],
-    "mathimatikos": ["Μαθηματικά Γ' Γυμνασίου", "Άλγεβρα Α' Λυκείου", "Άλγεβρα Β' Λυκείου", "Μαθηματικά Κατεύθυνσης Β' Λυκείου", "Μαθηματικά Γ' Λυκείου"],
-    "ximikos": ["Χημεία Α' Λυκείου", "Χημεία Β' Λυκείου", "Χημεία Γ' Λυκείου"],
-    "fysikos": ["Φυσική Γ' Γυμνασίου", "Φυσική Α' Λυκείου", "Φυσική Β' Λυκείου", "Φυσική Γ' Λυκείου"],
-    "pliroforikos": ["ΑΕΠΠ Β' Λυκείου", "ΑΕΠΠ Γ' Λυκείου"],
-    "oikonomologos": ["ΑΟΘ Β' Λυκείου", "ΑΟΘ Γ' Λυκείου"],
-    "viologos": ["Βιολογία Β' Λυκείου", "Βιολογία Γ' Λυκείου"]
-};
+function populateSpecialties() {
+    if (!specialtySelect || typeof SPECIALTIES === 'undefined') return;
+
+    Object.values(SPECIALTIES).forEach(spec => {
+        const option = document.createElement('option');
+        option.value = spec.id;
+        option.textContent = spec.title;
+        specialtySelect.appendChild(option);
+    });
+}
 
 function updateTeacherSubjects() {
     const selectedSpecialty = specialtySelect.value;
-    const subjectsToRender = teacherSubjectsMap[selectedSpecialty];
 
     teacherSubjectsContainer.innerHTML = '';
 
-    if (!subjectsToRender) {
+    if (!selectedSpecialty || typeof SPECIALTIES === 'undefined' || !SPECIALTIES[selectedSpecialty]) {
         teacherSubjectsContainer.innerHTML = '<span class="text-muted small">Επιλέξτε Ειδικότητα για να εμφανιστούν τα μαθήματα.</span>';
         return;
     }
 
+    const subjectsToRender = SPECIALTIES[selectedSpecialty].subjects;
+
     subjectsToRender.forEach((subject, index) => {
         const checkboxId = `tsub_${selectedSpecialty}_${index}`;
         const html = `
-                    <div class="form-check form-check-inline mb-2">
-                        <input class="form-check-input" type="checkbox" id="${checkboxId}" value="${subject}">
-                        <label class="form-check-label" for="${checkboxId}">${subject}</label>
-                    </div>
-                `;
+            <div class="form-check form-check-inline mb-2">
+                <input class="form-check-input" type="checkbox" id="${checkboxId}" value="${subject}">
+                <label class="form-check-label" for="${checkboxId}">${subject}</label>
+            </div>
+        `;
         teacherSubjectsContainer.insertAdjacentHTML('beforeend', html);
     });
 }
 
+populateSpecialties(); 
+updateTeacherSubjects(); 
+
 specialtySelect.addEventListener('change', updateTeacherSubjects);
-updateTeacherSubjects();
 
 const userForm = document.getElementById('userForm');
 const successAlert = document.getElementById('successAlert');

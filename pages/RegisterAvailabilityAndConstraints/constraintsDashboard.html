@@ -71,151 +71,7 @@
 
                     <div class="card shadow-sm border-0 mb-4">
                         <div class="card-header py-3 bg-white border-bottom"><i class="bi bi-clock me-2"></i>Ωράριο Λειτουργίας</div>
-                        <div class="card-body bg-light" id="hoursContainer">
-                            <div class="row g-2">
-
-                                <div class="col-12 col-md-4 col-lg">
-                                    <div class="p-2 bg-white border rounded shadow-sm h-100 text-center">
-                                        <div class="fw-bold mb-2">Δευτέρα</div>
-                                        <div class="d-flex justify-content-center mb-3">
-                                            <div class="form-check form-switch text-start">
-                                                <input class="form-check-input day-toggle" type="checkbox" checked data-day="mon">
-                                                <label class="form-check-label small fw-bold">Ανοιχτό</label>
-                                            </div>
-                                        </div>
-                                        <div class="input-group input-group-sm mb-2">
-                                            <span class="input-group-text bg-light text-muted w-25 justify-content-center">Από</span>
-                                            <input type="time" class="form-control time-input-mon text-center" value="14:30">
-                                        </div>
-                                        <div class="input-group input-group-sm">
-                                            <span class="input-group-text bg-light text-muted w-25 justify-content-center">Έως</span>
-                                            <input type="time" class="form-control time-input-mon text-center" value="22:30">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-lg">
-                                    <div class="p-2 bg-white border rounded shadow-sm h-100 text-center">
-                                        <div class="fw-bold mb-2">Τρίτη</div>
-                                        <div class="d-flex justify-content-center mb-3">
-                                            <div class="form-check form-switch text-start">
-                                                <input class="form-check-input day-toggle" type="checkbox" checked data-day="tue">
-                                                <label class="form-check-label small fw-bold">Ανοιχτό</label>
-                                            </div>
-                                        </div>
-                                        <div class="input-group input-group-sm mb-2">
-                                            <span class="input-group-text bg-light text-muted w-25 justify-content-center">Από</span>
-                                            <input type="time" class="form-control time-input-tue text-center" value="14:30">
-                                        </div>
-                                        <div class="input-group input-group-sm">
-                                            <span class="input-group-text bg-light text-muted w-25 justify-content-center">Έως</span>
-                                            <input type="time" class="form-control time-input-tue text-center" value="22:30">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-lg">
-                                    <div class="p-2 bg-white border rounded shadow-sm h-100 text-center">
-                                        <div class="fw-bold mb-2">Τετάρτη</div>
-                                        <div class="d-flex justify-content-center mb-3">
-                                            <div class="form-check form-switch text-start">
-                                                <input class="form-check-input day-toggle" type="checkbox" checked data-day="wed">
-                                                <label class="form-check-label small fw-bold">Ανοιχτό</label>
-                                            </div>
-                                        </div>
-                                        <div class="input-group input-group-sm mb-2">
-                                            <span class="input-group-text bg-light text-muted w-25 justify-content-center">Από</span>
-                                            <input type="time" class="form-control time-input-wed text-center" value="14:30">
-                                        </div>
-                                        <div class="input-group input-group-sm">
-                                            <span class="input-group-text bg-light text-muted w-25 justify-content-center">Έως</span>
-                                            <input type="time" class="form-control time-input-wed text-center" value="22:30">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-lg">
-                                    <div class="p-2 bg-white border rounded shadow-sm h-100 text-center">
-                                        <div class="fw-bold mb-2">Πέμπτη</div>
-                                        <div class="d-flex justify-content-center mb-3">
-                                            <div class="form-check form-switch text-start">
-                                                <input class="form-check-input day-toggle" type="checkbox" checked data-day="thu">
-                                                <label class="form-check-label small fw-bold">Ανοιχτό</label>
-                                            </div>
-                                        </div>
-                                        <div class="input-group input-group-sm mb-2">
-                                            <span class="input-group-text bg-light text-muted w-25 justify-content-center">Από</span>
-                                            <input type="time" class="form-control time-input-thu text-center" value="14:30">
-                                        </div>
-                                        <div class="input-group input-group-sm">
-                                            <span class="input-group-text bg-light text-muted w-25 justify-content-center">Έως</span>
-                                            <input type="time" class="form-control time-input-thu text-center" value="22:30">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-lg">
-                                    <div class="p-2 bg-white border rounded shadow-sm h-100 text-center">
-                                        <div class="fw-bold mb-2">Παρασκευή</div>
-                                        <div class="d-flex justify-content-center mb-3">
-                                            <div class="form-check form-switch text-start">
-                                                <input class="form-check-input day-toggle" type="checkbox" checked data-day="fri">
-                                                <label class="form-check-label small fw-bold">Ανοιχτό</label>
-                                            </div>
-                                        </div>
-                                        <div class="input-group input-group-sm mb-2">
-                                            <span class="input-group-text bg-light text-muted w-25 justify-content-center">Από</span>
-                                            <input type="time" class="form-control time-input-fri text-center" value="14:30">
-                                        </div>
-                                        <div class="input-group input-group-sm">
-                                            <span class="input-group-text bg-light text-muted w-25 justify-content-center">Έως</span>
-                                            <input type="time" class="form-control time-input-fri text-center" value="22:30">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-lg">
-                                    <div class="p-2 bg-white border rounded shadow-sm h-100 text-center">
-                                        <div class="fw-bold mb-2">Σάββατο</div>
-                                        <div class="d-flex justify-content-center mb-3">
-                                            <div class="form-check form-switch text-start">
-                                                <input class="form-check-input day-toggle" type="checkbox" checked data-day="sat">
-                                                <label class="form-check-label small fw-bold">Ανοιχτό</label>
-                                            </div>
-                                        </div>
-                                        <div class="input-group input-group-sm mb-2">
-                                            <span class="input-group-text bg-light text-muted w-25 justify-content-center">Από</span>
-                                            <input type="time" class="form-control time-input-sat text-center" value="09:30">
-                                        </div>
-                                        <div class="input-group input-group-sm">
-                                            <span class="input-group-text bg-light text-muted w-25 justify-content-center">Έως</span>
-                                            <input type="time" class="form-control time-input-sat text-center" value="15:30">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-lg">
-                                    <div class="p-2 bg-white border rounded shadow-sm h-100 text-center">
-                                        <div class="fw-bold text-danger mb-2">Κυριακή</div>
-                                        <div class="d-flex justify-content-center mb-3">
-                                            <div class="form-check form-switch text-start">
-                                                <input class="form-check-input day-toggle" type="checkbox" data-day="sun">
-                                                <label class="form-check-label small fw-bold text-danger">Κλειστό</label>
-                                            </div>
-                                        </div>
-                                        <div class="input-group input-group-sm mb-2">
-                                            <span class="input-group-text bg-light text-muted w-25 justify-content-center">Από</span>
-                                            <input type="time" class="form-control time-input-sun text-center" disabled>
-                                        </div>
-                                        <div class="input-group input-group-sm">
-                                            <span class="input-group-text bg-light text-muted w-25 justify-content-center">Έως</span>
-                                            <input type="time" class="form-control time-input-sun text-center" disabled>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+                        <div class="card-body bg-light" id="hoursContainer"></div>
                     </div>
 
                     <div class="card shadow-sm border-0 mb-4">
@@ -289,12 +145,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Προτίμηση Ορόφου</label>
-                                    <select class="form-select">
-                                        <option selected>Καμία Προτίμηση</option>
-                                        <option>Κάτω Αίθουσες</option>
-                                        <option>Ισόγειο</option>
-                                        <option>1ος Όροφος</option>
-                                        <option>2ος Όροφος</option>
+                                    <select class="form-select" id="floorPreferenceSelect">
+                                        <option value="" selected>Καμία Προτίμηση</option>
                                     </select>
                                 </div>
                             </div>

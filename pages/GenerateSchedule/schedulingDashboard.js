@@ -49,12 +49,21 @@ function buildHalfHourSlots(startHour, startMinute, endHour, endMinute) {
 
 const HOURS = buildHalfHourSlots(9, 30, 22, 30);
 
-const ROOMS = [
-    'I1', 'I2', 'I3', 'I4',
-    'Υ1', 'Υ2', 'Υ3',
-    'Α101', 'Α102', 'Α103', 'Α104',
-    'Α201', 'Α202', 'Α203', 'Α204', 'Α205', 'Α206'
-];
+let ROOMS = [];
+
+async function loadRoomsData() {
+    try {
+        const response = await fetch('../../data/rooms.json');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const roomsData = await response.json();
+        if (Array.isArray(roomsData)) {
+            ROOMS = roomsData.map(room => room.name.replace('Αίθουσα ', '').trim());
+        }
+    } catch (error) {
+        console.error('Σφάλμα φόρτωσης rooms.json:', error);
+        ROOMS = [];
+    }
+}
 
 const GROUPS = [
     'γ1', 'γ2', 'Α1', 'Α2', 'Α3', 'Α4',
@@ -125,7 +134,11 @@ function generateSchedule() {
     return result;
 }
 
-const scheduleData = generateSchedule();
+let scheduleData = {};
+
+function initializeSchedule() {
+    scheduleData = generateSchedule();
+}
 
 let TEACHERS = [];
 let studentList = [];
@@ -167,8 +180,6 @@ async function loadStudentData() {
         studentList = [];
     }
 }
-
-Promise.all([loadTeacherData(), loadStudentData()]);
 
 function getCellClass(group) {
     if (group.startsWith('γ')) return 'sched-cell-gamma';
@@ -267,8 +278,11 @@ function initPopovers() {
     });
 }
 
-buildHeader();
-
-document.getElementById('daySelector').addEventListener('change', function () {
-    renderSchedule(this.value);
+// Αρχικοποίηση μετά τη φόρτωση όλων των δεδομένων
+Promise.all([loadRoomsData(), loadTeacherData(), loadStudentData()]).then(() => {
+    initializeSchedule();
+    buildHeader();
+    document.getElementById('daySelector').addEventListener('change', function () {
+        renderSchedule(this.value);
+    });
 });

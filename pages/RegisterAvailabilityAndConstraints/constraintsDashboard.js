@@ -282,6 +282,29 @@ function validateTeacherHourLimits() {
 }
 
 function renderTables() {
+    // Δημιουργία headers χρησιμοποιώντας τη σταθερά DAYS
+    const teacherHead = document.getElementById('teacherHead');
+    const studentHead = document.getElementById('studentHead');
+    
+    if (teacherHead) {
+        let teacherHeaderHtml = '<tr><th>Ώρα</th>';
+        DAYS.forEach((day, index) => {
+            const satClass = index === 5 ? ' class="sat-col"' : '';
+            teacherHeaderHtml += `<th${satClass}>${day}</th>`;
+        });
+        teacherHeaderHtml += '</tr>';
+        teacherHead.innerHTML = teacherHeaderHtml;
+    }
+    
+    if (studentHead) {
+        let studentHeaderHtml = '<tr><th>Ώρα</th>';
+        DAYS.forEach(day => {
+            studentHeaderHtml += `<th>${day}</th>`;
+        });
+        studentHeaderHtml += '</tr>';
+        studentHead.innerHTML = studentHeaderHtml;
+    }
+    
     const tBody = document.getElementById('teacherBody');
     const sBody = document.getElementById('studentBody');
     if (!tBody || !sBody) return;
@@ -319,7 +342,7 @@ function renderTables() {
 }
 
 function getDayName(i) {
-    return ["Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο"][i];
+    return DAYS[i];
 }
 
 function initInteractions() {

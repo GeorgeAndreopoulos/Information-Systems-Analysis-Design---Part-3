@@ -82,7 +82,6 @@ function shuffle(arr) {
 
 function generateSchedule() {
     const result = {};
-    const DAYS = ['Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο'];
 
     for (const day of DAYS) {
         const hours = DAY_HOURS[day];

@@ -71,14 +71,15 @@ const GROUPS = [
     'ΓΘ1', 'ΓΘ2', 'ΓΘ3', 'ΓΘ4', 'ΓΘ5', 'ΓΥ1', 'ΓΥ2', 'ΓΟ1', 'ΓΟ2', 'ΓΟ3', 'ΓΟ4', 'ΓΟ5'
 ];
 
-const DAY_HOURS = {
-    'Δευτέρα': buildHalfHourSlots(14, 30, 22, 30),
-    'Τρίτη': buildHalfHourSlots(14, 30, 22, 30),
-    'Τετάρτη': buildHalfHourSlots(14, 30, 22, 30),
-    'Πέμπτη': buildHalfHourSlots(14, 30, 22, 30),
-    'Παρασκευή': buildHalfHourSlots(14, 30, 22, 30),
-    'Σάββατο': buildHalfHourSlots(9, 30, 15, 30)
-};
+const DAY_HOURS = {};
+
+DAYS.forEach(day => {
+    if (day === 'Σάββατο') {
+        DAY_HOURS[day] = buildHalfHourSlots(9, 30, 15, 30);
+    } else {
+        DAY_HOURS[day] = buildHalfHourSlots(14, 30, 22, 30);
+    }
+});
 
 function shuffle(arr) {
     const a = [...arr];

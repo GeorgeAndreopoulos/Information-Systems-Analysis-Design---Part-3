@@ -1,16 +1,21 @@
-// Loading rooms data
+// Loading rooms data - returns full room objects with all properties
 async function loadRoomsData() {
     try {
         const response = await fetch('../../data/rooms.json');
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const roomsData = await response.json();
         if (Array.isArray(roomsData)) {
-            return roomsData.map(room => room.name.replace('Αίθουσα ', '').trim());
+            return roomsData;
         }
     } catch (error) {
         console.error('Σφάλμα φόρτωσης rooms.json:', error);
     }
     return [];
+}
+
+// Extract just room names (for scheduling algorithm)
+function extractRoomNames(roomObjects) {
+    return roomObjects.map(room => room.name.replace('Αίθουσα ', '').trim());
 }
 
 // Loading teachers data

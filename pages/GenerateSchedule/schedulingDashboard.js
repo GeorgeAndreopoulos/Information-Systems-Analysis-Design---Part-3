@@ -73,7 +73,7 @@ function renderScheduleWrapper(day) {
 
 // Initialize data and render schedule on page load
 Promise.all([loadRoomsData(), loadTeacherData(), loadStudentData()]).then((results) => {
-    ROOMS = results[0];
+    ROOMS = extractRoomNames(results[0]); // Extract names from full room objects
     TEACHERS = results[1];
     studentList = results[2];
     

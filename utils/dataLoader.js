@@ -37,7 +37,9 @@ async function loadTeacherData() {
 async function loadStudentData() {
     try {
         const response = await fetch('../../data/students.json');
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
         const data = await response.json();
         if (Array.isArray(data)) {
             return data;
@@ -46,4 +48,18 @@ async function loadStudentData() {
         console.error('Σφάλμα φόρτωσης students.json:', error);
     }
     return [];
+}
+
+// Load subjects data
+async function loadSubjectsData() {
+    try {
+        const response = await fetch('../../data/subjects.json');
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+        subjectsData = await response.json();
+    } catch (error) {
+        console.error('Σφάλμα φόρτωσης subjects.json:', error);
+        subjectsData = {};
+    }
 }

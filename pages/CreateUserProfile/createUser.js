@@ -5,108 +5,10 @@ const guardiansContainer = document.getElementById('guardiansContainer');
 const addGuardianBtn = document.getElementById('addGuardianBtn');
 let guardianCounter = 0;
 
-function getDefaultGuardianRoleByIndex(index) {
-    const defaultRoles = ['Μητέρα', 'Πατέρας'];
-    return defaultRoles[index] || `Κηδεμόνας ${index + 1}`;
-}
-
-function guardianTemplate(guardianId, removable = false) {
-    const defaultRole = getDefaultGuardianRoleByIndex(guardianId);
-
-    return `
-        <div class="border rounded p-3 mb-3 guardian-block" data-guardian-id="${guardianId}">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="fw-semibold">Στοιχεία Κηδεμόνα</span>
-                ${removable ? `<button type="button" class="btn btn-sm btn-outline-danger remove-guardian-btn" data-guardian-id="${guardianId}"><i class="bi bi-trash me-1"></i>Αφαίρεση</button>` : ''}
-            </div>
-            <div class="row">
-                <div class="mb-3">
-                    <label class="form-label">Σχέση με μαθητή</label>
-                    <select class="form-select guardian-relation-select" name="guardianRelation_${guardianId}">
-                        <option value="Μπαμπάς" ${defaultRole === 'Μητέρα' ? 'selected' : ''}>Μητέρα</option>
-                        <option value="Μαμά" ${defaultRole === 'Πατέρας' ? 'selected' : ''}>Πατέρας</option>
-                        <option value="Παππούς">Παππούς</option>
-                        <option value="Γιαγιά">Γιαγιά</option>
-                        <option value="Αδελφός">Αδελφός</option>
-                        <option value="Αδελφή">Αδελφή</option>
-                        <option value="Θείος">Θείος</option>
-                        <option value="Θεία">Θεία</option>
-                        <option value="Άλλο">Άλλο</option>
-                    </select>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">Όνομα <span class="required-asterisk">*</span></label>
-                    <input type="text" class="form-control" name="guardianName_${guardianId}" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">Επώνυμο <span class="required-asterisk">*</span></label>
-                    <input type="text" class="form-control" name="guardianSurname_${guardianId}" required>
-                </div>
-            </div>
-            <div class="mb-3 d-none guardian-custom-relation-wrapper">
-                <label class="form-label">Γράψε τη σχέση <span class="required-asterisk">*</span></label>
-                <input type="text" class="form-control guardian-custom-relation-input" name="guardianCustomRelation_${guardianId}" placeholder="π.χ. Νονά">
-            </div>
-            <div class="row mb-3">
-                <div class="col-md-6 mb-3 mb-md-0">
-                    <label class="form-label">Τηλέφωνο <span class="required-asterisk">*</span></label>
-                    <input type="tel" class="form-control" name="guardianPhone_${guardianId}" required>
-                </div>
-
-                <div class="col-md-6">
-                    <label class="form-label">Email <span class="required-asterisk">*</span></label>
-                    <input type="email" class="form-control" name="guardianEmail_${guardianId}" required>
-                </div>
-            </div>
-    `;
-}
-
-function updateGuardianRelationState(guardianBlock) {
-    const relationSelect = guardianBlock.querySelector('.guardian-relation-select');
-    const customRelationWrapper = guardianBlock.querySelector('.guardian-custom-relation-wrapper');
-    const customRelationInput = guardianBlock.querySelector('.guardian-custom-relation-input');
-
-    if (!relationSelect || !customRelationWrapper || !customRelationInput) {
-        return;
-    }
-
-    const isOtherSelected = relationSelect.value === 'Άλλο';
-    customRelationWrapper.classList.toggle('d-none', !isOtherSelected);
-    customRelationInput.required = isOtherSelected;
-
-    if (!isOtherSelected) {
-        customRelationInput.value = '';
-    }
-}
-
-function refreshGuardianTitles() {
-    const guardianBlocks = guardiansContainer.querySelectorAll('.guardian-block');
-    guardianBlocks.forEach((block, index) => {
-        const guardianTitle = block.querySelector('.guardian-title');
-        const relationSelect = block.querySelector('.guardian-relation-select');
-        const customRelationInput = block.querySelector('.guardian-custom-relation-input');
-        const selectedRelation = relationSelect ? relationSelect.value.trim() : '';
-        const customRelation = customRelationInput ? customRelationInput.value.trim() : '';
-        const fallbackTitle = getDefaultGuardianRoleByIndex(index);
-
-        if (guardianTitle) {
-            if (selectedRelation === 'Άλλο') {
-                guardianTitle.textContent = customRelation || fallbackTitle;
-            } else {
-                guardianTitle.textContent = selectedRelation || fallbackTitle;
-            }
-        }
-    });
-}
-
 function addGuardian(removable = true) {
-    guardiansContainer.insertAdjacentHTML('beforeend', guardianTemplate(guardianCounter, removable));
-    const insertedGuardian = guardiansContainer.lastElementChild;
-    if (insertedGuardian) {
-        updateGuardianRelationState(insertedGuardian);
-    }
+    const guardianTag = `<app-guardian guardian-id="${guardianCounter}" removable="${removable}"></app-guardian>`;
+    guardiansContainer.insertAdjacentHTML('beforeend', guardianTag);
     guardianCounter += 1;
-    refreshGuardianTitles();
 }
 
 function initializeGuardians() {
@@ -115,39 +17,11 @@ function initializeGuardians() {
     addGuardian(false);
 }
 
-addGuardianBtn.addEventListener('click', function () {
-    addGuardian(true);
-});
-
-guardiansContainer.addEventListener('click', function (event) {
-    const removeButton = event.target.closest('.remove-guardian-btn');
-    if (!removeButton) {
-        return;
-    }
-
-    const guardianId = removeButton.getAttribute('data-guardian-id');
-    const guardianBlock = guardiansContainer.querySelector(`[data-guardian-id="${guardianId}"]`);
-    if (guardianBlock) {
-        guardianBlock.remove();
-        refreshGuardianTitles();
-    }
-});
-
-guardiansContainer.addEventListener('change', function (event) {
-    if (event.target.classList.contains('guardian-relation-select')) {
-        const guardianBlock = event.target.closest('.guardian-block');
-        if (guardianBlock) {
-            updateGuardianRelationState(guardianBlock);
-        }
-        refreshGuardianTitles();
-    }
-});
-
-guardiansContainer.addEventListener('input', function (event) {
-    if (event.target.classList.contains('guardian-custom-relation-input')) {
-        refreshGuardianTitles();
-    }
-});
+if (addGuardianBtn) {
+    addGuardianBtn.addEventListener('click', function () {
+        addGuardian(true);
+    });
+}
 
 initializeGuardians();
 
@@ -169,22 +43,13 @@ document.querySelectorAll('.role-option').forEach(item => {
 });
 
 roleSelector.addEventListener('change', function () {
-    const studentRequiredFields = studentSections.querySelectorAll('[required]');
-    const teacherRequiredFields = teacherSections.querySelectorAll('[required]');
+    const isStudent = this.value === 'student';
 
-    if (this.value === 'student') {
-        studentSections.classList.remove('d-none');
-        teacherSections.classList.add('d-none');
+    studentSections.classList.toggle('d-none', !isStudent);
+    teacherSections.classList.toggle('d-none', isStudent);
 
-        studentRequiredFields.forEach(field => field.required = true);
-        teacherRequiredFields.forEach(field => field.required = false);
-    } else {
-        teacherSections.classList.remove('d-none');
-        studentSections.classList.add('d-none');
-
-        teacherRequiredFields.forEach(field => field.required = true);
-        studentRequiredFields.forEach(field => field.required = false);
-    }
+    studentSections.querySelectorAll('[required]').forEach(field => field.required = isStudent);
+    teacherSections.querySelectorAll('[required]').forEach(field => field.required = !isStudent);
 });
 
 const specialtySelect = document.getElementById('specialtySelect');
@@ -257,19 +122,6 @@ const subjectsContainer = document.getElementById('dynamicSubjectsContainer');
 
 let subjectsData = {};
 
-async function loadSubjectsData() {
-    try {
-        const response = await fetch('../../data/subjects.json');
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-        }
-        subjectsData = await response.json();
-    } catch (error) {
-        console.error('Σφάλμα φόρτωσης subjects.json:', error);
-        subjectsData = {};
-    }
-}
-
 function updateSubjects() {
     const selectedClass = classSelect.value;
     const selectedDirection = directionSelect.value;
@@ -302,4 +154,11 @@ function updateSubjects() {
 classSelect.addEventListener('change', updateSubjects);
 directionSelect.addEventListener('change', updateSubjects);
 
-loadSubjectsData();
+loadSubjectsData().then(data => {
+    if (data) {
+        subjectsData = data;
+        updateSubjects();
+    }
+}).catch(error => {
+    console.error("Σφάλμα κατά τη φόρτωση μαθημάτων:", error);
+});

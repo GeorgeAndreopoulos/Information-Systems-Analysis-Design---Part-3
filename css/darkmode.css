@@ -1,0 +1,560 @@
+/* =========================================
+   Dark Mode — Νυχτερινή Λειτουργία
+   Activated via [data-theme="dark"] on <html>
+   ========================================= */
+
+/* ── Dark Design Tokens ────────────────── */
+[data-theme="dark"] {
+    --dark-bg:          #121318;
+    --dark-surface:     #1c1d24;
+    --dark-surface-2:   #25262e;
+    --dark-border:      #2e303a;
+    --dark-text:        #e2e4e9;
+    --dark-text-muted:  #8b8fa3;
+    --dark-input-bg:    #1e1f27;
+    --dark-input-border:#3a3c47;
+
+    /* Slightly adjust brand green for better contrast on dark */
+    --brand-green:       #8eb52c;
+    --brand-green-hover: #7da41b;
+}
+
+/* ── Base ──────────────────────────────── */
+[data-theme="dark"] body {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+/* ── Navbar ────────────────────────────── */
+[data-theme="dark"] .navbar {
+    background-color: var(--dark-surface) !important;
+    border-bottom-color: var(--brand-green);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+[data-theme="dark"] .navbar-brand {
+    color: var(--dark-text) !important;
+}
+
+[data-theme="dark"] .navbar .text-muted {
+    color: var(--dark-text-muted) !important;
+}
+
+[data-theme="dark"] .btn-outline-secondary {
+    color: var(--dark-text-muted);
+    border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .btn-outline-secondary:hover {
+    background-color: var(--dark-surface-2);
+    color: var(--dark-text);
+    border-color: var(--dark-text-muted);
+}
+
+/* ── Typography ────────────────────────── */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: var(--dark-text) !important;
+}
+
+[data-theme="dark"] .text-muted {
+    color: var(--dark-text-muted) !important;
+}
+
+[data-theme="dark"] .text-dark {
+    color: var(--dark-text) !important;
+}
+
+[data-theme="dark"] .lead {
+    color: var(--dark-text-muted);
+}
+
+[data-theme="dark"] .fw-bold,
+[data-theme="dark"] .card-title {
+    color: var(--dark-text);
+}
+
+/* ── Cards ─────────────────────────────── */
+[data-theme="dark"] .card {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .card-header {
+    background-color: var(--dark-surface) !important;
+    border-bottom-color: var(--brand-green) !important;
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .card-text {
+    color: var(--dark-text-muted);
+}
+
+[data-theme="dark"] .feature-card:hover {
+    box-shadow: 0 8px 25px rgba(142, 181, 44, 0.15);
+}
+
+/* ── Forms & Inputs ────────────────────── */
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+    background-color: var(--dark-input-bg);
+    border-color: var(--dark-input-border);
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .form-control::placeholder {
+    color: var(--dark-text-muted);
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+    background-color: var(--dark-input-bg);
+    border-color: var(--brand-green);
+    color: var(--dark-text);
+    box-shadow: 0 0 0 0.25rem rgba(142, 181, 44, 0.2);
+}
+
+[data-theme="dark"] .form-floating label {
+    color: var(--dark-text-muted);
+}
+
+[data-theme="dark"] .form-label {
+    color: var(--dark-text-muted);
+}
+
+[data-theme="dark"] .form-text {
+    color: var(--dark-text-muted) !important;
+}
+
+[data-theme="dark"] textarea.form-control {
+    background-color: var(--dark-input-bg);
+    border-color: var(--dark-input-border);
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .input-group-text {
+    background-color: var(--dark-surface-2) !important;
+    border-color: var(--dark-input-border);
+    color: var(--dark-text-muted) !important;
+}
+
+/* ── Buttons ───────────────────────────── */
+[data-theme="dark"] .btn-light {
+    background-color: var(--dark-surface-2);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .btn-light:hover {
+    background-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .btn-outline-danger {
+    border-color: #dc3545;
+    color: #ff6b7a;
+}
+
+/* ── Badges ────────────────────────────── */
+[data-theme="dark"] .badge.bg-light {
+    background-color: var(--dark-surface-2) !important;
+    color: var(--dark-text-muted) !important;
+    border-color: var(--dark-border) !important;
+}
+
+[data-theme="dark"] .badge.bg-secondary {
+    background-color: var(--dark-input-border) !important;
+}
+
+/* ── Tables ────────────────────────────── */
+[data-theme="dark"] .table {
+    --bs-table-bg: var(--dark-surface);
+    --bs-table-color: var(--dark-text);
+    --bs-table-border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .table-bordered {
+    border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .timetable-grid th {
+    background-color: var(--dark-surface-2) !important;
+    color: var(--dark-text);
+    border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .timetable-grid td.time-cell {
+    background-color: var(--dark-surface-2) !important;
+    color: var(--dark-text);
+    border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .timetable-grid td.clickable-cell {
+    border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .timetable-grid td.clickable-cell:hover {
+    background-color: var(--dark-surface-2);
+}
+
+[data-theme="dark"] .timetable-grid td.cell-disabled {
+    background-color: var(--dark-surface) !important;
+    opacity: 0.3;
+}
+
+/* ── Schedule Table ────────────────────── */
+[data-theme="dark"] .schedule-table thead th {
+    background-color: var(--brand-green);
+    border-color: var(--brand-green-hover);
+}
+
+[data-theme="dark"] .schedule-table tbody td:first-child {
+    background-color: var(--dark-surface-2);
+    color: var(--dark-text);
+    border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .schedule-table tbody td {
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .schedule-table tbody tr:hover td {
+    background-color: var(--dark-surface-2);
+}
+
+/* ── Alerts ────────────────────────────── */
+[data-theme="dark"] .alert-success {
+    background-color: rgba(142, 181, 44, 0.15);
+    border-color: rgba(142, 181, 44, 0.3);
+    color: #a5d637;
+}
+
+[data-theme="dark"] .alert-danger {
+    background-color: rgba(220, 53, 69, 0.15);
+    border-color: rgba(220, 53, 69, 0.3);
+    color: #ff6b7a;
+}
+
+/* ── Backgrounds ───────────────────────── */
+[data-theme="dark"] .bg-white {
+    background-color: var(--dark-surface) !important;
+}
+
+[data-theme="dark"] .bg-light,
+[data-theme="dark"] .bg-light-subtle {
+    background-color: var(--dark-surface-2) !important;
+}
+
+/* ── Borders & Dividers ────────────────── */
+[data-theme="dark"] .border,
+[data-theme="dark"] .border-top,
+[data-theme="dark"] .border-bottom {
+    border-color: var(--dark-border) !important;
+}
+
+[data-theme="dark"] .border-light-subtle {
+    border-color: var(--dark-border) !important;
+}
+
+[data-theme="dark"] hr {
+    border-color: var(--dark-border);
+    opacity: 0.5;
+}
+
+/* ── Shadows ───────────────────────────── */
+[data-theme="dark"] .shadow-sm {
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4) !important;
+}
+
+[data-theme="dark"] .shadow {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+}
+
+/* ── Scheduling: Big Action Button ─────── */
+[data-theme="dark"] .big-action-btn {
+    background: var(--dark-surface);
+    border-color: var(--brand-green);
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .big-action-btn:hover {
+    background: var(--dark-surface-2);
+}
+
+/* ── Scheduling: Report Box ────────────── */
+[data-theme="dark"] .report-box {
+    background-color: var(--dark-surface);
+    border-left-color: var(--brand-green);
+}
+
+[data-theme="dark"] .report-box.error {
+    border-left-color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.08);
+}
+
+/* ── Scheduling: Day Selector ──────────── */
+[data-theme="dark"] #daySelector {
+    background-color: var(--dark-input-bg);
+    color: var(--dark-text);
+    border-color: var(--brand-green);
+}
+
+/* ── Academic Profile: Search Area ─────── */
+[data-theme="dark"] .search-area {
+    background-color: var(--dark-surface);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .search-input-group .form-control {
+    border-color: var(--brand-green);
+}
+
+[data-theme="dark"] .student-profile-card {
+    background-color: rgba(142, 181, 44, 0.1);
+    border-left-color: var(--brand-green);
+}
+
+[data-theme="dark"] .suggestion-card {
+    background-color: rgba(142, 181, 44, 0.08);
+}
+
+[data-theme="dark"] .suggestion-card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ── Academic Profile: Range Slider ────── */
+[data-theme="dark"] .custom-range {
+    background: var(--dark-border);
+}
+
+[data-theme="dark"] .slider-labels span {
+    color: var(--dark-text-muted);
+}
+
+/* ── Constraints: Role Tabs ────────────── */
+[data-theme="dark"] .role-simulator-tabs {
+    background-color: var(--dark-surface) !important;
+}
+
+[data-theme="dark"] .role-simulator-tabs .nav-link {
+    color: var(--dark-text-muted);
+}
+
+[data-theme="dark"] .role-simulator-tabs .nav-link.active {
+    color: white;
+}
+
+/* ── Constraints: Rooms ────────────────── */
+[data-theme="dark"] #addRoomBtn {
+    background-color: var(--dark-surface-2) !important;
+    border-color: var(--dark-border);
+    color: var(--brand-green) !important;
+}
+
+/* ── Custom Role Selector Dropdown ─────── */
+[data-theme="dark"] .custom-role-selector .btn {
+    background-color: var(--dark-surface-2);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .custom-role-selector .dropdown-menu {
+    background-color: var(--dark-surface);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+[data-theme="dark"] .custom-role-selector .dropdown-item {
+    color: var(--dark-text-muted);
+}
+
+[data-theme="dark"] .custom-role-selector .dropdown-item:hover {
+    background-color: var(--dark-surface-2);
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .custom-role-selector .dropdown-item.active {
+    background-color: var(--brand-green);
+    color: white;
+}
+
+/* ── Generic Dropdown Menu ─────────────── */
+[data-theme="dark"] .dropdown-menu {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+[data-theme="dark"] .dropdown-item {
+    color: var(--dark-text-muted);
+}
+
+[data-theme="dark"] .dropdown-item:hover,
+[data-theme="dark"] .dropdown-item:focus {
+    background-color: var(--dark-surface-2);
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .dropdown-item.active {
+    background-color: var(--brand-green);
+    color: white;
+}
+
+/* ── Exam / grade boxes ────────────────── */
+[data-theme="dark"] .border.rounded-3.bg-light-subtle {
+    background-color: var(--dark-surface-2) !important;
+    border-color: var(--dark-border) !important;
+}
+
+[data-theme="dark"] .border-success-subtle {
+    border-color: rgba(142, 181, 44, 0.3) !important;
+}
+
+/* ── Progress Bar ──────────────────────── */
+[data-theme="dark"] .progress {
+    background-color: var(--dark-surface-2);
+}
+
+/* ── Form Check (Radio / Checkbox) ─────── */
+[data-theme="dark"] .form-check-label {
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .form-check-input:not(:checked) {
+    background-color: var(--dark-input-bg);
+    border-color: var(--dark-input-border);
+}
+
+/* ── Login Page ────────────────────────── */
+[data-theme="dark"] .login-page {
+    background: linear-gradient(135deg, #121318 0%, #1a1b22 50%, #16171e 100%);
+}
+
+[data-theme="dark"] .login-page::before,
+[data-theme="dark"] .login-page::after {
+    background: var(--brand-green);
+    opacity: 0.04;
+}
+
+[data-theme="dark"] .login-card {
+    background-color: var(--dark-surface);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+[data-theme="dark"] .login-logo h2 {
+    color: var(--dark-text) !important;
+}
+
+[data-theme="dark"] .login-logo p {
+    color: var(--dark-text-muted);
+}
+
+[data-theme="dark"] .login-error {
+    background-color: rgba(185, 28, 28, 0.12);
+    color: #ff6b7a;
+}
+
+[data-theme="dark"] .credentials-hint {
+    background-color: rgba(142, 181, 44, 0.08);
+    border-left-color: var(--brand-green);
+}
+
+[data-theme="dark"] .credentials-hint .hint-title {
+    color: var(--brand-green);
+}
+
+[data-theme="dark"] .credentials-hint .hint-row {
+    color: var(--dark-text-muted);
+}
+
+[data-theme="dark"] .credentials-hint code {
+    background-color: rgba(142, 181, 44, 0.15);
+    color: var(--brand-green);
+}
+
+[data-theme="dark"] .login-footer {
+    color: var(--dark-text-muted);
+}
+
+[data-theme="dark"] .password-toggle {
+    color: var(--dark-text-muted);
+}
+
+/* ── Stat numbers ──────────────────────── */
+[data-theme="dark"] .stat-number {
+    color: var(--brand-green);
+}
+
+/* ── Scrollbar (Webkit) ────────────────── */
+[data-theme="dark"] ::-webkit-scrollbar {
+    width: 8px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: var(--dark-border);
+    border-radius: 4px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-text-muted);
+}
+
+/* ── Dark Mode Toggle Button ──────────── */
+.dark-mode-toggle {
+    background: none;
+    border: 1.5px solid #dee2e6;
+    border-radius: 50px;
+    padding: 5px 14px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+    color: #58595b;
+    margin-right: 8px;
+}
+
+.dark-mode-toggle:hover {
+    border-color: var(--brand-green);
+    box-shadow: 0 0 0 3px rgba(142, 181, 44, 0.12);
+}
+
+.dark-mode-toggle .toggle-icon {
+    font-size: 1.1rem;
+    transition: transform 0.4s ease;
+}
+
+.dark-mode-toggle:hover .toggle-icon {
+    transform: rotate(20deg);
+}
+
+[data-theme="dark"] .dark-mode-toggle {
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .dark-mode-toggle:hover {
+    border-color: var(--brand-green);
+    background-color: var(--dark-surface-2);
+}
+
+/* ── Smooth transition on theme switch ── */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+    transition: background-color 0.35s ease,
+                color 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease !important;
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Διατριβή Φροντιστήριο - Σύνδεση</title>
+    <meta name="description" content="Σελίδα σύνδεσης στο Κεντρικό Σύστημα Διαχείρισης του Φροντιστηρίου Διατριβή">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/login.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+
+    <div class="login-page">
+
+        <div class="login-card card">
+            <!-- Green accent bar -->
+            <div class="card-accent"></div>
+
+            <div class="card-body">
+                <!-- Logo & Title -->
+                <div class="login-logo">
+                    <img src="images/diatrivi-logo.png" alt="Λογότυπο Φροντιστηρίου Διατριβή">
+                    <h2>Κεντρικό Σύστημα Διαχείρισης</h2>
+                    <p>Συνδεθείτε για να συνεχίσετε</p>
+                </div>
+
+                <!-- Error message (hidden by default) -->
+                <div class="alert login-error d-none" role="alert" id="loginError">
+                    <i class="bi bi-exclamation-circle me-2"></i>
+                    <span id="loginErrorText">Λάθος όνομα χρήστη ή κωδικός πρόσβασης.</span>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="login-form" autocomplete="off">
+                    <div class="form-floating">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="username"
+                            placeholder="Όνομα χρήστη"
+                            required
+                            autofocus
+                        >
+                        <label for="username"><i class="bi bi-person me-1"></i> Όνομα χρήστη</label>
+                    </div>
+
+                    <div class="form-floating password-wrapper">
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            placeholder="Κωδικός πρόσβασης"
+                            required
+                        >
+                        <label for="password"><i class="bi bi-lock me-1"></i> Κωδικός πρόσβασης</label>
+                        <button type="button" class="password-toggle" id="togglePassword" aria-label="Εμφάνιση/Απόκρυψη κωδικού">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+
+                    <button type="submit" class="btn btn-login mt-2" id="loginBtn">
+                        <span class="btn-text">Σύνδεση <i class="bi bi-arrow-right ms-1"></i></span>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    </button>
+                </form>
+
+                <!-- Credentials Hint -->
+                <div class="credentials-hint">
+                    <div class="hint-title"><i class="bi bi-info-circle me-1"></i> Στοιχεία Πρόσβασης</div>
+                    <div class="hint-row">
+                        <i class="bi bi-chevron-right"></i>
+                        Χρήστης: <code>admin</code>
+                    </div>
+                    <div class="hint-row">
+                        <i class="bi bi-chevron-right"></i>
+                        Κωδικός: <code>admin123!</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="login-footer">
+                &copy; 2026 Φροντιστήριο Διατριβή — Σύστημα Διαχείρισης
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (() => {
+            // Hardcoded credentials
+            const VALID_USERNAME = 'admin';
+            const VALID_PASSWORD = 'admin123!';
+
+            const form     = document.getElementById('loginForm');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const errorBox      = document.getElementById('loginError');
+            const errorText     = document.getElementById('loginErrorText');
+            const loginBtn      = document.getElementById('loginBtn');
+            const toggleBtn     = document.getElementById('togglePassword');
+
+            // Toggle password visibility
+            toggleBtn.addEventListener('click', () => {
+                const isPassword = passwordInput.type === 'password';
+                passwordInput.type = isPassword ? 'text' : 'password';
+                toggleBtn.querySelector('i').className = isPassword
+                    ? 'bi bi-eye-slash'
+                    : 'bi bi-eye';
+            });
+
+            // Hide error when user types
+            [usernameInput, passwordInput].forEach(input => {
+                input.addEventListener('input', () => {
+                    errorBox.classList.add('d-none');
+                    input.classList.remove('is-invalid');
+                });
+            });
+
+            // Handle form submit
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const username = usernameInput.value.trim();
+                const password = passwordInput.value;
+
+                // Validate empty fields
+                if (!username || !password) {
+                    errorText.textContent = 'Συμπληρώστε και τα δύο πεδία.';
+                    errorBox.classList.remove('d-none');
+                    if (!username) usernameInput.classList.add('is-invalid');
+                    if (!password) passwordInput.classList.add('is-invalid');
+                    return;
+                }
+
+                // Show loading state
+                loginBtn.classList.add('loading');
+                loginBtn.disabled = true;
+
+                // Simulate a brief delay for UX
+                setTimeout(() => {
+                    if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+                        // Store auth flag
+                        sessionStorage.setItem('diatrivi_auth', 'true');
+                        // Redirect to dashboard
+                        window.location.href = 'index.html';
+                    } else {
+                        // Show error
+                        errorText.textContent = 'Λάθος όνομα χρήστη ή κωδικός πρόσβασης.';
+                        errorBox.classList.remove('d-none');
+                        loginBtn.classList.remove('loading');
+                        loginBtn.disabled = false;
+                        passwordInput.value = '';
+                        passwordInput.focus();
+                    }
+                }, 800);
+            });
+
+            // Allow Enter key on inputs
+            passwordInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') form.requestSubmit();
+            });
+        })();
+    </script>
+
+</body>
+</html>

@@ -11,7 +11,9 @@ const USERS = [
 ];
 
 function getLoginPath() {
-    return window.location.pathname.includes('/pages/') ? '../../login.html' : 'login.html';
+    return window.location.pathname.includes('/pages/')
+        ? '../Login/login.html'
+        : 'pages/Login/login.html';
 }
 
 function getHomePath() {

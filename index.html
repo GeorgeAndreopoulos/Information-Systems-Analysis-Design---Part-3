@@ -41,7 +41,9 @@
     </script>
 
     <div class="container hero-section">
-        
+
+        <div id="userGreeting" class="user-greeting"></div>
+
         <div class="row mb-5 text-center">
             <div class="col-lg-8 mx-auto">
                 <h1 class="display-6 fw-bold mb-3" style="color: var(--brand-grey);">Κεντρικό Σύστημα Διαχείρισης</h1>
@@ -101,6 +103,12 @@
     <script src="utils/darkMode.js"></script>
     <script>
         document.getElementById('darkModeSlot').appendChild(createDarkModeToggle());
+
+        const userName = sessionStorage.getItem('diatrivi_user');
+        if (userName) {
+            const displayName = userName.charAt(0).toUpperCase() + userName.slice(1);
+            document.getElementById('userGreeting').textContent = `Γεια σου, ${displayName}`;
+        }
     </script>
 </body>
 </html>

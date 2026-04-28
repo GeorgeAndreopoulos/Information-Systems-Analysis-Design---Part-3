@@ -72,6 +72,13 @@
                         </button>
                     </div>
 
+                    <div class="form-check remember-me">
+                        <input class="form-check-input" type="checkbox" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">
+                            Να με θυμάσαι
+                        </label>
+                    </div>
+
                     <button type="submit" class="btn btn-login mt-2" id="loginBtn">
                         <span class="btn-text">Σύνδεση <i class="bi bi-arrow-right ms-1"></i></span>
                         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -111,6 +118,15 @@
             const errorText     = document.getElementById('loginErrorText');
             const loginBtn      = document.getElementById('loginBtn');
             const toggleBtn     = document.getElementById('togglePassword');
+            const rememberMe    = document.getElementById('rememberMe');
+
+            // Pre-fill remembered username
+            const rememberedUser = localStorage.getItem('diatrivi_remembered_user');
+            if (rememberedUser) {
+                usernameInput.value = rememberedUser;
+                rememberMe.checked = true;
+                passwordInput.focus();
+            }
 
             // Toggle password visibility
             toggleBtn.addEventListener('click', () => {
@@ -152,8 +168,17 @@
                 // Simulate a brief delay for UX
                 setTimeout(() => {
                     if (username === VALID_USERNAME && password === VALID_PASSWORD) {
-                        // Store auth flag
+                        // Store auth flag and username for greeting
                         sessionStorage.setItem('diatrivi_auth', 'true');
+                        sessionStorage.setItem('diatrivi_user', username);
+
+                        // Persist or clear remembered username
+                        if (rememberMe.checked) {
+                            localStorage.setItem('diatrivi_remembered_user', username);
+                        } else {
+                            localStorage.removeItem('diatrivi_remembered_user');
+                        }
+
                         // Redirect to dashboard
                         window.location.href = 'index.html';
                     } else {

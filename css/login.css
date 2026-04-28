@@ -150,6 +150,40 @@
     color: var(--brand-green);
 }
 
+/* Remember me checkbox */
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin: 0.25rem 0 1rem;
+    padding-left: 1.75rem;
+}
+
+.remember-me .form-check-input {
+    width: 1.05rem;
+    height: 1.05rem;
+    margin-left: -1.75rem;
+    border: 1.5px solid #ced4da;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.remember-me .form-check-input:checked {
+    background-color: var(--brand-green);
+    border-color: var(--brand-green);
+}
+
+.remember-me .form-check-input:focus {
+    border-color: var(--brand-green);
+    box-shadow: 0 0 0 0.2rem rgba(125, 164, 27, 0.15);
+}
+
+.remember-me .form-check-label {
+    font-size: 0.9rem;
+    color: var(--brand-grey);
+    cursor: pointer;
+    user-select: none;
+}
+
 /* Login button */
 .btn-login {
     background: linear-gradient(135deg, var(--brand-green), var(--brand-green-hover));

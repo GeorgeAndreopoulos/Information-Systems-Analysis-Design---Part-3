@@ -26,6 +26,18 @@
     margin-bottom: 30px;
 }
 
+.user-greeting {
+    text-align: left;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--brand-green);
+    margin-bottom: 1rem;
+}
+
+.user-greeting:empty {
+    display: none;
+}
+
 /* Εσωτερικές Σελίδες & Φόρμες */
 .card {
     border: none;

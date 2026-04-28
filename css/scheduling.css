@@ -112,8 +112,25 @@
     color: var(--brand-grey);
 }
 
+.schedule-table tbody td.schedule-cell-unavailable {
+    background-color: #f1f3f5;
+    background-image: repeating-linear-gradient(
+        135deg,
+        rgba(88, 89, 91, 0.1) 0,
+        rgba(88, 89, 91, 0.1) 6px,
+        transparent 6px,
+        transparent 12px
+    );
+    border-color: #ced4da;
+    opacity: 0.85;
+}
+
 .schedule-table tbody tr:hover td {
     background-color: #fafafa;
+}
+
+.schedule-table tbody tr:hover td.schedule-cell-unavailable {
+    background-color: #eceff3;
 }
 
 .sched-cell-gamma {

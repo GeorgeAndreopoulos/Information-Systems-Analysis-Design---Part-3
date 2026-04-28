@@ -1,7 +1,7 @@
-/* =========================================
+/*
    Κοινό CSS Φροντιστηρίου "Διατριβή"
    Entry point — partials live alongside this file.
-   ========================================= */
+*/
 
 @import "base.css";
 @import "navbar.css";
@@ -9,3 +9,5 @@
 @import "scheduling.css";
 @import "academic-profile.css";
 @import "constraints.css";
+@import "login.css";
+@import "darkmode.css";

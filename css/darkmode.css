@@ -111,6 +111,11 @@
     color: var(--dark-text-muted);
 }
 
+[data-theme="dark"] .form-floating > .form-control::placeholder {
+    color: transparent;
+    opacity: 0;
+}
+
 [data-theme="dark"] .form-control:focus,
 [data-theme="dark"] .form-select:focus {
     background-color: var(--dark-input-bg);

@@ -14,7 +14,12 @@
         if (localStorage.getItem('diatrivi_theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
         }
-    </script></head>
+    </script>
+    <script src="../../utils/auth.js"></script>
+    <script>
+        const currentUser = requireAuth(['admin', 'teacher', 'student']);
+    </script>
+</head>
 <body>
 
     <app-navbar></app-navbar>

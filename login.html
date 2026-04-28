@@ -83,11 +83,15 @@
                     <div class="hint-title"><i class="bi bi-info-circle me-1"></i> Στοιχεία Πρόσβασης</div>
                     <div class="hint-row">
                         <i class="bi bi-chevron-right"></i>
-                        Χρήστης: <code>admin</code>
+                        Διαχειριστής: <code>admin</code> / <code>admin123!</code>
                     </div>
                     <div class="hint-row">
                         <i class="bi bi-chevron-right"></i>
-                        Κωδικός: <code>admin123!</code>
+                        Καθηγητής: <code>teacher</code> / <code>teacher123!</code>
+                    </div>
+                    <div class="hint-row">
+                        <i class="bi bi-chevron-right"></i>
+                        Μαθητής: <code>student</code> / <code>student123!</code>
                     </div>
                 </div>
             </div>
@@ -98,12 +102,9 @@
         </div>
     </div>
 
+    <script src="utils/auth.js"></script>
     <script>
         (() => {
-            // Hardcoded credentials
-            const VALID_USERNAME = 'admin';
-            const VALID_PASSWORD = 'admin123!';
-
             const form     = document.getElementById('loginForm');
             const usernameInput = document.getElementById('username');
             const passwordInput = document.getElementById('password');
@@ -151,10 +152,7 @@
 
                 // Simulate a brief delay for UX
                 setTimeout(() => {
-                    if (username === VALID_USERNAME && password === VALID_PASSWORD) {
-                        // Store auth flag
-                        sessionStorage.setItem('diatrivi_auth', 'true');
-                        // Redirect to dashboard
+                    if (login(username, password)) {
                         window.location.href = 'index.html';
                     } else {
                         // Show error

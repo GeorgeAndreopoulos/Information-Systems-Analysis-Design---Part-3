@@ -14,6 +14,16 @@
     box-shadow: 0 4px 10px rgba(142, 181, 44, 0.3);
 }
 
+/* Wrapper added in HTML enables horizontal scroll on small screens */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.timetable-grid {
+    min-width: 720px;
+}
+
 .timetable-grid th {
     background-color: #f8f9fa;
     color: var(--brand-grey);
@@ -29,6 +39,18 @@
     vertical-align: middle;
     font-size: 0.85rem;
     padding: 5px;
+}
+
+/* Freeze the time column while horizontally scrolling the timetable */
+.timetable-grid thead th:first-child,
+.timetable-grid td.time-cell {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+}
+
+.timetable-grid thead th:first-child {
+    z-index: 3;
 }
 
 .timetable-grid td.clickable-cell {

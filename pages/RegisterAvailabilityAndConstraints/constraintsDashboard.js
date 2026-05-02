@@ -10,6 +10,37 @@ const dayConfigs = [
     { name: 'Κυριακή', key: 'sun', open: false, start: '', end: '' }
 ];
 
+function showCurrentRoleTab() {
+    if (!currentUser) return;
+
+    const activeTabId = `${currentUser.role}-tab`;
+    const tabsContainer = document.getElementById('roleTabs');
+
+    tabsContainer?.querySelectorAll('.nav-item').forEach(item => {
+        const button = item.querySelector('[data-bs-target]');
+        const targetId = button?.getAttribute('data-bs-target')?.slice(1);
+
+        if (targetId !== activeTabId) {
+            item.remove();
+            return;
+        }
+
+        button.classList.add('active');
+        button.setAttribute('aria-selected', 'true');
+    });
+
+    document.querySelectorAll('#roleTabsContent > .tab-pane').forEach(pane => {
+        if (pane.id !== activeTabId) {
+            pane.remove();
+            return;
+        }
+
+        pane.classList.add('show', 'active');
+    });
+
+    tabsContainer?.closest('.d-flex')?.classList.add('d-none');
+}
+
 function renderHours() {
     const container = document.getElementById('hoursContainer');
     if (!container) return;
@@ -108,6 +139,7 @@ syncTeacherHourValidation('#teacherMinHours', '#teacherMaxHours', '#teacherHours
 
 renderTables(times);
 renderHours();
+showCurrentRoleTab();
 
 // Event listeners for day toggles
 document.addEventListener('change', function(e) {

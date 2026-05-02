@@ -29,7 +29,7 @@ function renderSchedule(
             if (group) {
                 html += '<td>' + createCellHtmlFunc(group) + '</td>';
             } else {
-                html += '<td></td>';
+                html += '<td class="schedule-cell-unavailable" aria-label="Μη διαθέσιμο slot"></td>';
             }
         });
         html += '</tr>';

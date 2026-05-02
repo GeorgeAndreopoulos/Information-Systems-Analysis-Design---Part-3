@@ -1,5 +1,11 @@
 const currentUser = requireAuth();
 
+const ROLE_VOCATIVE = {
+    admin: 'Διαχειριστή',
+    teacher: 'Καθηγητή',
+    student: 'Μαθητή'
+};
+
 document.getElementById('darkModeSlot').appendChild(createDarkModeToggle());
 
 const FEATURES = [
@@ -35,6 +41,7 @@ const FEATURES = [
 
 if (currentUser) {
     document.getElementById('roleLabel').textContent = ROLE_LABELS[currentUser.role];
+    document.getElementById('userGreeting').textContent = `Γεια σου, ${ROLE_VOCATIVE[currentUser.role]}`;
 
     document.getElementById('featuresContainer').innerHTML = FEATURES
         .filter(feature => feature.roles.includes(currentUser.role))

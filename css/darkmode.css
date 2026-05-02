@@ -40,6 +40,10 @@
     color: var(--dark-text-muted) !important;
 }
 
+[data-theme="dark"] .user-greeting {
+    color: var(--dark-text);
+}
+
 [data-theme="dark"] .btn-outline-secondary {
     color: var(--dark-text-muted);
     border-color: var(--dark-border);

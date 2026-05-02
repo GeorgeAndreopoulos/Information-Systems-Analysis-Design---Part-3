@@ -130,6 +130,10 @@ npx http-server
 npx live-server
 ```
 
+**Option 3: Visit site**
+```URL: https://georgeandreopoulos.github.io/
+
+
 ---
 
 ## Default Login Credentials

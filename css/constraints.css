@@ -1,4 +1,4 @@
-﻿/* ╬Ü╧ë╬╗╧ì╬╝╬▒╧ä╬▒ & ╬ö╬╣╬▒╬╕╬╡╧â╬╣╬╝╧î╧ä╬╖╧ä╬▒: tabs, timetable, form focus */
+/* Κωλύματα & Διαθεσιμότητα: tabs, timetable, form focus */
 
 .role-simulator-tabs .nav-link {
     color: var(--brand-grey);
@@ -92,7 +92,7 @@
 .form-control:focus,
 .form-select:focus {
     border-color: var(--brand-green);
-    box-shadow: 0 0 0 0.25rem rgba(142, 181, 44, 0.25); /* ╬æ╧Ç╬▒╬╗╬« ╧Ç╧ü╬¼╧â╬╣╬╜╬╖ ╬╗╬¼╬╝╧ê╬╖ */
+    box-shadow: 0 0 0 0.25rem rgba(142, 181, 44, 0.25); /* Απαλή πράσινη λάμψη */
 }
 
 .form-select option:hover,

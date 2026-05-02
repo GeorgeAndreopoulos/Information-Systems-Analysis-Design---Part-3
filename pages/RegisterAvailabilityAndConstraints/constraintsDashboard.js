@@ -1,13 +1,13 @@
-﻿const times = buildHalfHourSlots(9, 30, 22, 30);
+const times = buildHalfHourSlots(9, 30, 22, 30);
 
 const dayConfigs = [
-    { name: '╬ö╬╡╧à╧ä╬¡╧ü╬▒', key: 'mon', open: true, start: '14:30', end: '22:30' },
-    { name: '╬ñ╧ü╬»╧ä╬╖', key: 'tue', open: true, start: '14:30', end: '22:30' },
-    { name: '╬ñ╬╡╧ä╬¼╧ü╧ä╬╖', key: 'wed', open: true, start: '14:30', end: '22:30' },
-    { name: '╬á╬¡╬╝╧Ç╧ä╬╖', key: 'thu', open: true, start: '14:30', end: '22:30' },
-    { name: '╬á╬▒╧ü╬▒╧â╬║╬╡╧à╬«', key: 'fri', open: true, start: '14:30', end: '22:30' },
-    { name: '╬ú╬¼╬▓╬▓╬▒╧ä╬┐', key: 'sat', open: true, start: '09:30', end: '15:30' },
-    { name: '╬Ü╧à╧ü╬╣╬▒╬║╬«', key: 'sun', open: false, start: '', end: '' }
+    { name: 'Δευτέρα', key: 'mon', open: true, start: '14:30', end: '22:30' },
+    { name: 'Τρίτη', key: 'tue', open: true, start: '14:30', end: '22:30' },
+    { name: 'Τετάρτη', key: 'wed', open: true, start: '14:30', end: '22:30' },
+    { name: 'Πέμπτη', key: 'thu', open: true, start: '14:30', end: '22:30' },
+    { name: 'Παρασκευή', key: 'fri', open: true, start: '14:30', end: '22:30' },
+    { name: 'Σάββατο', key: 'sat', open: true, start: '09:30', end: '15:30' },
+    { name: 'Κυριακή', key: 'sun', open: false, start: '', end: '' }
 ];
 
 function showCurrentRoleTab() {
@@ -74,7 +74,7 @@ function renderHours() {
 
         const label = document.createElement('label');
         label.className = 'form-check-label small fw-bold';
-        label.textContent = day.open ? '╬æ╬╜╬┐╬╣╧ç╧ä╧î' : '╬Ü╬╗╬╡╬╣╧â╧ä╧î';
+        label.textContent = day.open ? 'Ανοιχτό' : 'Κλειστό';
         if (day.key === 'sun') label.classList.add('text-danger');
 
         formCheck.appendChild(toggle);
@@ -86,7 +86,7 @@ function renderHours() {
 
         const startLabel = document.createElement('span');
         startLabel.className = 'input-group-text bg-light text-muted w-25 justify-content-center';
-        startLabel.textContent = '╬æ╧Ç╧î';
+        startLabel.textContent = 'Από';
 
         const startInput = document.createElement('input');
         startInput.type = 'time';
@@ -102,7 +102,7 @@ function renderHours() {
 
         const endLabel = document.createElement('span');
         endLabel.className = 'input-group-text bg-light text-muted w-25 justify-content-center';
-        endLabel.textContent = '╬ê╧ë╧é';
+        endLabel.textContent = 'Έως';
 
         const endInput = document.createElement('input');
         endInput.type = 'time';
@@ -152,7 +152,7 @@ document.addEventListener('change', function(e) {
         const title = card.querySelector('.fw-bold');
         const timeInputs = card.querySelectorAll('input[type="time"]');
 
-        label.textContent = isChecked ? '╬æ╬╜╬┐╬╣╧ç╧ä╧î' : '╬Ü╬╗╬╡╬╣╧â╧ä╧î';
+        label.textContent = isChecked ? 'Ανοιχτό' : 'Κλειστό';
         if (day === 'sun') {
             label.classList.toggle('text-danger', !isChecked);
             title.classList.toggle('text-danger', !isChecked);

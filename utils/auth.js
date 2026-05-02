@@ -1,7 +1,7 @@
-﻿const ROLE_LABELS = {
-    admin: '╬ö╬╣╬▒╧ç╬╡╬╣╧ü╬╣╧â╧ä╬«╧é',
-    teacher: '╬Ü╬▒╬╕╬╖╬│╬╖╧ä╬«╧é',
-    student: '╬£╬▒╬╕╬╖╧ä╬«╧é'
+const ROLE_LABELS = {
+    admin: 'Διαχειριστής',
+    teacher: 'Καθηγητής',
+    student: 'Μαθητής'
 };
 
 const USERS = [

@@ -1,9 +1,9 @@
-﻿/*
-   Dark Mode ΓÇö ╬¥╧à╧ç╧ä╬╡╧ü╬╣╬╜╬« ╬¢╬╡╬╣╧ä╬┐╧à╧ü╬│╬»╬▒
+/*
+   Dark Mode — Νυχτερινή Λειτουργία
    Activated via [data-theme="dark"] on <html>
  */
 
-/* ΓöÇΓöÇ Dark Design Tokens ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Dark Design Tokens ────────────────── */
 [data-theme="dark"] {
     --dark-bg:          #121318;
     --dark-surface:     #1c1d24;
@@ -19,13 +19,13 @@
     --brand-green-hover: #7da41b;
 }
 
-/* ΓöÇΓöÇ Base ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Base ──────────────────────────────── */
 [data-theme="dark"] body {
     background-color: var(--dark-bg);
     color: var(--dark-text);
 }
 
-/* ΓöÇΓöÇ Navbar ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Navbar ────────────────────────────── */
 [data-theme="dark"] .navbar {
     background-color: var(--dark-surface) !important;
     border-bottom-color: var(--brand-green);
@@ -51,7 +51,7 @@
     border-color: var(--dark-text-muted);
 }
 
-/* ΓöÇΓöÇ Typography ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Typography ────────────────────────── */
 [data-theme="dark"] h1,
 [data-theme="dark"] h2,
 [data-theme="dark"] h3,
@@ -78,7 +78,7 @@
     color: var(--dark-text);
 }
 
-/* ΓöÇΓöÇ Cards ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Cards ─────────────────────────────── */
 [data-theme="dark"] .card {
     background-color: var(--dark-surface);
     border-color: var(--dark-border);
@@ -99,7 +99,7 @@
     box-shadow: 0 8px 25px rgba(142, 181, 44, 0.15);
 }
 
-/* ΓöÇΓöÇ Forms & Inputs ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Forms & Inputs ────────────────────── */
 [data-theme="dark"] .form-control,
 [data-theme="dark"] .form-select {
     background-color: var(--dark-input-bg);
@@ -148,7 +148,7 @@
     color: var(--dark-text-muted) !important;
 }
 
-/* ΓöÇΓöÇ Buttons ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Buttons ───────────────────────────── */
 [data-theme="dark"] .btn-light {
     background-color: var(--dark-surface-2);
     border-color: var(--dark-border);
@@ -165,7 +165,7 @@
     color: #ff6b7a;
 }
 
-/* ΓöÇΓöÇ Badges ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Badges ────────────────────────────── */
 [data-theme="dark"] .badge.bg-light {
     background-color: var(--dark-surface-2) !important;
     color: var(--dark-text-muted) !important;
@@ -176,7 +176,7 @@
     background-color: var(--dark-input-border) !important;
 }
 
-/* ΓöÇΓöÇ Tables ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Tables ────────────────────────────── */
 [data-theme="dark"] .table {
     --bs-table-bg: var(--dark-surface);
     --bs-table-color: var(--dark-text);
@@ -221,7 +221,7 @@
     opacity: 0.72;
 }
 
-/* ΓöÇΓöÇ Schedule Table ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Schedule Table ────────────────────── */
 [data-theme="dark"] .schedule-table thead th {
     background-color: var(--brand-green);
     border-color: var(--brand-green-hover);
@@ -260,7 +260,7 @@
     background-color: #161820;
 }
 
-/* ΓöÇΓöÇ Alerts ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Alerts ────────────────────────────── */
 [data-theme="dark"] .alert-success {
     background-color: rgba(142, 181, 44, 0.15);
     border-color: rgba(142, 181, 44, 0.3);
@@ -273,7 +273,7 @@
     color: #ff6b7a;
 }
 
-/* ΓöÇΓöÇ Backgrounds ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Backgrounds ───────────────────────── */
 [data-theme="dark"] .bg-white {
     background-color: var(--dark-surface) !important;
 }
@@ -283,7 +283,7 @@
     background-color: var(--dark-surface-2) !important;
 }
 
-/* ΓöÇΓöÇ Borders & Dividers ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Borders & Dividers ────────────────── */
 [data-theme="dark"] .border,
 [data-theme="dark"] .border-top,
 [data-theme="dark"] .border-bottom {
@@ -299,7 +299,7 @@
     opacity: 0.5;
 }
 
-/* ΓöÇΓöÇ Shadows ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Shadows ───────────────────────────── */
 [data-theme="dark"] .shadow-sm {
     box-shadow: 0 1px 4px rgba(0,0,0,0.4) !important;
 }
@@ -308,7 +308,7 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
 }
 
-/* ΓöÇΓöÇ Scheduling: Big Action Button ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Scheduling: Big Action Button ─────── */
 [data-theme="dark"] .big-action-btn {
     background: var(--dark-surface);
     border-color: var(--brand-green);
@@ -319,7 +319,7 @@
     background: var(--dark-surface-2);
 }
 
-/* ΓöÇΓöÇ Scheduling: Report Box ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Scheduling: Report Box ────────────── */
 [data-theme="dark"] .report-box {
     background-color: var(--dark-surface);
     border-left-color: var(--brand-green);
@@ -330,14 +330,14 @@
     background-color: rgba(220, 53, 69, 0.08);
 }
 
-/* ΓöÇΓöÇ Scheduling: Day Selector ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Scheduling: Day Selector ──────────── */
 [data-theme="dark"] #daySelector {
     background-color: var(--dark-input-bg);
     color: var(--dark-text);
     border-color: var(--brand-green);
 }
 
-/* ΓöÇΓöÇ Academic Profile: Search Area ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Academic Profile: Search Area ─────── */
 [data-theme="dark"] .search-area {
     background-color: var(--dark-surface);
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
@@ -360,7 +360,7 @@
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* ΓöÇΓöÇ Academic Profile: Range Slider ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Academic Profile: Range Slider ────── */
 [data-theme="dark"] .custom-range {
     background: var(--dark-border);
 }
@@ -369,7 +369,7 @@
     color: var(--dark-text-muted);
 }
 
-/* ΓöÇΓöÇ Constraints: Role Tabs ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Constraints: Role Tabs ────────────── */
 [data-theme="dark"] .role-simulator-tabs {
     background-color: var(--dark-surface) !important;
 }
@@ -382,14 +382,14 @@
     color: white;
 }
 
-/* ΓöÇΓöÇ Constraints: Rooms ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Constraints: Rooms ────────────────── */
 [data-theme="dark"] #addRoomBtn {
     background-color: var(--dark-surface-2) !important;
     border-color: var(--dark-border);
     color: var(--brand-green) !important;
 }
 
-/* ΓöÇΓöÇ Custom Role Selector Dropdown ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Custom Role Selector Dropdown ─────── */
 [data-theme="dark"] .custom-role-selector .btn {
     background-color: var(--dark-surface-2);
     border-color: var(--dark-border);
@@ -415,7 +415,7 @@
     color: white;
 }
 
-/* ΓöÇΓöÇ Generic Dropdown Menu ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Generic Dropdown Menu ─────────────── */
 [data-theme="dark"] .dropdown-menu {
     background-color: var(--dark-surface);
     border-color: var(--dark-border);
@@ -437,7 +437,7 @@
     color: white;
 }
 
-/* ΓöÇΓöÇ Exam / grade boxes ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Exam / grade boxes ────────────────── */
 [data-theme="dark"] .border.rounded-3.bg-light-subtle {
     background-color: var(--dark-surface-2) !important;
     border-color: var(--dark-border) !important;
@@ -447,12 +447,12 @@
     border-color: rgba(142, 181, 44, 0.3) !important;
 }
 
-/* ΓöÇΓöÇ Progress Bar ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Progress Bar ──────────────────────── */
 [data-theme="dark"] .progress {
     background-color: var(--dark-surface-2);
 }
 
-/* ΓöÇΓöÇ Form Check (Radio / Checkbox) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Form Check (Radio / Checkbox) ─────── */
 [data-theme="dark"] .form-check-label {
     color: var(--dark-text);
 }
@@ -462,7 +462,7 @@
     border-color: var(--dark-input-border);
 }
 
-/* ΓöÇΓöÇ Login Page ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Login Page ────────────────────────── */
 [data-theme="dark"] .login-page {
     background: linear-gradient(135deg, #121318 0%, #1a1b22 50%, #16171e 100%);
 }
@@ -517,12 +517,12 @@
     color: var(--dark-text-muted);
 }
 
-/* ΓöÇΓöÇ Stat numbers ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Stat numbers ──────────────────────── */
 [data-theme="dark"] .stat-number {
     color: var(--brand-green);
 }
 
-/* ΓöÇΓöÇ Scrollbar (Webkit) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Scrollbar (Webkit) ────────────────── */
 [data-theme="dark"] ::-webkit-scrollbar {
     width: 8px;
 }
@@ -540,7 +540,7 @@
     background: var(--dark-text-muted);
 }
 
-/* ΓöÇΓöÇ Dark Mode Toggle Button ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ── Dark Mode Toggle Button ──────────── */
 .dark-mode-toggle {
     background: none;
     border: 1.5px solid #dee2e6;
@@ -580,7 +580,7 @@
     background-color: var(--dark-surface-2);
 }
 
-/* ΓöÇΓöÇ Smooth transition on theme switch ΓöÇΓöÇ */
+/* ── Smooth transition on theme switch ── */
 html.theme-transition,
 html.theme-transition *,
 html.theme-transition *::before,

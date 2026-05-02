@@ -41,51 +41,74 @@ Three roles with different permissions:
 ```
 .
 ├── index.html                          # Main dashboard
-├── pages/
-│   ├── Login/                          # Authentication
-│   ├── CreateUserProfile/              # User creation (Admin)
-│   ├── RegisterAvailabilityAndConstraints/  # Constraint management
-│   ├── RecordAcademicProfile/          # Student evaluation (Teacher)
-│   └── GenerateSchedule/               # Schedule generation (Admin)
+├── README.md                           # Project documentation
+│
+├── pages/                              # Page modules (each has HTML + JS)
+│   ├── Login/
+│   │   ├── login.html                  # Login form & authentication UI
+│   │   └── login.js                    # Login logic & session handling
+│   │
+│   ├── CreateUserProfile/
+│   │   ├── createUser.html             # User creation form (Admin)
+│   │   └── createUser.js               # User profile creation logic
+│   │
+│   ├── RegisterAvailabilityAndConstraints/
+│   │   ├── constraintsDashboard.html   # Constraints management UI
+│   │   └── constraintsDashboard.js     # Availability & constraints logic
+│   │
+│   ├── RecordAcademicProfile/
+│   │   ├── academicProfile.html        # Student evaluation form (Teacher)
+│   │   └── academicProfile.js          # Academic profile recording logic
+│   │
+│   └── GenerateSchedule/
+│       ├── schedulingDashboard.html    # Schedule generation UI (Admin)
+│       └── schedulingDashboard.js      # Schedule display & interaction logic
+│
 ├── components/                         # Reusable Web Components
-│   ├── navbar.js
-│   ├── guardianBlock.js
-│   ├── actionButtons.js
-│   ├── commentsBox.js
-│   └── requiredNote.js
-├── utils/                              # Helper modules
-│   ├── auth.js                         # Login / logout / session
-│   ├── darkMode.js                     # Theme toggle
-│   ├── theme-init.js                   # Prevents flash on load
-│   ├── dataLoader.js                   # JSON data fetching
+│   ├── navbar.js                       # Navigation bar component
+│   ├── guardianBlock.js                # Guardian/header block component
+│   ├── actionButtons.js                # Reusable action buttons
+│   ├── commentsBox.js                  # Comments/notes box component
+│   └── requiredNote.js                 # Required field indicator component
+│
+├── utils/                              # Utility & Helper Modules
+│   ├── auth.js                         # Login / logout / session management
+│   ├── darkMode.js                     # Dark mode toggle & theme handling
+│   ├── theme-init.js                   # Prevents theme flash on page load
+│   ├── dataLoader.js                   # JSON data fetching utilities
 │   ├── scheduleUtils.js                # Schedule generation algorithm
 │   ├── scheduleRenderer.js             # Schedule table rendering
-│   ├── timeUtils.js                    # Time slot utilities
-│   ├── validationUtils.js              # Form validation
-│   ├── roomUtils.js                    # Room CRUD helpers
+│   ├── timeUtils.js                    # Time slot & scheduling utilities
+│   ├── validationUtils.js              # Form validation helpers
+│   ├── roomUtils.js                    # Room CRUD operations
 │   ├── tableUtils.js                   # Table rendering helpers
-│   └── index.js                        # Dashboard feature cards
-├── constants/
+│   └── index.js                        # Dashboard feature cards logic
+│
+├── constants/                          # Application Constants
 │   ├── constants.js                    # Days, groups, time ranges
 │   └── specialties.js                  # Teacher specialties & subjects
-├── css/
+│
+├── css/                                # Stylesheets
 │   ├── styles.css                      # Main stylesheet (imports all partials)
 │   ├── base.css                        # Design tokens & global styles
-│   ├── components.css
-│   ├── navbar.css
-│   ├── login.css
-│   ├── academic-profile.css
-│   ├── scheduling.css
-│   ├── constraints.css
-│   └── darkmode.css
-├── data/
-│   ├── teachers.json
-│   ├── students.json
-│   ├── rooms.json
-│   └── subjects.json
-└── images/
+│   ├── components.css                  # Component-specific styles
+│   ├── navbar.css                      # Navbar styles
+│   ├── login.css                       # Login page styles
+│   ├── academic-profile.css            # Academic profile page styles
+│   ├── scheduling.css                  # Schedule page styles
+│   ├── constraints.css                 # Constraints page styles
+│   └── darkmode.css                    # Dark mode theme styles
+│
+├── data/                               # Static Data Files (JSON)
+│   ├── teachers.json                   # Teacher profiles & specialties
+│   ├── students.json                   # Student profiles & grades
+│   ├── rooms.json                      # Room information & capacity
+│   └── subjects.json                   # Subject listings per grade
+│
+├── images/                             # Image Assets
     ├── favicon.png
     └── diatrivi-logo.png
+
 ```
 
 ---

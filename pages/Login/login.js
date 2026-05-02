@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
     const form          = document.getElementById('loginForm');
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
@@ -32,7 +32,7 @@
         const password = passwordInput.value;
 
         if (!username || !password) {
-            errorText.textContent = 'Συμπληρώστε και τα δύο πεδία.';
+            errorText.textContent = '╬ú╧à╬╝╧Ç╬╗╬╖╧ü╧Ä╧â╧ä╬╡ ╬║╬▒╬╣ ╧ä╬▒ ╬┤╧ì╬┐ ╧Ç╬╡╬┤╬»╬▒.';
             errorBox.classList.remove('d-none');
             if (!username) usernameInput.classList.add('is-invalid');
             if (!password) passwordInput.classList.add('is-invalid');
@@ -46,7 +46,7 @@
             if (login(username, password)) {
                 window.location.href = '../../index.html';
             } else {
-                errorText.textContent = 'Λάθος όνομα χρήστη ή κωδικός πρόσβασης.';
+                errorText.textContent = '╬¢╬¼╬╕╬┐╧é ╧î╬╜╬┐╬╝╬▒ ╧ç╧ü╬«╧â╧ä╬╖ ╬« ╬║╧ë╬┤╬╣╬║╧î╧é ╧Ç╧ü╧î╧â╬▓╬▒╧â╬╖╧é.';
                 errorBox.classList.remove('d-none');
                 loginBtn.classList.remove('loading');
                 loginBtn.disabled = false;

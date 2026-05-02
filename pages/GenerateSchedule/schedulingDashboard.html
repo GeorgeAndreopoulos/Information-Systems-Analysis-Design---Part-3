@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="el">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Πίνακας Ελέγχου Αλγορίθμου - Διατριβή</title>
+    <title>╬á╬»╬╜╬▒╬║╬▒╧é ╬ò╬╗╬¡╬│╧ç╬┐╧à ╬æ╬╗╬│╬┐╧ü╬»╬╕╬╝╬┐╧à - ╬ö╬╣╬▒╧ä╧ü╬╣╬▓╬«</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -29,21 +29,21 @@
     <div class="container pb-5">
         
         <div class="mb-5">
-            <h2 class="fw-bold" style="color: var(--brand-grey);">Πίνακας Ελέγχου Αλγορίθμου</h2>
-            <p class="text-muted">Επισκόπηση δεδομένων και εκκίνηση μηχανισμού αυτόματης παραγωγής προγράμματος.</p>
+            <h2 class="fw-bold" style="color: var(--brand-grey);">╬á╬»╬╜╬▒╬║╬▒╧é ╬ò╬╗╬¡╬│╧ç╬┐╧à ╬æ╬╗╬│╬┐╧ü╬»╬╕╬╝╬┐╧à</h2>
+            <p class="text-muted">╬ò╧Ç╬╣╧â╬║╧î╧Ç╬╖╧â╬╖ ╬┤╬╡╬┤╬┐╬╝╬¡╬╜╧ë╬╜ ╬║╬▒╬╣ ╬╡╬║╬║╬»╬╜╬╖╧â╬╖ ╬╝╬╖╧ç╬▒╬╜╬╣╧â╬╝╬┐╧ì ╬▒╧à╧ä╧î╬╝╬▒╧ä╬╖╧é ╧Ç╬▒╧ü╬▒╬│╧ë╬│╬«╧é ╧Ç╧ü╬┐╬│╧ü╬¼╬╝╬╝╬▒╧ä╬┐╧é.</p>
         </div>
 
         <div class="row g-4 mb-5">
             <div class="col-md-3">
                 <div class="card text-center p-3 h-100">
-                    <div class="text-muted small fw-bold">ΕΝΕΡΓΟΙ ΜΑΘΗΤΕΣ</div>
+                    <div class="text-muted small fw-bold">╬ò╬¥╬ò╬í╬ô╬ƒ╬Ö ╬£╬æ╬ÿ╬ù╬ñ╬ò╬ú</div>
                     <div class="stat-number">450</div>
                     <i class="bi bi-people text-muted"></i>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="card text-center p-3 h-100">
-                    <div class="text-muted small fw-bold">ΔΙΑΘΕΣΙΜΟΙ ΚΑΘΗΓΗΤΕΣ</div>
+                    <div class="text-muted small fw-bold">╬ö╬Ö╬æ╬ÿ╬ò╬ú╬Ö╬£╬ƒ╬Ö ╬Ü╬æ╬ÿ╬ù╬ô╬ù╬ñ╬ò╬ú</div>
                     <div class="stat-number">65</div>
                     <i class="bi bi-person-video3 text-muted"></i>
                 </div>
@@ -67,27 +67,27 @@
         <div class="text-center mb-5" id="actionButtonArea">
             <button class="btn big-action-btn w-100 shadow-sm" id="startAlgoBtn">
                 <i class="bi bi-lightning-charge-fill"></i>
-                Εκκίνηση Αλγορίθμου Δημιουργίας Προγράμματος
+                ╬ò╬║╬║╬»╬╜╬╖╧â╬╖ ╬æ╬╗╬│╬┐╧ü╬»╬╕╬╝╬┐╧à ╬ö╬╖╬╝╬╣╬┐╧à╧ü╬│╬»╬▒╧é ╬á╧ü╬┐╬│╧ü╬¼╬╝╬╝╬▒╧ä╬┐╧é
             </button>
             
             <div id="loadingArea" class="d-none mt-4">
-                <h4 class="mb-3">Επίλυση περιορισμών σε εξέλιξη...</h4>
+                <h4 class="mb-3">╬ò╧Ç╬»╬╗╧à╧â╬╖ ╧Ç╬╡╧ü╬╣╬┐╧ü╬╣╧â╬╝╧Ä╬╜ ╧â╬╡ ╬╡╬╛╬¡╬╗╬╣╬╛╬╖...</h4>
                 <div class="progress" style="height: 30px; border-radius: 15px;">
                     <div id="mainProgressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
                          role="progressbar" style="width: 0%">0%</div>
                 </div>
-                <p class="mt-2 text-muted italic">Ο αλγόριθμος αναζητά την βέλτιστη κατανομή τμημάτων...</p>
+                <p class="mt-2 text-muted italic">╬ƒ ╬▒╬╗╬│╧î╧ü╬╣╬╕╬╝╬┐╧é ╬▒╬╜╬▒╬╢╬╖╧ä╬¼ ╧ä╬╖╬╜ ╬▓╬¡╬╗╧ä╬╣╧â╧ä╬╖ ╬║╬▒╧ä╬▒╬╜╬┐╬╝╬« ╧ä╬╝╬╖╬╝╬¼╧ä╧ë╬╜...</p>
             </div>
         </div>
 
         <div id="resultsArea" class="d-none">
             <hr class="my-5">
-            <h3 class="fw-bold mb-4">Αναφορά Αποτελεσμάτων</h3>
+            <h3 class="fw-bold mb-4">╬æ╬╜╬▒╧å╬┐╧ü╬¼ ╬æ╧Ç╬┐╧ä╬╡╬╗╬╡╧â╬╝╬¼╧ä╧ë╬╜</h3>
             
             <div class="row g-4 mb-4">
                 <div class="col-md-6">
                     <div class="card p-4 h-100">
-                        <h5 class="fw-bold text-center mb-4">Δείκτες Επιτυχίας</h5>
+                        <h5 class="fw-bold text-center mb-4">╬ö╬╡╬»╬║╧ä╬╡╧é ╬ò╧Ç╬╣╧ä╧à╧ç╬»╬▒╧é</h5>
                         <div class="d-flex justify-content-around">
                             <div class="text-center">
                                 <div class="stat-number text-success">100%</div>
@@ -103,24 +103,24 @@
                 
                 <div class="col-md-6">
                     <div class="report-box h-100">
-                        <h5 class="fw-bold mb-3"><i class="bi bi-clipboard-check me-2"></i>Διαγνωστική Αναφορά</h5>
+                        <h5 class="fw-bold mb-3"><i class="bi bi-clipboard-check me-2"></i>╬ö╬╣╬▒╬│╬╜╧ë╧â╧ä╬╣╬║╬« ╬æ╬╜╬▒╧å╬┐╧ü╬¼</h5>
                         <p class="mb-0 text-muted">
-                            Ο αλγόριθμος ολοκληρώθηκε με επιτυχία. <strong>18 ελαστικοί περιορισμοί</strong> αγνοήθηκαν για να επιτευχθεί η μέγιστη δυνατή ομοιογένεια στα τμήματα.
+                            ╬ƒ ╬▒╬╗╬│╧î╧ü╬╣╬╕╬╝╬┐╧é ╬┐╬╗╬┐╬║╬╗╬╖╧ü╧Ä╬╕╬╖╬║╬╡ ╬╝╬╡ ╬╡╧Ç╬╣╧ä╧à╧ç╬»╬▒. <strong>18 ╬╡╬╗╬▒╧â╧ä╬╣╬║╬┐╬» ╧Ç╬╡╧ü╬╣╬┐╧ü╬╣╧â╬╝╬┐╬»</strong> ╬▒╬│╬╜╬┐╬«╬╕╬╖╬║╬▒╬╜ ╬│╬╣╬▒ ╬╜╬▒ ╬╡╧Ç╬╣╧ä╬╡╧à╧ç╬╕╬╡╬» ╬╖ ╬╝╬¡╬│╬╣╧â╧ä╬╖ ╬┤╧à╬╜╬▒╧ä╬« ╬┐╬╝╬┐╬╣╬┐╬│╬¡╬╜╬╡╬╣╬▒ ╧â╧ä╬▒ ╧ä╬╝╬«╬╝╬▒╧ä╬▒.
                         </p>
                         <ul class="mt-2 small text-muted">
-                            <li>Βελτιστοποίηση αιθουσών: 94%</li>
-                            <li>Κενά καθηγητών: Ελαχιστοποιήθηκαν</li>
+                            <li>╬Æ╬╡╬╗╧ä╬╣╧â╧ä╬┐╧Ç╬┐╬»╬╖╧â╬╖ ╬▒╬╣╬╕╬┐╧à╧â╧Ä╬╜: 94%</li>
+                            <li>╬Ü╬╡╬╜╬¼ ╬║╬▒╬╕╬╖╬│╬╖╧ä╧Ä╬╜: ╬ò╬╗╬▒╧ç╬╣╧â╧ä╬┐╧Ç╬┐╬╣╬«╬╕╬╖╬║╬▒╬╜</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Εβδομαδιαίο Πρόγραμμα -->
+            <!-- ╬ò╬▓╬┤╬┐╬╝╬▒╬┤╬╣╬▒╬»╬┐ ╬á╧ü╧î╬│╧ü╬▒╬╝╬╝╬▒ -->
             <hr class="my-5">
-            <h4 class="fw-bold mb-4"><i class="bi bi-calendar-week me-2"></i>Εβδομαδιαίο Πρόγραμμα</h4>
+            <h4 class="fw-bold mb-4"><i class="bi bi-calendar-week me-2"></i>╬ò╬▓╬┤╬┐╬╝╬▒╬┤╬╣╬▒╬»╬┐ ╬á╧ü╧î╬│╧ü╬▒╬╝╬╝╬▒</h4>
 
             <div class="mb-3">
-                <label for="daySelector" class="form-label fw-bold">Επιλογή Ημέρας</label>
+                <label for="daySelector" class="form-label fw-bold">╬ò╧Ç╬╣╬╗╬┐╬│╬« ╬ù╬╝╬¡╧ü╬▒╧é</label>
                 <select id="daySelector" class="form-select">
                 </select>
             </div>
@@ -134,10 +134,10 @@
 
             <div class="d-flex justify-content-end gap-3 border-top pt-4">
                 <button class="btn btn-outline-danger px-5 py-2 fw-bold" onclick="location.reload()">
-                    <i class="bi bi-trash me-2"></i>Απόρριψη Προσχεδίου
+                    <i class="bi bi-trash me-2"></i>╬æ╧Ç╧î╧ü╧ü╬╣╧ê╬╖ ╬á╧ü╬┐╧â╧ç╬╡╬┤╬»╬┐╧à
                 </button>
                 <button class="btn btn-brand px-5 py-2 fw-bold shadow">
-                    <i class="bi bi-check2-circle me-2"></i>Αποθήκευση Προσχεδίου
+                    <i class="bi bi-check2-circle me-2"></i>╬æ╧Ç╬┐╬╕╬«╬║╬╡╧à╧â╬╖ ╬á╧ü╬┐╧â╧ç╬╡╬┤╬»╬┐╧à
                 </button>
             </div>
         </div>

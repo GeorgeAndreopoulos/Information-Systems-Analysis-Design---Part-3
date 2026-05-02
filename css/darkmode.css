@@ -1,9 +1,9 @@
-/*
-   Dark Mode — Νυχτερινή Λειτουργία
+﻿/*
+   Dark Mode ΓÇö ╬¥╧à╧ç╧ä╬╡╧ü╬╣╬╜╬« ╬¢╬╡╬╣╧ä╬┐╧à╧ü╬│╬»╬▒
    Activated via [data-theme="dark"] on <html>
  */
 
-/* ── Dark Design Tokens ────────────────── */
+/* ΓöÇΓöÇ Dark Design Tokens ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] {
     --dark-bg:          #121318;
     --dark-surface:     #1c1d24;
@@ -19,13 +19,13 @@
     --brand-green-hover: #7da41b;
 }
 
-/* ── Base ──────────────────────────────── */
+/* ΓöÇΓöÇ Base ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] body {
     background-color: var(--dark-bg);
     color: var(--dark-text);
 }
 
-/* ── Navbar ────────────────────────────── */
+/* ΓöÇΓöÇ Navbar ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .navbar {
     background-color: var(--dark-surface) !important;
     border-bottom-color: var(--brand-green);
@@ -51,7 +51,7 @@
     border-color: var(--dark-text-muted);
 }
 
-/* ── Typography ────────────────────────── */
+/* ΓöÇΓöÇ Typography ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] h1,
 [data-theme="dark"] h2,
 [data-theme="dark"] h3,
@@ -78,7 +78,7 @@
     color: var(--dark-text);
 }
 
-/* ── Cards ─────────────────────────────── */
+/* ΓöÇΓöÇ Cards ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .card {
     background-color: var(--dark-surface);
     border-color: var(--dark-border);
@@ -99,7 +99,7 @@
     box-shadow: 0 8px 25px rgba(142, 181, 44, 0.15);
 }
 
-/* ── Forms & Inputs ────────────────────── */
+/* ΓöÇΓöÇ Forms & Inputs ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .form-control,
 [data-theme="dark"] .form-select {
     background-color: var(--dark-input-bg);
@@ -148,7 +148,7 @@
     color: var(--dark-text-muted) !important;
 }
 
-/* ── Buttons ───────────────────────────── */
+/* ΓöÇΓöÇ Buttons ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .btn-light {
     background-color: var(--dark-surface-2);
     border-color: var(--dark-border);
@@ -165,7 +165,7 @@
     color: #ff6b7a;
 }
 
-/* ── Badges ────────────────────────────── */
+/* ΓöÇΓöÇ Badges ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .badge.bg-light {
     background-color: var(--dark-surface-2) !important;
     color: var(--dark-text-muted) !important;
@@ -176,7 +176,7 @@
     background-color: var(--dark-input-border) !important;
 }
 
-/* ── Tables ────────────────────────────── */
+/* ΓöÇΓöÇ Tables ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .table {
     --bs-table-bg: var(--dark-surface);
     --bs-table-color: var(--dark-text);
@@ -221,7 +221,7 @@
     opacity: 0.72;
 }
 
-/* ── Schedule Table ────────────────────── */
+/* ΓöÇΓöÇ Schedule Table ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .schedule-table thead th {
     background-color: var(--brand-green);
     border-color: var(--brand-green-hover);
@@ -260,7 +260,7 @@
     background-color: #161820;
 }
 
-/* ── Alerts ────────────────────────────── */
+/* ΓöÇΓöÇ Alerts ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .alert-success {
     background-color: rgba(142, 181, 44, 0.15);
     border-color: rgba(142, 181, 44, 0.3);
@@ -273,7 +273,7 @@
     color: #ff6b7a;
 }
 
-/* ── Backgrounds ───────────────────────── */
+/* ΓöÇΓöÇ Backgrounds ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .bg-white {
     background-color: var(--dark-surface) !important;
 }
@@ -283,7 +283,7 @@
     background-color: var(--dark-surface-2) !important;
 }
 
-/* ── Borders & Dividers ────────────────── */
+/* ΓöÇΓöÇ Borders & Dividers ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .border,
 [data-theme="dark"] .border-top,
 [data-theme="dark"] .border-bottom {
@@ -299,7 +299,7 @@
     opacity: 0.5;
 }
 
-/* ── Shadows ───────────────────────────── */
+/* ΓöÇΓöÇ Shadows ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .shadow-sm {
     box-shadow: 0 1px 4px rgba(0,0,0,0.4) !important;
 }
@@ -308,7 +308,7 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
 }
 
-/* ── Scheduling: Big Action Button ─────── */
+/* ΓöÇΓöÇ Scheduling: Big Action Button ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .big-action-btn {
     background: var(--dark-surface);
     border-color: var(--brand-green);
@@ -319,7 +319,7 @@
     background: var(--dark-surface-2);
 }
 
-/* ── Scheduling: Report Box ────────────── */
+/* ΓöÇΓöÇ Scheduling: Report Box ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .report-box {
     background-color: var(--dark-surface);
     border-left-color: var(--brand-green);
@@ -330,14 +330,14 @@
     background-color: rgba(220, 53, 69, 0.08);
 }
 
-/* ── Scheduling: Day Selector ──────────── */
+/* ΓöÇΓöÇ Scheduling: Day Selector ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] #daySelector {
     background-color: var(--dark-input-bg);
     color: var(--dark-text);
     border-color: var(--brand-green);
 }
 
-/* ── Academic Profile: Search Area ─────── */
+/* ΓöÇΓöÇ Academic Profile: Search Area ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .search-area {
     background-color: var(--dark-surface);
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
@@ -360,7 +360,7 @@
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* ── Academic Profile: Range Slider ────── */
+/* ΓöÇΓöÇ Academic Profile: Range Slider ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .custom-range {
     background: var(--dark-border);
 }
@@ -369,7 +369,7 @@
     color: var(--dark-text-muted);
 }
 
-/* ── Constraints: Role Tabs ────────────── */
+/* ΓöÇΓöÇ Constraints: Role Tabs ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .role-simulator-tabs {
     background-color: var(--dark-surface) !important;
 }
@@ -382,14 +382,14 @@
     color: white;
 }
 
-/* ── Constraints: Rooms ────────────────── */
+/* ΓöÇΓöÇ Constraints: Rooms ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] #addRoomBtn {
     background-color: var(--dark-surface-2) !important;
     border-color: var(--dark-border);
     color: var(--brand-green) !important;
 }
 
-/* ── Custom Role Selector Dropdown ─────── */
+/* ΓöÇΓöÇ Custom Role Selector Dropdown ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .custom-role-selector .btn {
     background-color: var(--dark-surface-2);
     border-color: var(--dark-border);
@@ -415,7 +415,7 @@
     color: white;
 }
 
-/* ── Generic Dropdown Menu ─────────────── */
+/* ΓöÇΓöÇ Generic Dropdown Menu ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .dropdown-menu {
     background-color: var(--dark-surface);
     border-color: var(--dark-border);
@@ -437,7 +437,7 @@
     color: white;
 }
 
-/* ── Exam / grade boxes ────────────────── */
+/* ΓöÇΓöÇ Exam / grade boxes ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .border.rounded-3.bg-light-subtle {
     background-color: var(--dark-surface-2) !important;
     border-color: var(--dark-border) !important;
@@ -447,12 +447,12 @@
     border-color: rgba(142, 181, 44, 0.3) !important;
 }
 
-/* ── Progress Bar ──────────────────────── */
+/* ΓöÇΓöÇ Progress Bar ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .progress {
     background-color: var(--dark-surface-2);
 }
 
-/* ── Form Check (Radio / Checkbox) ─────── */
+/* ΓöÇΓöÇ Form Check (Radio / Checkbox) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .form-check-label {
     color: var(--dark-text);
 }
@@ -462,7 +462,7 @@
     border-color: var(--dark-input-border);
 }
 
-/* ── Login Page ────────────────────────── */
+/* ΓöÇΓöÇ Login Page ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .login-page {
     background: linear-gradient(135deg, #121318 0%, #1a1b22 50%, #16171e 100%);
 }
@@ -517,12 +517,12 @@
     color: var(--dark-text-muted);
 }
 
-/* ── Stat numbers ──────────────────────── */
+/* ΓöÇΓöÇ Stat numbers ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] .stat-number {
     color: var(--brand-green);
 }
 
-/* ── Scrollbar (Webkit) ────────────────── */
+/* ΓöÇΓöÇ Scrollbar (Webkit) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 [data-theme="dark"] ::-webkit-scrollbar {
     width: 8px;
 }
@@ -540,7 +540,7 @@
     background: var(--dark-text-muted);
 }
 
-/* ── Dark Mode Toggle Button ──────────── */
+/* ΓöÇΓöÇ Dark Mode Toggle Button ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 .dark-mode-toggle {
     background: none;
     border: 1.5px solid #dee2e6;
@@ -580,7 +580,7 @@
     background-color: var(--dark-surface-2);
 }
 
-/* ── Smooth transition on theme switch ── */
+/* ΓöÇΓöÇ Smooth transition on theme switch ΓöÇΓöÇ */
 html.theme-transition,
 html.theme-transition *,
 html.theme-transition *::before,

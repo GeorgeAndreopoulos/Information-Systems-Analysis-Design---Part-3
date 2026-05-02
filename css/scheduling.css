@@ -1,6 +1,6 @@
-/* Dashboard Αλγορίθμου + Εβδομαδιαίο Πρόγραμμα (Schedule View) */
+﻿/* Dashboard ╬æ╬╗╬│╬┐╧ü╬»╬╕╬╝╬┐╧à + ╬ò╬▓╬┤╬┐╬╝╬▒╬┤╬╣╬▒╬»╬┐ ╬á╧ü╧î╬│╧ü╬▒╬╝╬╝╬▒ (Schedule View) */
 
-/* Στατιστικά και Δακτύλιοι */
+/* ╬ú╧ä╬▒╧ä╬╣╧â╧ä╬╣╬║╬¼ ╬║╬▒╬╣ ╬ö╬▒╬║╧ä╧ì╬╗╬╣╬┐╬╣ */
 .stat-number {
     font-size: 2.5rem;
     font-weight: 800;
@@ -13,7 +13,7 @@
     margin: 0 auto;
 }
 
-/* Μεγάλο Κουμπί Εκκίνησης (Action Area) */
+/* ╬£╬╡╬│╬¼╬╗╬┐ ╬Ü╬┐╧à╬╝╧Ç╬» ╬ò╬║╬║╬»╬╜╬╖╧â╬╖╧é (Action Area) */
 #actionButtonArea {
     transition: all 0.5s ease;
 }
@@ -42,7 +42,7 @@
     margin-bottom: 1rem;
 }
 
-/* Κουτί Αναφοράς (Report Box) */
+/* ╬Ü╬┐╧à╧ä╬» ╬æ╬╜╬▒╧å╬┐╧ü╬¼╧é (Report Box) */
 .report-box {
     background-color: #fff;
     border-left: 5px solid var(--brand-green);

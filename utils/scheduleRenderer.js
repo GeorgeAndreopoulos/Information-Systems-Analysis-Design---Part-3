@@ -1,7 +1,7 @@
-// Array Header Building
+﻿// Array Header Building
 function buildHeader(rooms) {
     const thead = document.getElementById('scheduleHead');
-    let row = '<tr><th>Ώρα / Αίθουσα</th>';
+    let row = '<tr><th>╬Å╧ü╬▒ / ╬æ╬»╬╕╬┐╧à╧â╬▒</th>';
     rooms.forEach(r => { row += '<th>' + r + '</th>'; });
     row += '</tr>';
     thead.innerHTML = row;
@@ -29,7 +29,7 @@ function renderSchedule(
             if (group) {
                 html += '<td>' + createCellHtmlFunc(group) + '</td>';
             } else {
-                html += '<td class="schedule-cell-unavailable" aria-label="Μη διαθέσιμο slot"></td>';
+                html += '<td class="schedule-cell-unavailable" aria-label="╬£╬╖ ╬┤╬╣╬▒╬╕╬¡╧â╬╣╬╝╬┐ slot"></td>';
             }
         });
         html += '</tr>';

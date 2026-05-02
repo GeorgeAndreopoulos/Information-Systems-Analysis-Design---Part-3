@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Dark Mode Toggle Utility
  * Reads/writes preference to localStorage key 'diatrivi_theme'.
  * Call initDarkMode() once on page load.
@@ -44,7 +44,7 @@ function updateToggleIcon() {
             : 'bi bi-moon-fill toggle-icon';
     });
     document.querySelectorAll('.dark-mode-toggle .toggle-label').forEach(label => {
-        label.textContent = isDark ? 'Φωτεινό' : 'Σκοτεινό';
+        label.textContent = isDark ? '╬ª╧ë╧ä╬╡╬╣╬╜╧î' : '╬ú╬║╬┐╧ä╬╡╬╣╬╜╧î';
     });
 }
 
@@ -56,11 +56,11 @@ function createDarkModeToggle() {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     const btn = document.createElement('button');
     btn.className = 'dark-mode-toggle';
-    btn.setAttribute('aria-label', 'Εναλλαγή Σκοτεινής/Φωτεινής Λειτουργίας');
-    btn.setAttribute('title', 'Εναλλαγή θέματος');
+    btn.setAttribute('aria-label', '╬ò╬╜╬▒╬╗╬╗╬▒╬│╬« ╬ú╬║╬┐╧ä╬╡╬╣╬╜╬«╧é/╬ª╧ë╧ä╬╡╬╣╬╜╬«╧é ╬¢╬╡╬╣╧ä╬┐╧à╧ü╬│╬»╬▒╧é');
+    btn.setAttribute('title', '╬ò╬╜╬▒╬╗╬╗╬▒╬│╬« ╬╕╬¡╬╝╬▒╧ä╬┐╧é');
     btn.innerHTML = `
         <i class="bi ${isDark ? 'bi-sun-fill' : 'bi-moon-fill'} toggle-icon"></i>
-        <span class="toggle-label d-none d-sm-inline" style="font-size:0.82rem; font-weight:500;">${isDark ? 'Φωτεινό' : 'Σκοτεινό'}</span>
+        <span class="toggle-label d-none d-sm-inline" style="font-size:0.82rem; font-weight:500;">${isDark ? '╬ª╧ë╧ä╬╡╬╣╬╜╧î' : '╬ú╬║╬┐╧ä╬╡╬╣╬╜╧î'}</span>
     `;
     btn.addEventListener('click', toggleDarkMode);
     return btn;

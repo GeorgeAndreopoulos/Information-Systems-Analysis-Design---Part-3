@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="el">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Δημιουργία Νέου Χρήστη - Διατριβή</title>
+    <title>╬ö╬╖╬╝╬╣╬┐╧à╧ü╬│╬»╬▒ ╬¥╬¡╬┐╧à ╬º╧ü╬«╧â╧ä╬╖ - ╬ö╬╣╬▒╧ä╧ü╬╣╬▓╬«</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -30,8 +30,8 @@
         <div class="row align-items-center mb-4">
             
             <div class="col-md-7">
-                <h2 class="fw-bold" style="color: #58595b;">Δημιουργία Νέου Χρήστη</h2>
-                <p class="text-muted mb-0">Συμπληρώστε τα στοιχεία για τη δημιουργία της νέας καρτέλας.</p>
+                <h2 class="fw-bold" style="color: #58595b;">╬ö╬╖╬╝╬╣╬┐╧à╧ü╬│╬»╬▒ ╬¥╬¡╬┐╧à ╬º╧ü╬«╧â╧ä╬╖</h2>
+                <p class="text-muted mb-0">╬ú╧à╬╝╧Ç╬╗╬╖╧ü╧Ä╧â╧ä╬╡ ╧ä╬▒ ╧â╧ä╬┐╬╣╧ç╬╡╬»╬▒ ╬│╬╣╬▒ ╧ä╬╖ ╬┤╬╖╬╝╬╣╬┐╧à╧ü╬│╬»╬▒ ╧ä╬╖╧é ╬╜╬¡╬▒╧é ╬║╬▒╧ü╧ä╬¡╬╗╬▒╧é.</p>
             </div>
             
             <div class="col-md-auto ms-auto mt-3 mt-md-0">
@@ -39,14 +39,14 @@
                     
                     <button class="btn w-100 text-start d-flex align-items-center justify-content-between" type="button" id="roleDropdownBtn" data-bs-toggle="dropdown" aria-expanded="false">
                         <div>
-                            <span class="text-muted me-2">Επιλογή Ρόλου:</span>
-                            <span class="fw-bold text-dark" id="selectedRoleText">Μαθητής</span>
+                            <span class="text-muted me-2">╬ò╧Ç╬╣╬╗╬┐╬│╬« ╬í╧î╬╗╬┐╧à:</span>
+                            <span class="fw-bold text-dark" id="selectedRoleText">╬£╬▒╬╕╬╖╧ä╬«╧é</span>
                         </div>
                     </button>
                     
                     <ul class="dropdown-menu w-100 shadow-sm" aria-labelledby="roleDropdownBtn">
-                        <li><a class="dropdown-item role-option active" href="#" data-value="student">Μαθητής</a></li>
-                        <li><a class="dropdown-item role-option" href="#" data-value="teacher">Καθηγητής</a></li>
+                        <li><a class="dropdown-item role-option active" href="#" data-value="student">╬£╬▒╬╕╬╖╧ä╬«╧é</a></li>
+                        <li><a class="dropdown-item role-option" href="#" data-value="teacher">╬Ü╬▒╬╕╬╖╬│╬╖╧ä╬«╧é</a></li>
                     </ul>
 
                     <input type="hidden" id="roleSelector" value="student">
@@ -55,7 +55,7 @@
         </div>
 
         <div id="successAlert" class="alert alert-success d-none shadow-sm" role="alert">
-            <i class="bi bi-check-circle-fill me-2"></i> <span id="successMessage">Το προφίλ καταχωρήθηκε επιτυχώς!</span>
+            <i class="bi bi-check-circle-fill me-2"></i> <span id="successMessage">╬ñ╬┐ ╧Ç╧ü╬┐╧å╬»╬╗ ╬║╬▒╧ä╬▒╧ç╧ë╧ü╬«╬╕╬╖╬║╬╡ ╬╡╧Ç╬╣╧ä╧à╧ç╧Ä╧é!</span>
         </div>
 
         <form id="userForm">
@@ -63,17 +63,17 @@
             <div id="studentSections">
                 <div class="card mb-4">
                     <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
-                        <div><i class="bi bi-person me-2"></i> Προσωπικά Στοιχεία</div>
+                        <div><i class="bi bi-person me-2"></i> ╬á╧ü╬┐╧â╧ë╧Ç╬╣╬║╬¼ ╬ú╧ä╬┐╬╣╧ç╬╡╬»╬▒</div>
                         <app-required-note></app-required-note>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Όνομα <span class="required-asterisk">*</span></label>
+                                <label class="form-label">╬î╬╜╬┐╬╝╬▒ <span class="required-asterisk">*</span></label>
                                 <input type="text" class="form-control" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Επίθετο <span class="required-asterisk">*</span></label>
+                                <label class="form-label">╬ò╧Ç╬»╬╕╬╡╧ä╬┐ <span class="required-asterisk">*</span></label>
                                 <input type="text" class="form-control" required>
                             </div>
                         </div>
@@ -82,62 +82,62 @@
 
                 <div class="card mb-4">
                     <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
-                        <div><i class="bi bi-telephone me-2"></i> Στοιχεία Επικοινωνίας</div>
+                        <div><i class="bi bi-telephone me-2"></i> ╬ú╧ä╬┐╬╣╧ç╬╡╬»╬▒ ╬ò╧Ç╬╣╬║╬┐╬╣╬╜╧ë╬╜╬»╬▒╧é</div>
                         <app-required-note></app-required-note>
                     </div>
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col-md-6 mb-3 mb-md-0">
-                                <label class="form-label">Email Μαθητή <span class="required-asterisk">*</span></label>
+                                <label class="form-label">Email ╬£╬▒╬╕╬╖╧ä╬« <span class="required-asterisk">*</span></label>
                                 <input type="email" class="form-control" id="studentContactEmail" required>
                             </div>
                             
                             <div class="col-md-6">
-                                <label class="form-label">Τηλέφωνο Μαθητή</label>
+                                <label class="form-label">╬ñ╬╖╬╗╬¡╧å╧ë╬╜╬┐ ╬£╬▒╬╕╬╖╧ä╬«</label>
                                 <input type="tel" class="form-control">
                             </div>
                         </div>
                         <div id="guardiansContainer"></div>
                         <button type="button" class="btn btn-outline-secondary btn-sm" id="addGuardianBtn">
-                            <i class="bi bi-plus-circle me-1"></i> Προσθήκη Κηδεμόνα
+                            <i class="bi bi-plus-circle me-1"></i> ╬á╧ü╬┐╧â╬╕╬«╬║╬╖ ╬Ü╬╖╬┤╬╡╬╝╧î╬╜╬▒
                         </button>
                     </div>
                 </div>
 
                 <div class="card mb-4 shadow-sm border-0">
                     <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
-                        <div><i class="bi bi-mortarboard me-2"></i> Ακαδημαϊκά Στοιχεία</div>
+                        <div><i class="bi bi-mortarboard me-2"></i> ╬æ╬║╬▒╬┤╬╖╬╝╬▒╧è╬║╬¼ ╬ú╧ä╬┐╬╣╧ç╬╡╬»╬▒</div>
                         <app-required-note></app-required-note>
                     </div>
                 
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Τάξη <span class="required-asterisk">*</span></label>
+                                <label class="form-label">╬ñ╬¼╬╛╬╖ <span class="required-asterisk">*</span></label>
                                 <select class="form-select" id="classSelect" required>
-                                    <option value="" disabled selected>Επιλέξτε Τάξη...</option>
-                                    <option value="gymnasio">Γ' Γυμνασίου</option>
-                                    <option value="alyk">Α' Λυκείου</option>
-                                    <option value="blyk">Β' Λυκείου</option>
-                                    <option value="glyk">Γ' Λυκείου</option>
+                                    <option value="" disabled selected>╬ò╧Ç╬╣╬╗╬¡╬╛╧ä╬╡ ╬ñ╬¼╬╛╬╖...</option>
+                                    <option value="gymnasio">╬ô' ╬ô╧à╬╝╬╜╬▒╧â╬»╬┐╧à</option>
+                                    <option value="alyk">╬æ' ╬¢╧à╬║╬╡╬»╬┐╧à</option>
+                                    <option value="blyk">╬Æ' ╬¢╧à╬║╬╡╬»╬┐╧à</option>
+                                    <option value="glyk">╬ô' ╬¢╧à╬║╬╡╬»╬┐╧à</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Κατεύθυνση / Ομάδα Προσανατολισμού</label>
+                                <label class="form-label">╬Ü╬▒╧ä╬╡╧ì╬╕╧à╬╜╧â╬╖ / ╬ƒ╬╝╬¼╬┤╬▒ ╬á╧ü╬┐╧â╬▒╬╜╬▒╧ä╬┐╬╗╬╣╧â╬╝╬┐╧ì</label>
                                 <select class="form-select" id="directionSelect">
-                                    <option value="geniki" selected>Γενικής Παιδείας</option>
-                                    <option value="thetiki">Θετικών Σπουδών</option>
-                                    <option value="ygeias">Σπουδών Υγείας</option>
-                                    <option value="oikonomia">Σπουδών Οικονομίας & Πληροφορικής</option>
+                                    <option value="geniki" selected>╬ô╬╡╬╜╬╣╬║╬«╧é ╬á╬▒╬╣╬┤╬╡╬»╬▒╧é</option>
+                                    <option value="thetiki">╬ÿ╬╡╧ä╬╣╬║╧Ä╬╜ ╬ú╧Ç╬┐╧à╬┤╧Ä╬╜</option>
+                                    <option value="ygeias">╬ú╧Ç╬┐╧à╬┤╧Ä╬╜ ╬Ñ╬│╬╡╬»╬▒╧é</option>
+                                    <option value="oikonomia">╬ú╧Ç╬┐╧à╬┤╧Ä╬╜ ╬ƒ╬╣╬║╬┐╬╜╬┐╬╝╬»╬▒╧é & ╬á╬╗╬╖╧ü╬┐╧å╬┐╧ü╬╣╬║╬«╧é</option>
                                 </select>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Σχολείο Φοίτησης</label>
-                            <input type="text" class="form-control" placeholder="π.χ. 1ο ΓΕΛ Βριλησσίων">
+                            <label class="form-label">╬ú╧ç╬┐╬╗╬╡╬»╬┐ ╬ª╬┐╬»╧ä╬╖╧â╬╖╧é</label>
+                            <input type="text" class="form-control" placeholder="╧Ç.╧ç. 1╬┐ ╬ô╬ò╬¢ ╬Æ╧ü╬╣╬╗╬╖╧â╧â╬»╧ë╬╜">
                         </div>
                         <div class="mb-0">
-                            <label class="form-label d-block text-dark fw-bold">Μαθήματα Παρακολούθησης <span class="required-asterisk">*</span></label>
+                            <label class="form-label d-block text-dark fw-bold">╬£╬▒╬╕╬«╬╝╬▒╧ä╬▒ ╬á╬▒╧ü╬▒╬║╬┐╬╗╬┐╧ì╬╕╬╖╧â╬╖╧é <span class="required-asterisk">*</span></label>
                             <div id="dynamicSubjectsContainer">
                             </div>
                         </div>
@@ -147,17 +147,17 @@
             <div id="teacherSections" class="d-none">
                 <div class="card mb-4">
                     <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
-                        <div><i class="bi bi-person-badge me-2"></i> Προσωπικά Στοιχεία & Επικοινωνία</div>
+                        <div><i class="bi bi-person-badge me-2"></i> ╬á╧ü╬┐╧â╧ë╧Ç╬╣╬║╬¼ ╬ú╧ä╬┐╬╣╧ç╬╡╬»╬▒ & ╬ò╧Ç╬╣╬║╬┐╬╣╬╜╧ë╬╜╬»╬▒</div>
                         <app-required-note></app-required-note>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Όνομα <span class="required-asterisk">*</span></label>
+                                <label class="form-label">╬î╬╜╬┐╬╝╬▒ <span class="required-asterisk">*</span></label>
                                 <input type="text" class="form-control" id="t-name">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Επίθετο <span class="required-asterisk">*</span></label>
+                                <label class="form-label">╬ò╧Ç╬»╬╕╬╡╧ä╬┐ <span class="required-asterisk">*</span></label>
                                 <input type="text" class="form-control" id="t-surname">
                             </div>
                         </div>
@@ -167,7 +167,7 @@
                                 <input type="email" class="form-control" id="t-email">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Τηλέφωνο Επικοινωνίας <span class="required-asterisk">*</span></label>
+                                <label class="form-label">╬ñ╬╖╬╗╬¡╧å╧ë╬╜╬┐ ╬ò╧Ç╬╣╬║╬┐╬╣╬╜╧ë╬╜╬»╬▒╧é <span class="required-asterisk">*</span></label>
                                 <input type="tel" class="form-control" id="t-phone">
                             </div>
                         </div>
@@ -176,24 +176,24 @@
 
                 <div class="card mb-4">
                     <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
-                    <div><i class="bi bi-journal-bookmark me-2"></i> Διδακτικά Στοιχεία</div>
+                    <div><i class="bi bi-journal-bookmark me-2"></i> ╬ö╬╣╬┤╬▒╬║╧ä╬╣╬║╬¼ ╬ú╧ä╬┐╬╣╧ç╬╡╬»╬▒</div>
                         <app-required-note></app-required-note>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-9 mb-3">
-                                <label class="form-label">Ειδικότητα</label>
+                                <label class="form-label">╬ò╬╣╬┤╬╣╬║╧î╧ä╬╖╧ä╬▒</label>
                                 <select class="form-select" id="specialtySelect">
-                                    <option value="" disabled selected>Επιλέξτε Ειδικότητα...</option>
+                                    <option value="" disabled selected>╬ò╧Ç╬╣╬╗╬¡╬╛╧ä╬╡ ╬ò╬╣╬┤╬╣╬║╧î╧ä╬╖╧ä╬▒...</option>
                                 </select>
                             </div>
                             <div class="col-md-3 mb-3">
-                                <label class="form-label">Χρώμα (Πρόγραμμα)</label>
-                                <input type="color" class="form-control form-control-color w-100" value="#8eb52c" title="Επιλέξτε χρώμα">
+                                <label class="form-label">╬º╧ü╧Ä╬╝╬▒ (╬á╧ü╧î╬│╧ü╬▒╬╝╬╝╬▒)</label>
+                                <input type="color" class="form-control form-control-color w-100" value="#8eb52c" title="╬ò╧Ç╬╣╬╗╬¡╬╛╧ä╬╡ ╧ç╧ü╧Ä╬╝╬▒">
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label d-block">Μαθήματα Διδασκαλίας <span class="required-asterisk">*</span></label>
+                            <label class="form-label d-block">╬£╬▒╬╕╬«╬╝╬▒╧ä╬▒ ╬ö╬╣╬┤╬▒╧â╬║╬▒╬╗╬»╬▒╧é <span class="required-asterisk">*</span></label>
                             <div id="dynamicTeacherSubjectsContainer">
                                 </div>
                         </div>
@@ -202,19 +202,19 @@
 
                 <div class="card mb-4">
                     <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
-                        <div><i class="bi bi-file-earmark-text me-2"></i> Στοιχεία Σύμβασης</div>
+                        <div><i class="bi bi-file-earmark-text me-2"></i> ╬ú╧ä╬┐╬╣╧ç╬╡╬»╬▒ ╬ú╧ì╬╝╬▓╬▒╧â╬╖╧é</div>
                         <app-required-note></app-required-note>
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
-                            <label class="form-label d-block">Τύπος Απασχόλησης <span class="required-asterisk">*</span></label>
+                            <label class="form-label d-block">╬ñ╧ì╧Ç╬┐╧é ╬æ╧Ç╬▒╧â╧ç╧î╬╗╬╖╧â╬╖╧é <span class="required-asterisk">*</span></label>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="empType" id="fullTime" checked>
-                                <label class="form-check-label" for="fullTime">Πλήρης</label>
+                                <label class="form-check-label" for="fullTime">╬á╬╗╬«╧ü╬╖╧é</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="empType" id="partTime">
-                                <label class="form-check-label" for="partTime">Μερική</label>
+                                <label class="form-check-label" for="partTime">╬£╬╡╧ü╬╣╬║╬«</label>
                             </div>
                         </div>
                     </div>
@@ -222,15 +222,15 @@
             </div> 
 
             <div class="card mb-4">
-                <div class="card-header py-3"><i class="bi bi-chat-text me-2"></i> Παρατηρήσεις / Σχόλια</div>
+                <div class="card-header py-3"><i class="bi bi-chat-text me-2"></i> ╬á╬▒╧ü╬▒╧ä╬╖╧ü╬«╧â╬╡╬╣╧é / ╬ú╧ç╧î╬╗╬╣╬▒</div>
                 <div class="card-body">
-                    <textarea class="form-control" rows="3" placeholder="Εσωτερικά σχόλια της γραμματείας..."></textarea>
+                    <textarea class="form-control" rows="3" placeholder="╬ò╧â╧ë╧ä╬╡╧ü╬╣╬║╬¼ ╧â╧ç╧î╬╗╬╣╬▒ ╧ä╬╖╧é ╬│╧ü╬▒╬╝╬╝╬▒╧ä╬╡╬»╬▒╧é..."></textarea>
                 </div>
             </div>
 
             <div class="d-flex justify-content-end gap-2 mt-4 border-top pt-4">
-                <button type="button" class="btn btn-light border px-4">Ακύρωση</button>
-                <button type="submit" class="btn btn-brand px-4 shadow-sm" id="saveBtn"><i class="bi bi-save me-2"></i>Αποθήκευση Προφίλ</button>
+                <button type="button" class="btn btn-light border px-4">╬æ╬║╧ì╧ü╧ë╧â╬╖</button>
+                <button type="submit" class="btn btn-brand px-4 shadow-sm" id="saveBtn"><i class="bi bi-save me-2"></i>╬æ╧Ç╬┐╬╕╬«╬║╬╡╧à╧â╬╖ ╬á╧ü╬┐╧å╬»╬╗</button>
             </div>
 
         </form>

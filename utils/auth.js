@@ -20,7 +20,7 @@ function getHomePath() {
     return window.location.pathname.includes('/pages/') ? '../../index.html' : 'index.html';
 }
 
-function login(username, password) {
+function login(username, password, remember = false) {
     const user = USERS.find(candidate => (
         candidate.username === username && candidate.password === password
     ));
@@ -28,21 +28,28 @@ function login(username, password) {
     if (!user) return null;
 
     const sessionUser = { username: user.username, role: user.role };
-    sessionStorage.setItem('diatrivi_auth', JSON.stringify(sessionUser));
+    const payload = JSON.stringify(sessionUser);
+    const store = remember ? localStorage : sessionStorage;
+    const otherStore = remember ? sessionStorage : localStorage;
+    store.setItem('diatrivi_auth', payload);
+    otherStore.removeItem('diatrivi_auth');
     return sessionUser;
 }
 
 function getCurrentUser() {
-    const storedUser = sessionStorage.getItem('diatrivi_auth');
+    const storedUser = localStorage.getItem('diatrivi_auth')
+        || sessionStorage.getItem('diatrivi_auth');
     if (!storedUser) return null;
 
     try {
         const user = JSON.parse(storedUser);
         if (user && user.username && user.role) return user;
 
+        localStorage.removeItem('diatrivi_auth');
         sessionStorage.removeItem('diatrivi_auth');
         return null;
     } catch {
+        localStorage.removeItem('diatrivi_auth');
         sessionStorage.removeItem('diatrivi_auth');
         return null;
     }
@@ -66,5 +73,6 @@ function requireAuth(allowedRoles = []) {
 
 function logout() {
     sessionStorage.removeItem('diatrivi_auth');
+    localStorage.removeItem('diatrivi_auth');
     window.location.href = getLoginPath();
 }

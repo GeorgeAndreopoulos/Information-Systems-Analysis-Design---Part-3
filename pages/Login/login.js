@@ -2,10 +2,19 @@
     const form          = document.getElementById('loginForm');
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
+    const rememberInput = document.getElementById('rememberMe');
     const errorBox      = document.getElementById('loginError');
     const errorText     = document.getElementById('loginErrorText');
     const loginBtn      = document.getElementById('loginBtn');
     const toggleBtn     = document.getElementById('togglePassword');
+
+    // Pre-fill remembered username
+    const rememberedUser = localStorage.getItem('diatrivi_remembered_user');
+    if (rememberedUser) {
+        usernameInput.value = rememberedUser;
+        rememberInput.checked = true;
+        passwordInput.focus();
+    }
 
     // Toggle password visibility
     toggleBtn.addEventListener('click', () => {
@@ -43,7 +52,12 @@
         loginBtn.disabled = true;
 
         setTimeout(() => {
-            if (login(username, password)) {
+            if (login(username, password, rememberInput.checked)) {
+                if (rememberInput.checked) {
+                    localStorage.setItem('diatrivi_remembered_user', username);
+                } else {
+                    localStorage.removeItem('diatrivi_remembered_user');
+                }
                 window.location.href = '../../index.html';
             } else {
                 errorText.textContent = 'Λάθος όνομα χρήστη ή κωδικός πρόσβασης.';

@@ -517,6 +517,20 @@
     color: var(--dark-text-muted);
 }
 
+[data-theme="dark"] .login-form .remember-me .form-check-label {
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .login-form .remember-me .form-check-input {
+    background-color: var(--dark-input-bg);
+    border-color: var(--dark-input-border);
+}
+
+[data-theme="dark"] .login-form .remember-me .form-check-input:checked {
+    background-color: var(--brand-green);
+    border-color: var(--brand-green);
+}
+
 /* ── Stat numbers ──────────────────────── */
 [data-theme="dark"] .stat-number {
     color: var(--brand-green);

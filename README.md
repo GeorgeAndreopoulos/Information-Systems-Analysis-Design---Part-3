@@ -131,8 +131,7 @@ npx live-server
 ```
 
 **Option 3: Visit site**
-```URL: https://georgeandreopoulos.github.io/
-
+URL: https://georgeandreopoulos.github.io/
 
 ---
 

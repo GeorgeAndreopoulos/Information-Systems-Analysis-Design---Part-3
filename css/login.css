@@ -257,41 +257,36 @@
 .credentials-hint {
     background-color: #f0f7e4;
     border-radius: 10px;
-    padding: 14px 18px;
-    margin-top: 1.25rem;
+    padding: 10px 14px;
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
     border-left: 4px solid var(--brand-green);
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.credentials-hint .hint-title {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--brand-green-hover);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 6px;
-}
-
-.credentials-hint .hint-row {
+.credentials-hint .cred-row {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 0.85rem;
-    color: var(--brand-grey);
-    margin-bottom: 2px;
+    gap: 8px;
 }
 
-.credentials-hint .hint-row i {
-    color: var(--brand-green);
-    font-size: 0.75rem;
+.credentials-hint .cred-label {
+    color: #888;
+    width: 70px;
+    font-size: 0.8rem;
 }
 
 .credentials-hint code {
-    background-color: rgba(125, 164, 27, 0.12);
+    background-color: rgba(125, 164, 27, 0.15);
     color: var(--brand-green-hover);
-    padding: 1px 6px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 5px;
+    font-size: 0.83rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
 }
 
 /* Footer */

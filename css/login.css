@@ -270,13 +270,15 @@
 .credentials-hint .cred-row {
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
     gap: 8px;
 }
 
 .credentials-hint .cred-label {
     color: #888;
-    width: 68px;
     font-size: 0.76rem;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .credentials-hint code {

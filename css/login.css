@@ -253,61 +253,6 @@
     40%, 80% { transform: translateX(6px); }
 }
 
-/* Credentials hint */
-.credentials-hint {
-    background-color: #f0f7e4;
-    border-radius: 10px;
-    padding: 12px 14px 14px;
-    margin-top: 1rem;
-    margin-bottom: 0.25rem;
-    border-left: 4px solid var(--brand-green);
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.credentials-hint h3 {
-    color: var(--brand-green-hover);
-    font-size: 0.92rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin: 0 0 2px 0;
-}
-
-.credentials-hint h3 i {
-    margin-right: 0.35rem;
-}
-
-.credentials-hint p {
-    align-items: center;
-    display: flex;
-    gap: 0.35rem;
-    margin: 0;
-    white-space: nowrap;
-    font-size: 0.82rem;
-}
-
-.credentials-hint p i {
-    color: var(--brand-green);
-    font-size: 0.9rem;
-}
-
-.credentials-hint .cred-label {
-    color: var(--brand-grey);
-    font-weight: 600;
-}
-
-.credentials-hint code {
-    background-color: rgba(125, 164, 27, 0.15);
-    color: var(--brand-green-hover);
-    padding: 2px 7px;
-    border-radius: 5px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-}
-
 /* Footer */
 .login-footer {
     text-align: center;

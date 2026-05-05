@@ -495,24 +495,6 @@
     color: #ff6b7a;
 }
 
-[data-theme="dark"] .credentials-hint {
-    background-color: rgba(142, 181, 44, 0.08);
-    border-left-color: var(--brand-green);
-}
-
-[data-theme="dark"] .credentials-hint .hint-title {
-    color: var(--brand-green);
-}
-
-[data-theme="dark"] .credentials-hint .hint-row {
-    color: var(--dark-text-muted);
-}
-
-[data-theme="dark"] .credentials-hint code {
-    background-color: rgba(142, 181, 44, 0.15);
-    color: var(--brand-green);
-}
-
 [data-theme="dark"] .login-footer {
     color: var(--dark-text-muted);
 }
